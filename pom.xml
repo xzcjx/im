@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>chat-server</module>
+        <module>chat_netty_server</module>
     </modules>
 
     <properties>
