@@ -1,12 +1,22 @@
 package com.xzccc.server.server;
 
+import com.xzccc.server.handler.*;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.stream.ChunkedWriteHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +30,12 @@ public class ChatServer {
     private int port;
     private EventLoopGroup boss;
     private NioEventLoopGroup work;
+
+    @Autowired
+    LoginRequestHandler loginRequestHandler;
+
+    @Autowired
+    ServerExceptionHandler serverExceptionHandler;
 
     public void run() {
         ServerBootstrap bg = new ServerBootstrap();
@@ -45,14 +61,36 @@ public class ChatServer {
             bg.childHandler(new ChannelInitializer<SocketChannel>() {
                 //有连接到达时会创建一个channel
                 protected void initChannel(SocketChannel ch) throws Exception {
-//                // 管理pipeline中的Handler
-//                ch.pipeline().addLast(new SimpleProtobufDecoder());
-//                ch.pipeline().addLast(new SimpleProtobufEncoder());
-////                    ch.pipeline().addLast(new HeartBeatServerHandler());
-//                // 在流水线中添加handler来处理登录,登录后删除
-//                ch.pipeline().addLast("login",loginRequestHandler);
-////                    ch.pipeline().addLast(chatRedirectHandler);
-//                ch.pipeline().addLast(serverExceptionHandler);
+                    // 管理pipeline中的Handler
+                    // 日志
+                    ch.pipeline().addLast(new LoggingHandler());
+
+                    ch.pipeline().addLast(new HttpServerCodec());
+                    // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
+                    ch.pipeline().addLast(new HttpObjectAggregator(65536));
+                    // 支持大数据流写入
+                    ch.pipeline().addLast(new ChunkedWriteHandler());
+                    // 支持WebSocket数据压缩
+                    ch.pipeline().addLast(new WebSocketServerCompressionHandler());
+                    // WebSocket协议配置，设置访问路径
+                    ch.pipeline().addLast(new WebSocketServerProtocolHandler("/im",null,true));
+
+                    // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
+                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
+                    // Protocol Buffers 长度属性编码器
+                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+
+                    // Protocol Buffer解码器
+                    ch.pipeline().addLast(new SimpleProtobufDecoder());
+                    // Protocol Buffer编码器
+                    ch.pipeline().addLast(new SimpleProtobufEncoder());
+                    // WebSocket心跳检测
+//                    ch.pipeline().addLast(new HeartBeatServerHandler());
+                    // 在流水线中添加handler来处理登录,登录后删除
+                    ch.pipeline().addLast("login",loginRequestHandler);
+//                    ch.pipeline().addLast(chatRedirectHandler);
+                    // 删除Session
+                    ch.pipeline().addLast(serverExceptionHandler);
                 }
             });
             ChannelFuture channelFuture = bg.bind().sync();
