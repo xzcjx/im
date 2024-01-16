@@ -27,5 +27,6 @@ public class SimpleProtobufDecoder extends ByteToMessageDecoder {
             String error ="客户端口令不对: "+ctx.channel().remoteAddress();
             throw new InvalidFrameException(error);
         }
+        return null;
     }
 }

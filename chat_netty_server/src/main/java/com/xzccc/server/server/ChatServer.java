@@ -7,20 +7,27 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
+import io.netty.util.internal.logging.InternalLogLevel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.net.InetSocketAddress;
+import java.time.LocalDateTime;
 
 @Service("ChatServer")
 @Slf4j
@@ -49,6 +56,7 @@ public class ChatServer {
 
             // 设置Nio类型的Channel
             bg.channel(NioServerSocketChannel.class);
+//            bg.handler(new LoggingHandler(LogLevel.DEBUG));
 
             // 绑定监听端口
             bg.localAddress(new InetSocketAddress(port));
@@ -63,34 +71,35 @@ public class ChatServer {
                 protected void initChannel(SocketChannel ch) throws Exception {
                     // 管理pipeline中的Handler
                     // 日志
-                    ch.pipeline().addLast(new LoggingHandler());
-
+                    ch.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));
+                    // HTTP 协议解析，用于握手阶段
                     ch.pipeline().addLast(new HttpServerCodec());
-                    // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
-                    ch.pipeline().addLast(new HttpObjectAggregator(65536));
                     // 支持大数据流写入
                     ch.pipeline().addLast(new ChunkedWriteHandler());
+                    // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
+                    ch.pipeline().addLast(new HttpObjectAggregator(65536));
                     // 支持WebSocket数据压缩
                     ch.pipeline().addLast(new WebSocketServerCompressionHandler());
-                    // WebSocket协议配置，设置访问路径
+                    // WebSocket协议配置，设置访问路径，WebSocket 握手、控制帧处理
                     ch.pipeline().addLast(new WebSocketServerProtocolHandler("/im",null,true));
 
+                    ch.pipeline().addLast(new WebSocketTextFrameHandler());
                     // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
-                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
-                    // Protocol Buffers 长度属性编码器
-                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
-
-                    // Protocol Buffer解码器
-                    ch.pipeline().addLast(new SimpleProtobufDecoder());
-                    // Protocol Buffer编码器
-                    ch.pipeline().addLast(new SimpleProtobufEncoder());
-                    // WebSocket心跳检测
-//                    ch.pipeline().addLast(new HeartBeatServerHandler());
-                    // 在流水线中添加handler来处理登录,登录后删除
-                    ch.pipeline().addLast("login",loginRequestHandler);
-//                    ch.pipeline().addLast(chatRedirectHandler);
-                    // 删除Session
-                    ch.pipeline().addLast(serverExceptionHandler);
+//                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
+//                    // Protocol Buffers 长度属性编码器
+//                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+//
+//                    // Protocol Buffer解码器
+//                    ch.pipeline().addLast(new SimpleProtobufDecoder());
+//                    // Protocol Buffer编码器
+//                    ch.pipeline().addLast(new SimpleProtobufEncoder());
+//                    // WebSocket心跳检测
+////                    ch.pipeline().addLast(new HeartBeatServerHandler());
+//                    // 在流水线中添加handler来处理登录,登录后删除
+//                    ch.pipeline().addLast("login",loginRequestHandler);
+////                    ch.pipeline().addLast(chatRedirectHandler);
+//                    // 删除Session
+//                    ch.pipeline().addLast(serverExceptionHandler);
                 }
             });
             ChannelFuture channelFuture = bg.bind().sync();
@@ -114,3 +123,37 @@ public class ChatServer {
         }
     }
 }
+
+
+class WebSocketTextFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
+        System.out.println("[服务器] : 收到消息 -> " + msg.text());
+        // 回复浏览器
+        ctx.channel().writeAndFlush(new TextWebSocketFrame("服务器时间: " + LocalDateTime.now() + "->"+ msg.text()));
+    }
+
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        // id 表示唯一的值 LongText是唯一的
+        System.out.println("handlerAdded 被调用:" + ctx.channel().id().asLongText());
+        // shortText 可能会重复
+        System.out.println("handlerAdded 被调用:" + ctx.channel().id().asShortText());
+    }
+
+    @Override
+    public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        // id 表示唯一的值 LongText是唯一的
+        System.out.println("handlerRemoved 被调用:" + ctx.channel().id().asLongText());
+        // shortText 可能会重复
+        System.out.println("handlerRemoved 被调用:" + ctx.channel().id().asShortText());
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        ctx.channel().close();
+        cause.printStackTrace();
+    }
+}
+
