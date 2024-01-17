@@ -1,11 +1,15 @@
 package com.xzccc.server.utils;
 
 import com.xzccc.server.constant.RedisConstant;
+import com.xzccc.server.model.Redis.TokenUser;
+import com.xzccc.server.model.Redis.UserToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -14,7 +18,9 @@ public class RedisUtils {
     @Autowired
     RedisTemplate<String,String> redisTemplate;
 
-    private HashOperations<String, String, Object> stringObjectObjectHashOperations;
+    @Autowired
+    ValueOperations<String,Object> valueOperations;
+
 
 
     public boolean existsKey(String key) {
@@ -57,34 +63,53 @@ public class RedisUtils {
     }
 
     /**
-     * 将设置user_id: token
+     * 指定key在指定的日期过期
+     *
+     * @param key
+     * @param date
      */
-    public void setUserToken(String user_id,String token) {
-        stringObjectObjectHashOperations = redisTemplate.opsForHash();
-        stringObjectObjectHashOperations.put(RedisConstant.AccountToken,user_id,token);
-    }
-
-    /**
-     * 通过user_id获取token
-     */
-    public String getUserToken(String user_id){
-        String token = (String) stringObjectObjectHashOperations.get(RedisConstant.AccountToken, user_id);
-        return token;
+    public void expireKeyAt(String key, Date date) {
+        redisTemplate.expireAt(key, date);
     }
 
     /**
      * 将设置user_id: token
      */
-    public void setTokenUser(String user_id,String token) {
-        stringObjectObjectHashOperations = redisTemplate.opsForHash();
-        stringObjectObjectHashOperations.put(RedisConstant.TokenAccount,token,user_id);
+    public void setUserToken(String user_id, UserToken userToken) {
+        String key = RedisConstant.UserToken + ":" + user_id;
+        valueOperations.set(key,userToken);
+        Long exp = userToken.getExp();
+        if (exp!=null) {
+            expireKeyAt(key,new Date(exp));
+        }
     }
 
     /**
      * 通过user_id获取token
      */
-    public Long getTokenUser(String token){
-        Long user_id= (Long) stringObjectObjectHashOperations.get(RedisConstant.TokenAccount,token);
-        return user_id;
+    public Object getUserToken(String user_id){
+        Object object = valueOperations.get(RedisConstant.UserToken + ":" + user_id);
+        return object;
+    }
+
+    /**
+     * 将设置user_id: token
+     */
+    public void setTokenUser(String token, TokenUser tokenUser) {
+        String key=RedisConstant.TokenUser+":"+token;
+        valueOperations.set(key,tokenUser);
+        Long exp = tokenUser.getExp();
+        if (exp!=null) {
+            expireKeyAt(key,new Date(exp));
+        }
+
+    }
+
+    /**
+     * 通过user_id获取token
+     */
+    public Object getTokenUser(String token){
+        Object object = valueOperations.get(RedisConstant.UserToken + ":" + token);
+        return object;
     }
 }
