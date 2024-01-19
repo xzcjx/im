@@ -37,6 +37,8 @@
         <jwt.version>3.14.0</jwt.version>
         <druid.version>1.2.1</druid.version>
 
+        <redisson.version>3.16.1</redisson.version>
+
     </properties>
 
 
@@ -168,6 +170,11 @@
             <version>${springboot}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>${redisson.version}</version>
+        </dependency>
 
     </dependencies>
 

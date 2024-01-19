@@ -9,4 +9,6 @@ public interface AccountService {
     void add_friend(Long uid, Long friendId);
 
     void note_friend(Long uid, Long friendId, String note);
+
+    void kick_user(String user_id);
 }

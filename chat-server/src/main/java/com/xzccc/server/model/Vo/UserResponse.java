@@ -6,7 +6,6 @@ import java.util.Date;
 
 @Data
 public class UserResponse {
-    private long uid;
     private String phone;
     private String username;
 }

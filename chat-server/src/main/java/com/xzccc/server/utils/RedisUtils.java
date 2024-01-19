@@ -3,6 +3,7 @@ package com.xzccc.server.utils;
 import com.xzccc.server.constant.RedisConstant;
 import com.xzccc.server.model.Redis.TokenUser;
 import com.xzccc.server.model.Redis.UserToken;
+import com.xzccc.server.server.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -21,7 +22,8 @@ public class RedisUtils {
     @Autowired
     ValueOperations<String,Object> valueOperations;
 
-
+    @Autowired
+    AccountService accountService;
 
     public boolean existsKey(String key) {
         return redisTemplate.hasKey(key);
@@ -77,10 +79,14 @@ public class RedisUtils {
      */
     public void setUserToken(String user_id, UserToken userToken) {
         String key = RedisConstant.UserToken + ":" + user_id;
-        valueOperations.set(key,userToken);
+        Boolean ifAbsent = valueOperations.setIfAbsent(key, userToken);
+        if (ifAbsent == false) {
+            accountService.kick_user(user_id);
+            valueOperations.setIfAbsent(key, userToken);
+        }
         Long exp = userToken.getExp();
-        if (exp!=null) {
-            expireKeyAt(key,new Date(exp));
+        if (exp != null) {
+            expireKeyAt(key, new Date(exp));
         }
     }
 
@@ -97,7 +103,7 @@ public class RedisUtils {
      */
     public void setTokenUser(String token, TokenUser tokenUser) {
         String key=RedisConstant.TokenUser+":"+token;
-        valueOperations.set(key,tokenUser);
+        valueOperations.setIfAbsent(key,tokenUser);
         Long exp = tokenUser.getExp();
         if (exp!=null) {
             expireKeyAt(key,new Date(exp));
@@ -108,8 +114,8 @@ public class RedisUtils {
     /**
      * 通过user_id获取token
      */
-    public Object getTokenUser(String token){
-        Object object = valueOperations.get(RedisConstant.UserToken + ":" + token);
-        return object;
+    public TokenUser getTokenUser(String token){
+        TokenUser tokenUser = (TokenUser) valueOperations.get(RedisConstant.TokenUser + ":" + token);
+        return tokenUser;
     }
 }

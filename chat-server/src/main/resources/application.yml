@@ -9,7 +9,7 @@ hash:
 
 token:
   secret: "xzcccim"
-  exp: '#{60 * 60 * 24}'  # 过期时间默认为秒
+  exp: '#{60 * 60 * 24 * 1000}'  # 过期时间默认为毫秒
 
 spring:
   datasource:
@@ -18,8 +18,10 @@ spring:
     password: "@Wsnidcl1"
     url: jdbc:mysql://localhost:3306/im?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
   redis:
-    database: 5
+    user_database: 4
+    redisson_database: 5
     host: 127.0.0.1
     port: 6379
 #    password: "@Wsnidcl1"
+
 

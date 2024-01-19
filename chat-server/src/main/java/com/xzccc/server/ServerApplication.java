@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 //使包路径下带有@Value的注解自动注入
 //使包路径下带有@Autowired的类可以自动注入
-@ComponentScan(basePackages = "com.xzccc.server")
+//@ComponentScan(basePackages = "com.xzccc.server")
 @MapperScan(basePackages = "com.xzccc.server.mapper")
 @SpringBootApplication
 @Slf4j
@@ -41,7 +41,7 @@ public class ServerApplication {
     //启动聊天服务器
     private static void startChatServer(ApplicationContext context) {
         ChatServer nettyServer = context.getBean(ChatServer.class);
-        nettyServer.run();
+//        nettyServer.run();
     }
 
 

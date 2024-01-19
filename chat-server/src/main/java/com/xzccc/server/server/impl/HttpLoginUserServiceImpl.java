@@ -2,6 +2,7 @@ package com.xzccc.server.server.impl;
 
 import com.xzccc.server.common.BaseResponse;
 import com.xzccc.server.common.ErrorCode;
+import com.xzccc.server.utils.RedissonUtils;
 import com.xzccc.server.exception.BusinessException;
 import com.xzccc.server.mapper.UserMapper;
 import com.xzccc.server.model.Dao.User;
@@ -37,6 +38,9 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
     @Autowired
     RedisUtils redisUtils;
 
+    @Autowired
+    RedissonUtils redissonutils;
+
     @Value("${token.exp}")
     long token_exp;
 
@@ -54,8 +58,13 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
             Long exp = time + token_exp;
             UserToken userToken = new UserToken(uuid32, exp);
             TokenUser tokenUser = new TokenUser(user.getId(), exp);
-            redisUtils.setUserToken(user.getId()+"",userToken);
+            String s_user_id = user.getId() + "";
+
+            redissonutils.lock(s_user_id);
+            redisUtils.setUserToken(s_user_id, userToken);
             redisUtils.setTokenUser(uuid32,tokenUser);
+            redissonutils.unlock(s_user_id);
+
             return new BaseResponse(200, new HttpLoginResponse(user.getId(), uuid32));
         }
         throw new BusinessException(ErrorCode.PASSWORD_ERROR);
