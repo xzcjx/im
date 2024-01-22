@@ -6,10 +6,13 @@ import java.util.Date;
 
 @Data
 public class FriendShip {
-    private long id;
-    private long uid;
-    private long friend_id;
+    private Long id;
+    private Short sponsor;
+    private Long user_id;
+    private Long friend_id;
+    private Short status;
+    private String ps;
     private String note;
-    private int delete;
-    private Date create_at;
+    private Date created_at;
+    private Date deleted_at;
 }

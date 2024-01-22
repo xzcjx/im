@@ -35,12 +35,12 @@ public class AccountController {
     }
 
     @GetMapping("/add/friend/{friend_id}")
-    public BaseResponse add_friend(@PathVariable("friend_id")Long friend_id){
+    public BaseResponse add_friend(@PathVariable("friend_id")Long friend_id,String ps){
         Long userId = threadLocalUtils.get();
         if (userId==null||friend_id==null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        accountService.add_friend(userId,friend_id);
+        accountService.add_friend(userId,friend_id,ps);
         return new BaseResponse(true);
     }
 
@@ -51,6 +51,16 @@ public class AccountController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         accountService.note_friend(userId,friend_id,note);
+        return new BaseResponse(true);
+    }
+
+    @DeleteMapping("/delete/friend")
+    public BaseResponse delete_friend(Long friend_id){
+        Long userId = threadLocalUtils.get();
+        if (userId==null||friend_id==null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        accountService.delete_friend(userId,friend_id);
         return new BaseResponse(true);
     }
 }
