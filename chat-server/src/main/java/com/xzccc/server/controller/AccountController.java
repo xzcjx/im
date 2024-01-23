@@ -5,6 +5,7 @@ import com.xzccc.server.common.ErrorCode;
 import com.xzccc.server.exception.BusinessException;
 import com.xzccc.server.model.Dao.User;
 import com.xzccc.server.model.Vo.UserResponse;
+import com.xzccc.server.model.request.ProcessFriendRequest;
 import com.xzccc.server.server.AccountService;
 import com.xzccc.server.utils.ThreadLocalUtils;
 import org.springframework.beans.BeanUtils;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.TreeMap;
 
 @RestController
 @RequestMapping("/account")
@@ -34,33 +36,64 @@ public class AccountController {
         return new BaseResponse(userResponse);
     }
 
-    @GetMapping("/add/friend/{friend_id}")
-    public BaseResponse add_friend(@PathVariable("friend_id")Long friend_id,String ps){
+    @GetMapping("/add/friend/{friendId}")
+    public BaseResponse add_friend(@PathVariable("friendId")Long friendId,String ps){
         Long userId = threadLocalUtils.get();
-        if (userId==null||friend_id==null) {
+        if (userId==null||friendId==null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        accountService.add_friend(userId,friend_id,ps);
+        accountService.add_friend(userId,friendId,ps);
         return new BaseResponse(true);
     }
 
     @GetMapping("/note/friend")
-    public BaseResponse note_friend(Long friend_id,String note){
+    public BaseResponse note_friend(Long friendId,String note){
         Long userId = threadLocalUtils.get();
-        if (userId==null||friend_id==null) {
+        if (userId==null||friendId==null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        accountService.note_friend(userId,friend_id,note);
+        accountService.note_friend(userId,friendId,note);
         return new BaseResponse(true);
     }
 
     @DeleteMapping("/delete/friend")
-    public BaseResponse delete_friend(Long friend_id){
+    public BaseResponse delete_friend(Long friendId){
         Long userId = threadLocalUtils.get();
-        if (userId==null||friend_id==null) {
+        if (userId==null||friendId==null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        accountService.delete_friend(userId,friend_id);
+        accountService.delete_friend(userId,friendId);
+        return new BaseResponse(true);
+    }
+
+    @PostMapping("/process/friend/request")
+    public BaseResponse process_friend(ProcessFriendRequest processFriendRequest){
+        Long friendId = processFriendRequest.getFriendId();
+        Long userId=threadLocalUtils.get();
+        if (userId==null||friendId==null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        accountService.process_friend(userId,processFriendRequest);
+        return new BaseResponse(true);
+    }
+
+    @GetMapping("/create/session/{friendId}")
+    public BaseResponse create_session(@PathVariable("friendId")Long friendId){
+        Long userId=threadLocalUtils.get();
+        if (userId==null||friendId==null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        String sessionId=accountService.create_session(userId,friendId);
+        return new BaseResponse(true);
+    }
+
+    @GetMapping("/get/session/{friendId}")
+    public BaseResponse get_session(@PathVariable("friendId")Long friendId){
+        Long userId=threadLocalUtils.get();
+        if (userId==null||friendId==null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        String sessionId=accountService.get_session(userId,friendId);
         return new BaseResponse(true);
     }
 }

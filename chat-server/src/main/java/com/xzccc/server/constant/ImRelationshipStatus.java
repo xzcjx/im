@@ -5,4 +5,5 @@ public class ImRelationshipStatus {
     public static Short NOTPROCESSED=1;
     public static Short REJECT=2;
     public static Short AGREE=3;
+    public static Short SPONSOR=4;
 }

@@ -1,16 +1,20 @@
 package com.xzccc.server.server.impl;
 
 import com.xzccc.server.common.ErrorCode;
-import com.xzccc.server.constant.ImRelationshipSponsor;
 import com.xzccc.server.constant.ImRelationshipStatus;
+import com.xzccc.server.constant.ImSessionStatus;
 import com.xzccc.server.constant.RedisConstant;
 import com.xzccc.server.exception.BusinessException;
 import com.xzccc.server.mapper.FriendShipMapper;
+import com.xzccc.server.mapper.SessionMapper;
 import com.xzccc.server.mapper.UserMapper;
 import com.xzccc.server.model.Dao.FriendShip;
+import com.xzccc.server.model.Dao.Session;
 import com.xzccc.server.model.Dao.User;
 import com.xzccc.server.model.Redis.UserToken;
+import com.xzccc.server.model.request.ProcessFriendRequest;
 import com.xzccc.server.server.AccountService;
+import com.xzccc.server.utils.UUIDUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -35,6 +39,12 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     ValueOperations<String,Object> valueOperations;
 
+    @Autowired
+    UUIDUtils uuidUtils;
+
+    @Autowired
+    SessionMapper sessionMapper;
+
     @Override
     public User get_user(long id) {
         return userMapper.select_by_id(id);
@@ -44,14 +54,14 @@ public class AccountServiceImpl implements AccountService {
     public void add_friend(Long userId, Long friendId,String ps) {
         FriendShip friendShip = friendShipMapper.select_by_user_id_friend_id(userId, friendId);
         if(friendShip!=null){
-            if (friendShip.getStatus()!= ImRelationshipStatus.AGREE) {
+            if (friendShip.getStatus()< ImRelationshipStatus.AGREE) {
                 friendShipMapper.update_status(userId,friendId,ImRelationshipStatus.AGREE);
                 return;
             }
             throw new BusinessException(ErrorCode.FRIENDEXISTS);
         }
-        friendShipMapper.insert(ImRelationshipSponsor.SPONSOR,userId, friendId, ImRelationshipStatus.AGREE,ps);
-        friendShipMapper.insert(ImRelationshipSponsor.NOTSPONSOR,friendId, userId, ImRelationshipStatus.UNREAD,ps);
+        friendShipMapper.insert(userId, friendId, ImRelationshipStatus.SPONSOR,ps);
+        friendShipMapper.insert(friendId, userId, ImRelationshipStatus.UNREAD,ps);
         // 此处需要通过websocket通知对方，如果对方在线，需要使用mq，后面在家逻辑
     }
 
@@ -78,6 +88,36 @@ public class AccountServiceImpl implements AccountService {
             throw new BusinessException(ErrorCode.FRIENDNOTEXISTS);
         }
         friendShipMapper.delete(userId,friendId,new Date());
+    }
+
+    @Override
+    public void process_friend(Long userId, ProcessFriendRequest processFriendRequest) {
+        Long friendId = processFriendRequest.getFriendId();
+        Boolean agree = processFriendRequest.getAgree();
+        if(agree==null){
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        if (agree) {
+            friendShipMapper.update_status(userId,friendId,ImRelationshipStatus.AGREE);
+        }else{
+            friendShipMapper.update_status(userId,friendId,ImRelationshipStatus.REJECT);
+        }
+    }
+
+    @Override
+    public String create_session(Long userId, Long friendId) {
+        FriendShip friendShip = friendShipMapper.select_by_user_id_friend_id(userId, friendId);
+        if(friendShip==null){
+            throw new BusinessException(ErrorCode.FRIENDNOTEXISTS);
+        }
+        Session session = sessionMapper.select_session_by_user(userId, friendId);
+        if(session!=null){
+            return session.getSession_id();
+        }
+        String uuid = uuidUtils.create_uuid();
+        sessionMapper.insert(uuid,userId,friendId, ImSessionStatus.DISPLAY);
+        sessionMapper.insert(uuid,friendId,userId, ImSessionStatus.HIDDEN);
+        return uuid;
     }
 
 }
