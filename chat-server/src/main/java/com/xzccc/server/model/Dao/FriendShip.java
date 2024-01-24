@@ -7,7 +7,6 @@ import java.util.Date;
 @Data
 public class FriendShip {
     private Long id;
-    private Short sponsor;
     private Long user_id;
     private Long friend_id;
     private Short status;

@@ -24,4 +24,5 @@ spring:
     port: 6379
 #    password: "@Wsnidcl1"
 
-
+friendship:
+  friend_limit: 200 #限制好友数量

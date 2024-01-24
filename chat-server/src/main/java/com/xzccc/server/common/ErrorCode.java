@@ -15,9 +15,10 @@ public enum ErrorCode {
     EXP_AUTH(40101, "token过期", ""),
     FORBIDDEN(40301, "禁止操作", ""),
     SYSTEM_ERROR(50000, "系统内部异常", ""),
-    FRIENDEXISTS(40301, "已经是好友，请勿重复添加", ""),
+    FRIENDEXISTS(40001, "已经是好友，请勿重复添加", ""),
     FRIENDNOTEXISTS(40301, "好友关系不存在", ""),
-    SESSIONEXISTS(40301, "会话已经存在", "");
+    FRIENDLIMIT(40001, "超过好友限制个数", ""),
+    SESSIONEXISTS(40001, "会话已经存在", "");
 
     private final int code;
 
