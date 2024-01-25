@@ -9,7 +9,7 @@ hash:
 
 token:
   secret: "xzcccim"
-  exp: '#{60 * 60 * 24 * 1000}'  # 过期时间默认为毫秒
+  exp: '#{60 * 60 * 24 * 30}'  # 过期时间默认为毫秒
 
 spring:
   datasource:

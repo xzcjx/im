@@ -19,8 +19,14 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.xzccc.server</groupId>
+            <groupId>com.xzccc.netty_server</groupId>
             <artifactId>chat_netty_server</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.xzccc</groupId>
+            <artifactId>chat-commom</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
