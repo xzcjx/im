@@ -1,6 +1,7 @@
 package com.xzccc.netty_server.server;
 
 import com.xzccc.netty_server.handler.*;
+import com.xzccc.netty_server.model.msg.ProtoMsg;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
@@ -11,6 +12,8 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.logging.LogLevel;
@@ -38,8 +41,6 @@ public class ChatServer {
     @Autowired
     ServerExceptionHandler serverExceptionHandler;
 
-    @Autowired
-    HttpLoginAuthHandler httpLoginAuthHandler;
 
     public void run() {
         ServerBootstrap bg = new ServerBootstrap();
@@ -75,28 +76,22 @@ public class ChatServer {
                     ch.pipeline().addLast(new ChunkedWriteHandler());
                     // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
                     ch.pipeline().addLast(new HttpObjectAggregator(65536));
-                    ch.pipeline().addLast("login", httpLoginAuthHandler);
                     // 支持WebSocket数据压缩
                     ch.pipeline().addLast(new WebSocketServerCompressionHandler());
                     // WebSocket协议配置，设置访问路径，WebSocket 握手、控制帧处理
                     ch.pipeline().addLast(new WebSocketServerProtocolHandler("/im", null, true));
-                    // websocket得url得param携带token，http时验证这个token并存放
-
-
-//                    ch.pipeline().addLast(new WebSocketServerHandler());
                     // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
 //                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
 //                    // Protocol Buffers 长度属性编码器
 //                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
-////
-////                    // Protocol Buffer解码器
-//                    ch.pipeline().addLast(new SimpleProtobufDecoder());
-//                    // Protocol Buffer编码器
-//                    ch.pipeline().addLast("encode", new SimpleProtobufEncoder());
+                    // Protocol Buffer解码器
+                    ch.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Message.getDefaultInstance()));
+                    // Protocol Buffer编码器
+                    ch.pipeline().addLast(new ProtobufEncoder());
 //                    // WebSocket心跳检测
 ////                    ch.pipeline().addLast(new HeartBeatServerHandler());
-//                    // 在流水线中添加handler来处理登录,登录后删除
-//                    ch.pipeline().addLast("login",loginRequestHandler);
+                    // 在流水线中添加handler来处理登录,登录后删除
+                    ch.pipeline().addLast("login",loginRequestHandler);
 ////                    ch.pipeline().addLast(chatRedirectHandler);
 //                    // 删除Session
                     ch.pipeline().addLast(serverExceptionHandler);

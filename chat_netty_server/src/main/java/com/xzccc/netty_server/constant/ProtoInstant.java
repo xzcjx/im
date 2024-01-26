@@ -17,30 +17,13 @@ public class ProtoInstant {
      */
     public interface Platform {
         /**
-         * windwos
-         */
-        public static final int WINDOWS = 1;
-
-        /**
-         * mac
-         */
-        public static final int MAC = 2;
-        /**
-         * android端
-         */
-        public static final int ANDROID = 3;
-        /**
-         * IOS端
-         */
-        public static final int IOS = 4;
-        /**
          * WEB端
          */
-        public static final int WEB = 5;
+        public static final int WEB = 1;
         /**
          * 未知
          */
-        public static final int UNKNOWN = 6;
+        public static final int UNKNOWN = 2;
 
 
     }

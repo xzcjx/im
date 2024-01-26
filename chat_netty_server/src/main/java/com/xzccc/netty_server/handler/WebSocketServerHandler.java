@@ -6,7 +6,9 @@ import io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.PingWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception {
@@ -17,7 +19,9 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<WebSocke
 
         }
         if(frame instanceof TextWebSocketFrame){
-
+            log.info(String.valueOf(frame));
+            ctx.channel().writeAndFlush(frame);
+            ctx.close();
         }
         if (!(frame instanceof TextWebSocketFrame)) {
             sendErrorMessage(ctx, "仅支持文本(Text)格式，不支持二进制消息");

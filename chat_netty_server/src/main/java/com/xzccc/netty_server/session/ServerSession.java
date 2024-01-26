@@ -23,12 +23,14 @@ public class ServerSession {
     private final String sessionId;
     private boolean isLogin = false;
 
-    public ServerSession(Channel channel, User user) {
+    public ServerSession(Channel channel) {
         this.channel = channel;
-        this.user = user;
-        this.sessionId = user.getToken();
+        this.sessionId = buildNewSessionId();
     }
 
+    public Channel getChannel(){
+        return channel;
+    }
     public static ServerSession getSession(ChannelHandlerContext ctx) {
         Channel channel = ctx.channel();
         return channel.attr(ServerSession.SESSION_KEY).get();
@@ -100,5 +102,9 @@ public class ServerSession {
     private static String buildNewSessionId() {
         String uuid = UUID.randomUUID().toString();
         return uuid.replaceAll("-", "");
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
