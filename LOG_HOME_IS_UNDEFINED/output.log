@@ -1,0 +1,205 @@
+2024-01-30 17:11:58.014 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 22012 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-01-30 17:11:58.022 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-01-30 17:11:58.210 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-01-30 17:11:58.211 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-01-30 17:12:00.584 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-01-30 17:12:00.590 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:12:00.646 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:12:01.934 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-01-30 17:12:01.951 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:12:01.952 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-01-30 17:12:01.953 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-01-30 17:12:02.075 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/api/v1]:173 - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:12:02.075 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3862 ms
+2024-01-30 17:12:03.530 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-01-30 17:12:03.664 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-01-30 17:12:03.979 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-01-30 17:12:04.550 [redisson-netty-4-13] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-01-30 17:12:04.574 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-01-30 17:12:05.369 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-01-30 17:12:05.762 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:12:05.773 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path '/api/v1'
+2024-01-30 17:12:06.006 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 8.96 seconds (JVM running for 13.005)
+2024-01-30 17:12:06.035 [restartedMain] WARN  io.netty.bootstrap.ServerBootstrap:452 - Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0x7ae5cd8a]'
+2024-01-30 17:12:06.042 [nioEventLoopGroup-7-1] INFO  com.xzccc.netty_server.server.ChatServer:104 - 服务端连接成功
+2024-01-30 17:13:50.259 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-01-30 17:13:50.262 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-01-30 17:13:50.914 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 22012 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-01-30 17:13:50.916 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-01-30 17:13:54.881 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-01-30 17:13:54.882 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:13:54.916 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 33 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:13:55.402 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-01-30 17:13:55.403 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:13:55.404 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-01-30 17:13:55.405 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-01-30 17:13:55.454 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/api/v1]:173 - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:13:55.455 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 4529 ms
+2024-01-30 17:13:55.577 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-01-30 17:13:55.608 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-2} inited
+2024-01-30 17:13:55.953 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-01-30 17:13:56.079 [redisson-netty-11-30] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-01-30 17:13:56.105 [redisson-netty-11-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-01-30 17:13:56.417 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-01-30 17:13:56.546 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:13:56.548 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path '/api/v1'
+2024-01-30 17:13:56.635 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 5.885 seconds (JVM running for 123.633)
+2024-01-30 17:13:56.640 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2024-01-30 17:15:03.062 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 22012 (started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-01-30 17:15:03.063 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-01-30 17:15:03.724 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-01-30 17:15:03.724 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:15:03.732 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:15:03.972 [Thread-30] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Pausing ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:15:03.975 [Thread-30] INFO  org.apache.catalina.core.StandardService:173 - Stopping service [Tomcat]
+2024-01-30 17:15:03.987 [Thread-30] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Stopping ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:15:03.991 [Thread-30] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Destroying ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:15:04.214 [redisson-netty-11-4] ERROR org.redisson.client.handler.ErrorsLoggingHandler:47 - Exception occured. Channel: [id: 0xf256611a, L:/127.0.0.1:29632 - R:127.0.0.1/127.0.0.1:6379]
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+2024-01-30 17:15:04.250 [Thread-30] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-2} closing ...
+2024-01-30 17:15:04.251 [Thread-30] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-2} closed
+2024-01-30 17:15:04.716 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8080 (http)
+2024-01-30 17:15:04.717 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-01-30 17:15:04.718 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-01-30 17:15:04.719 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-01-30 17:15:04.753 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-01-30 17:15:04.755 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-01-30 17:15:04.779 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 22012 (started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-01-30 17:15:04.781 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-01-30 17:15:04.805 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:15:04.806 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 1722 ms
+2024-01-30 17:15:04.831 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.user_database' in value "${spring.redis.user_database}"
+2024-01-30 17:15:04.832 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Stopping service [Tomcat]
+2024-01-30 17:15:04.878 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-01-30 17:15:04.955 [restartedMain] ERROR org.springframework.boot.SpringApplication:843 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.user_database' in value "${spring.redis.user_database}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.xzccc.server.ServerApplication.main(ServerApplication.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.user_database' in value "${spring.redis.user_database}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 22 common frames omitted
+2024-01-30 17:15:05.801 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-01-30 17:15:05.801 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:15:05.810 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:15:06.018 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8080 (http)
+2024-01-30 17:15:06.048 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 1255 ms
+2024-01-30 17:15:06.064 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.user_database' in value "${spring.redis.user_database}"
+2024-01-30 17:15:06.074 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-01-30 17:15:06.080 [restartedMain] ERROR org.springframework.boot.SpringApplication:843 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.user_database' in value "${spring.redis.user_database}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.xzccc.server.ServerApplication.main(ServerApplication.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.redis.user_database' in value "${spring.redis.user_database}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 22 common frames omitted
+2024-01-30 17:16:02.054 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 1380 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-01-30 17:16:02.061 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-01-30 17:16:02.168 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-01-30 17:16:02.169 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-01-30 17:16:04.294 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-01-30 17:16:04.298 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-01-30 17:16:04.331 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2024-01-30 17:16:05.208 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-01-30 17:16:05.222 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:16:05.223 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-01-30 17:16:05.223 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-01-30 17:16:05.329 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/api/v1]:173 - Initializing Spring embedded WebApplicationContext
+2024-01-30 17:16:05.329 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3157 ms
+2024-01-30 17:16:06.553 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-01-30 17:16:06.650 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-01-30 17:16:06.989 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-01-30 17:16:07.680 [redisson-netty-4-18] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-01-30 17:16:07.703 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-01-30 17:16:08.756 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-01-30 17:16:09.162 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-01-30 17:16:09.174 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path '/api/v1'
+2024-01-30 17:16:09.520 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 8.395 seconds (JVM running for 11.864)
+2024-01-30 17:16:09.551 [restartedMain] WARN  io.netty.bootstrap.ServerBootstrap:452 - Unknown channel option 'SO_KEEPALIVE' for channel '[id: 0xaa4347aa]'
+2024-01-30 17:16:09.558 [nioEventLoopGroup-7-1] INFO  com.xzccc.netty_server.server.ChatServer:104 - 服务端连接成功
+2024-01-30 17:17:53.096 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-01-30 17:17:53.099 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
