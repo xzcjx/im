@@ -2,15 +2,13 @@ package com.xzccc.netty_server.process;
 
 import com.xzccc.model.Redis.TokenUser;
 import com.xzccc.netty.model.msg.ProtoMsg;
-import com.xzccc.netty_server.constant.ProtoInstant;
-import com.xzccc.netty_server.model.User;
-import com.xzccc.netty_server.protoConvertor.LoginResponseConverter;
+import com.xzccc.netty.constant.ProtoInstant;
+import com.xzccc.netty.model.User;
+import com.xzccc.protoConvertor.LoginResponseConverter;
 import com.xzccc.netty_server.session.ServerSession;
 import com.xzccc.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 @Service

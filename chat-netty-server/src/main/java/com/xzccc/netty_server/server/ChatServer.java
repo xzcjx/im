@@ -1,16 +1,21 @@
 package com.xzccc.netty_server.server;
 
+import com.google.protobuf.MessageLite;
+import com.google.protobuf.MessageLiteOrBuilder;
 import com.xzccc.netty.model.msg.ProtoMsg;
 import com.xzccc.netty_server.handler.*;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.MessageToMessageDecoder;
+import io.netty.handler.codec.MessageToMessageEncoder;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.codec.http.websocketx.*;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
@@ -25,6 +30,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.net.InetSocketAddress;
+import java.util.List;
+
+import static io.netty.buffer.Unpooled.wrappedBuffer;
 
 @Service("ChatServer")
 @Slf4j
@@ -77,17 +85,21 @@ public class ChatServer {
                     // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
                     ch.pipeline().addLast(new HttpObjectAggregator(65536));
                     // 支持WebSocket数据压缩
-                    ch.pipeline().addLast(new WebSocketServerCompressionHandler());
+//                    ch.pipeline().addLast(new WebSocketServerCompressionHandler());
                     // WebSocket协议配置，设置访问路径，WebSocket 握手、控制帧处理
                     ch.pipeline().addLast(new WebSocketServerProtocolHandler("/im", null, true));
-                    // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
-//                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
-//                    // Protocol Buffers 长度属性编码器
+
+                    // Protocol Buffers 长度属性编码器
 //                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+                    // 协议包解码
+
+
+                    // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
+                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
                     // Protocol Buffer解码器
                     ch.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Message.getDefaultInstance()));
                     // Protocol Buffer编码器
-                    ch.pipeline().addLast(new ProtobufEncoder());
+//                    ch.pipeline().addLast(new ProtobufEncoder());
 //                    // WebSocket心跳检测
 ////                    ch.pipeline().addLast(new HeartBeatServerHandler());
                     // 在流水线中添加handler来处理登录,登录后删除

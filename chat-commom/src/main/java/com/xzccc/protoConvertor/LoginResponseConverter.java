@@ -1,17 +1,17 @@
-package com.xzccc.netty_server.protoConvertor;
+package com.xzccc.protoConvertor;
 
+import com.xzccc.netty.constant.ProtoInstant;
 import com.xzccc.netty.model.msg.ProtoMsg;
-import com.xzccc.netty_server.constant.ProtoInstant;
+
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class LoginResponseConverter {
-    public ProtoMsg.Message build(ProtoInstant.ResultCodeEnum en,long seqId,String sessionId){
+    public ProtoMsg.Message build(ProtoInstant.ResultCodeEnum en, long seqId, String sessionId){
         ProtoMsg.Message.Builder builder = ProtoMsg.Message.newBuilder()
                 .setType(ProtoMsg.HeadType.LOGIN_RESPONSE)
-                .setSequence(seqId)
-                .setSessionId(sessionId);
+                .setSequence(seqId);
         ProtoMsg.LoginResponse.Builder b = ProtoMsg.LoginResponse.newBuilder()
                 .setCode(en.getCode())
                 .setInfo(en.getDesc())

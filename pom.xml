@@ -12,6 +12,7 @@
         <module>chat-server</module>
         <module>chat-netty-server</module>
         <module>chat-commom</module>
+        <module>chat-netty-client</module>
     </modules>
 
     <properties>

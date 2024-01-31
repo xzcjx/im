@@ -1,4 +1,4 @@
-package com.xzccc.netty_server.constant;
+package com.xzccc.netty.constant;
 
 public class ProtoInstant {
 

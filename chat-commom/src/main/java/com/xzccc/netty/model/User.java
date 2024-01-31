@@ -1,4 +1,4 @@
-package com.xzccc.netty_server.model;
+package com.xzccc.netty.model;
 
 import com.xzccc.netty.model.msg.ProtoMsg;
 import io.netty.channel.Channel;

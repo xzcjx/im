@@ -1,7 +1,7 @@
 package com.xzccc.netty_server.session;
 
 
-import com.xzccc.netty_server.model.User;
+import com.xzccc.netty.model.User;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 

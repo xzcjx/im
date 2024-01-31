@@ -1,6 +1,6 @@
 package com.xzccc.netty_server.session;
 
-import com.xzccc.netty_server.model.User;
+import com.xzccc.netty.model.User;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
