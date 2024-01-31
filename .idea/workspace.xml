@@ -4,7 +4,90 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c487b448-1b10-4ce9-9c75-4617550a2867" name="Changes" comment="" />
+    <list default="true" id="c487b448-1b10-4ce9-9c75-4617550a2867" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/common/BaseResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/common/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/common/ResultUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/concurrent/CallbackTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/concurrent/CallbackTaskScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/config/RedissonConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/constant/HashUtilsConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/constant/ImRelationshipStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/constant/ImSessionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/constant/RedisConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/mapper/FriendShipMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/mapper/SessionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Dao/FriendShip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Dao/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Dao/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Redis/TokenUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Redis/UserToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Vo/FriendResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Vo/FriendShipRequestsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Vo/HttpLoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/Vo/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/request/HttpLoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/request/HttpSignRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/model/request/ProcessFriendRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/server/AccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/server/HttpLoginUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/server/impl/AccountServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/server/impl/HttpLoginUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/HashUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/JWTUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/RedisUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/RedissonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/ThreadLocalUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/ThreadUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/TokenUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/UUIDUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/hash/Hash512.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/hash/HashTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/java/com/xzccc/utils/hash/MD5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-commom/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/xzccc/netty_server/ServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/xzccc/netty_server/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/xzccc/netty_server/config/WebMvcConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/xzccc/netty_server/controller/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/xzccc/netty_server/controller/HttpLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/com/xzccc/netty_server/interceptor/LoginHandlerInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/proto/Message.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/proto/protobin/protoc3.9.0.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/constant/ProtoInstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/exception/InvalidFrameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/ChatRedirectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/HeartBeatServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/LoginRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/ServerExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/SimpleProtobufDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/SimpleProtobufEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/handler/WebSocketServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/process/ChatRedirectProcesser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/process/LoginProcesser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/process/ServerProcesser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/protoConvertor/LoginResponseConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/server/ChatServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/session/ServerSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat_netty_server/src/main/java/com/xzccc/netty_server/session/SessionMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,13 +108,27 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "xzcjx"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f0af4573-e6c9-4207-b9f7-c879d5a3b53c" />
+        <option name="url" value="https://github.com/xzcjx/im.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": -1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
+}</component>
   <component name="ProjectId" id="2bfabNtf8s22rNEzmdc3SlVaPpd" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,9 +146,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging master",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "C:/Users/mindrank/Desktop/项目_后端/my-im/chat-netty-client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "3056b6a0efb79910cd88c7bdaa49d6ed",
     "vue.rearranger.settings.migration": "true"
   }
@@ -82,6 +183,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706608663024</updated>
       <workItem from="1706608668995" duration="90000" />
+      <workItem from="1706608774391" duration="1444000" />
     </task>
     <task id="LOCAL-00001" summary="增加netty-client">
       <option name="closed" value="true" />
@@ -91,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706608724669</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="增加netty-client">
+      <option name="closed" value="true" />
+      <created>1706608826601</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706608826601</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+
+//option java_multiple_files = true;
+option java_package = "com.xzccc.netty_server.model.msg";
+option java_outer_classname = "ProtoMsg";
+
+enum HeadType
+{
+  LOGIN_REQUEST = 0;//登陆请求
+  LOGIN_RESPONSE = 1;//登录响应
+  LOGOUT_REQUEST = 2;//退出请求
+  LOGOUT_RESPONSE = 3;
+  KEEPALIVE_REQUEST = 4;//心跳请求PING;
+  KEEPALIVE_RESPONSE = 5;
+  MESSAGE_REQUEST = 6;//消息请求;
+  MESSAGE_RESPONSE = 7;//消息回执;
+  MESSAGE_NOTIFICATION = 8;//通知消息
+}
+
+message LoginRequest {
+  int64 user_id = 1;
+  string token = 2;
+}
+
+message LoginResponse{
+  bool  result = 1; //true 表示成功，false表示失败
+  uint32 code = 2;	//错误码
+  string info = 3;	//错误描述
+  uint32 expose = 4;	//错误描述是否提示给用户:1 提示;0 不提示
+}
+
+message Message
+{
+  HeadType type = 1; //消息类型
+  uint64  sequence = 2;//消息系列号
+  string  session_id = 3;
+  optional LoginRequest loginRequest = 4;
+  optional LoginResponse loginResponse = 5;
+}

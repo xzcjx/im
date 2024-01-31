@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  websocket-port: 9090
+  servlet:
+    context-path: "/api/v1"
+
+hash:
+  salt: "g3e5o1t2g3n7e4m6k4k8h4v7l7g6n5z3"
+
+token:
+  secret: "xzcccim"
+  exp: '#{60 * 60 * 24 * 30}'  # 过期时间默认为毫秒
+
+spring:
+  datasource:
+    driver: com.mysql.cj.jdbc.Driver
+    username: root
+    password: "@Wsnidcl1"
+    url: jdbc:mysql://localhost:3306/im?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+  redis:
+    user_database: 4
+    redisson_database: 5
+    host: 127.0.0.1
+    port: 6379
+#    password: "@Wsnidcl1"
+
+friendship:
+  friend_limit: 200 #限制好友数量
