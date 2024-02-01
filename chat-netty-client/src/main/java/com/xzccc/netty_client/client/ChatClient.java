@@ -89,11 +89,37 @@ public class ChatClient {
                     // protobuf可变长度解码器
 //                    ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
                     // protobuf可变长度编码器
-//                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+//                    ch.pipeline().addLast(new MessageToMessageEncoder<ByteBuf>() {
+//                        @Override
+//                        protected void encode(ChannelHandlerContext channelHandlerContext, ByteBuf object, List<Object> out) throws Exception {
+//                            out.add(new BinaryWebSocketFrame(object));
+//                        }
+//                    });
                     // protobuf 解码器
                     ch.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Message.getDefaultInstance()));
                     // protobuf 编码器
 //                    ch.pipeline().addLast(new ProtobufEncoder());
+
+                    // 协议包编码
+                    ch.pipeline().addLast(new MessageToMessageEncoder<MessageLiteOrBuilder>() {
+                        @Override
+                        protected void encode(ChannelHandlerContext ctx, MessageLiteOrBuilder msg, List<Object> out) throws Exception {
+                            ByteBuf result = null;
+                            if (msg instanceof MessageLite) {
+                                // 没有build的Protobuf消息
+                                result = wrappedBuffer(((MessageLite) msg).toByteArray());
+                            }
+                            if (msg instanceof MessageLite.Builder) {
+                                // 经过build的Protobuf消息
+                                result = wrappedBuffer(((MessageLite.Builder) msg).build().toByteArray());
+                            }
+
+                            // 将Protbuf消息包装成Binary Frame 消息
+                            WebSocketFrame frame = new BinaryWebSocketFrame(result);
+                            out.add(frame);
+                        }
+                    });
 
                     ch.pipeline().addLast(new SimpleChannelInboundHandler<TextWebSocketFrame>() {
 
@@ -110,19 +136,10 @@ public class ChatClient {
                                 user.setId(Long.valueOf('3'));
                                 user.setToken("6e0f94e2-2af2-4ca5-b1d4-f01e379e3579");
                                 ProtoMsg.Message message = new LoginRequestConverter().build(user);
-                                byte[] payload = message.toByteArray();
 
-                                // 创建掩码
-                                byte[] mask = new byte[4];
-                                new Random().nextBytes(mask);
 
-                                for (int i = 0; i < payload.length; i++) {
-                                    payload[i] = (byte) (payload[i] ^ mask[i % 4]);
-                                }
-
-//                                WebSocketFrame frame = new BinaryWebSocketFrame(true, 0, wrappedBuffer(payload));
-                                TextWebSocketFrame frame = new TextWebSocketFrame(wrappedBuffer(payload));
-                                ctx.writeAndFlush(frame).addListener(
+//                                WebSocketFrame frame = new BinaryWebSocketFrame(wrappedBuffer(payload));
+                                ctx.writeAndFlush(message).addListener(
                                         new ChannelFutureListener() {
                                             @Override
                                             public void operationComplete(ChannelFuture channelFuture) throws Exception {

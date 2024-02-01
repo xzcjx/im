@@ -96,6 +96,33 @@ public class ChatServer {
 
                     // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
                     ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
+
+                    ch.pipeline().addLast(new MessageToMessageDecoder<WebSocketFrame>() {
+                        @Override
+                        protected void decode(ChannelHandlerContext ctx, WebSocketFrame frame, List<Object> objs) throws Exception {
+                            log.info("received client msg ------------------------");
+                            if (frame instanceof TextWebSocketFrame) {
+                                // 文本消息
+                                TextWebSocketFrame textFrame = (TextWebSocketFrame)frame;
+                                log.info("MsgType is TextWebSocketFrame");
+                            } else if (frame instanceof BinaryWebSocketFrame) {
+                                // 二进制消息
+                                ByteBuf buf = ((BinaryWebSocketFrame) frame).content();
+                                objs.add(buf);
+                                // 自旋累加
+                                buf.retain();
+                                log.info("MsgType is BinaryWebSocketFrame");
+                            } else if (frame instanceof PongWebSocketFrame) {
+                                // PING存活检测消息
+                                log.info("MsgType is PongWebSocketFrame ");
+                            } else if (frame instanceof CloseWebSocketFrame) {
+                                // 关闭指令消息
+                                log.info("MsgType is CloseWebSocketFrame");
+                                ch.close();
+                            }
+
+                        }
+                    });
                     // Protocol Buffer解码器
                     ch.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Message.getDefaultInstance()));
                     // Protocol Buffer编码器
