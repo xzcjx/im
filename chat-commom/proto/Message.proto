@@ -2,7 +2,7 @@ syntax = "proto3";
 
 
 //option java_multiple_files = true;
-option java_package = "com.xzccc.netty_server.model.msg";
+option java_package = "com.xzccc.netty.model.msg";
 option java_outer_classname = "ProtoMsg";
 
 enum HeadType
@@ -18,23 +18,102 @@ enum HeadType
   MESSAGE_NOTIFICATION = 8;//通知消息
 }
 
+enum MsgType
+{
+  TEXT = 0; //文字消息
+  IMG = 1; //图片消息
+  FILE = 2; //文件消息
+  RED_PACKET = 3; //红包消息
+  VOICE = 4;  //语音消息
+  VIDEO = 5; //视频消息
+  RETRACTION = 6; //撤回消息
+}
+
+enum ChatType
+{
+  CHAT = 0; //单聊
+  GROUP_CHAT = 1; //群聊
+}
+
 message LoginRequest {
-  int64 user_id = 1;
+  uint64 user_id = 1;
   string token = 2;
 }
 
 message LoginResponse{
   bool  result = 1; //true 表示成功，false表示失败
-  uint32 code = 2;	//错误码
-  string info = 3;	//错误描述
-  uint32 expose = 4;	//错误描述是否提示给用户:1 提示;0 不提示
+  uint32 code = 2;  //错误码
+  string info = 3;  //错误描述
+  uint32 expose = 4;  //错误描述是否提示给用户:1 提示;0 不提示
+}
+
+message ChatMessageRequest{
+  uint64 from_id = 1; //发送人id
+  uint64 to_id = 2;  //接收人id
+  MsgType msg_type = 3; //消息类型
+  string msg_id = 4;  //客户端生成的msg_id
+  uint32 send_time = 5; //客户端发送时间，用于保证时序性
+  ChatType type = 6; //聊天类型
+  string  msg_content = 7; //消息内容
+}
+
+message ChatMessageResponse{
+  uint64 from_id = 1; //发送人id
+  uint64 to_id = 2;  //接收人id
+  string msg_id = 3;  //客户端生成的msg_id
+  uint32 send_time = 4;  //客户端发送时间，用于保证时序性
+  bool result = 5; //服务器是否成功收到消息并发送
+  string msg = 6; //发送失败原因
+}
+
+message ChatServerNotify
+{
+  uint64 from_id = 1; //发送人id
+  uint64 to_id = 2;  //接收人id
+  MsgType msg_type = 3; //消息类型
+  string msg_id = 4;  //客户端生成的msg_id
+  uint32 send_time = 5; //客户端发送时间，用于保证时序性
+  ChatType type = 6; //聊天类型
+  string  msg_content = 7; //消息内容
+}
+
+message ChatClientACK
+{
+  uint64 from_id = 1; //发送人id
+  uint64 to_id = 2;  //接收人id
+  string msg_id = 3;  //客户端生成的msg_id
+  uint32 send_time = 4;  //客户端发送时间，用于保证时序性
+  bool result = 5; //服务器返回的ack
+}
+
+message ChatServerACK
+{
+  uint64 from_id = 1; //发送人id
+  uint64 to_id = 2;  //接收人id
+  string msg_id = 3;  //客户端生成的msg_id
+  uint32 send_time = 4;  //客户端发送时间，用于保证时序性
+  bool result = 5; //服务器返回的ack
+}
+
+message ChatServerNotifyACK
+{
+  uint64 from_id = 1; //发送人id
+  uint64 to_id = 2;  //接收人id
+  string msg_id = 3;  //客户端生成的msg_id
+  uint32 send_time = 4;  //客户端发送时间，用于保证时序性
+  bool result = 5; //服务器返回的ack
 }
 
 message Message
 {
   HeadType type = 1; //消息类型
-  uint64  sequence = 2;//消息系列号
-  string  session_id = 3;
+  string  session_id = 2; //会话
   optional LoginRequest loginRequest = 4;
   optional LoginResponse loginResponse = 5;
+  optional ChatMessageRequest chatMessageRequest = 6;
+  optional ChatMessageResponse chatMessageResponse = 7;
+  optional ChatServerNotify chatServerNotify = 8;
+  optional ChatClientACK chatClientACK = 9;
+  optional ChatServerACK chatServerACK = 10;
+  optional ChatServerNotifyACK chatServerNotifyACK = 11;
 }

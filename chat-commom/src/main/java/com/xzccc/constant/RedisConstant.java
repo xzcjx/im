@@ -4,4 +4,6 @@ public class RedisConstant {
     public static String UserToken="auth:user_token";
 
     public static String TokenUser="auth:token_user";
+
+    public static String UserStatus="user:status";
 }

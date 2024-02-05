@@ -28,14 +28,13 @@ public class LoginProcesser implements ServerProcesser {
     @Override
     public boolean action(ServerSession session, ProtoMsg.Message proto) {
         ProtoMsg.LoginRequest loginRequest = proto.getLoginRequest();
-        long seqNo = proto.getSequence();
         Boolean r = check(loginRequest);
         if (r == false) {
             ProtoInstant.ResultCodeEnum resultcode =
                     ProtoInstant.ResultCodeEnum.NO_TOKEN;
             //构造登录失败的报文
             ProtoMsg.Message response =
-                    loginResponseConverter.build(resultcode, seqNo, "-1");
+                    loginResponseConverter.build(resultcode, "-1");
             //发送登录失败的报文
             session.writeAndFlush(response);
             return false;
@@ -44,8 +43,13 @@ public class LoginProcesser implements ServerProcesser {
         session.setUser(user);
         session.reverseBind();
 
+        Boolean b = redisUtils.setUserOnline(user.getId());
+        if (b==false||b==null) {
+            log.error("设置用户："+user.getId()+" 状态为在线失败");
+        }
+
         ProtoInstant.ResultCodeEnum resultcode = ProtoInstant.ResultCodeEnum.SUCCESS;
-        ProtoMsg.Message response = loginResponseConverter.build(resultcode, seqNo, session.getSessionId());
+        ProtoMsg.Message response = loginResponseConverter.build(resultcode, session.getSessionId());
         session.writeAndFlush(response);
         return true;
     }

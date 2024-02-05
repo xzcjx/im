@@ -5,7 +5,11 @@ import com.xzccc.constant.RedisConstant;
 import com.xzccc.model.Redis.TokenUser;
 import com.xzccc.model.Redis.UserToken;
 import com.xzccc.server.AccountService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -14,6 +18,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 @Service
+@Slf4j
 public class RedisUtils {
 
     @Autowired
@@ -117,5 +122,36 @@ public class RedisUtils {
     public TokenUser getTokenUser(String token){
         TokenUser tokenUser = (TokenUser) valueOperations.get(RedisConstant.TokenUser + ":" + token);
         return tokenUser;
+    }
+
+    public Boolean setUserOnline(Long userId){
+        Boolean res = valueOperations.setBit(RedisConstant.UserStatus, userId, true);
+        long statusCount = getStatusCount();
+        log.info("im在线 "+statusCount+" 人");
+        return res;
+    }
+
+    public Boolean setUserOffline(Long userId){
+        Boolean res = valueOperations.setBit(RedisConstant.UserStatus, userId, false);
+        long statusCount = getStatusCount();
+        log.info("im在线 "+statusCount+" 人");
+        return res;
+    }
+    
+    public long getStatusCount(){
+        return redisTemplate.execute(new RedisCallback<Long>() {
+            @Override
+            public Long doInRedis(RedisConnection connection) throws DataAccessException {
+                return connection.bitCount(RedisConstant.UserStatus.getBytes());
+            }
+        });
+    }
+
+    public Boolean containerUserStatus(long offset){
+        return container(RedisConstant.UserStatus,offset);
+    }
+
+    public Boolean container(String key, long offset) {
+        return valueOperations.getBit(key, offset);
     }
 }

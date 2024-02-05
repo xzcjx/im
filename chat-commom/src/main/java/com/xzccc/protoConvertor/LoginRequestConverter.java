@@ -8,10 +8,8 @@ import java.util.Random;
 
 public class LoginRequestConverter{
     public ProtoMsg.Message build(User user){
-        int seqId= 1;
         ProtoMsg.Message.Builder builder = ProtoMsg.Message.newBuilder()
-                .setType(ProtoMsg.HeadType.LOGIN_RESPONSE)
-                .setSequence(seqId)
+                .setType(ProtoMsg.HeadType.LOGIN_REQUEST)
                 .setSessionId("aaa");
         ProtoMsg.LoginRequest.Builder b = ProtoMsg.LoginRequest.newBuilder()
                 .setUserId(user.getId())

@@ -133,8 +133,8 @@ public class ChatClient {
                             if (WebSocketClientProtocolHandler.ClientHandshakeStateEvent.HANDSHAKE_COMPLETE.equals(evt)) {
                                 log.info(ctx.channel().id().asShortText() + " 握手完成！");
                                 User user = new User();
-                                user.setId(Long.valueOf('3'));
-                                user.setToken("6e0f94e2-2af2-4ca5-b1d4-f01e379e3579");
+                                user.setId(3L);
+                                user.setToken("9be5ccdd-edc8-43f8-aaad-36ee20f34dd2");
                                 ProtoMsg.Message message = new LoginRequestConverter().build(user);
 
 

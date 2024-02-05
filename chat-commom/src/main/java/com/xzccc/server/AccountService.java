@@ -5,6 +5,7 @@ package com.xzccc.server;
 import com.xzccc.model.Dao.User;
 import com.xzccc.model.Vo.FriendResponse;
 import com.xzccc.model.Vo.FriendShipRequestsResponse;
+import com.xzccc.model.Vo.FriendStatusResponse;
 import com.xzccc.model.request.ProcessFriendRequest;
 
 import java.util.List;
@@ -30,4 +31,6 @@ public interface AccountService {
     String create_session(Long userId, Long friendId);
 
     void update_status(Long userId, Long friendId, String sessionId, Short status);
+
+    List<FriendStatusResponse> get_friend_status(Long userId);
 }

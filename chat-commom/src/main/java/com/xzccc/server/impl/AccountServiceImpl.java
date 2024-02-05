@@ -15,8 +15,10 @@ import com.xzccc.model.Dao.User;
 import com.xzccc.model.Redis.UserToken;
 import com.xzccc.model.Vo.FriendResponse;
 import com.xzccc.model.Vo.FriendShipRequestsResponse;
+import com.xzccc.model.Vo.FriendStatusResponse;
 import com.xzccc.model.request.ProcessFriendRequest;
 import com.xzccc.server.AccountService;
+import com.xzccc.utils.RedisUtils;
 import com.xzccc.utils.UUIDUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Value("${friendship.friend_limit}")
     Long friendLimit;
+
+    @Autowired
+    RedisUtils redisUtils;
 
     @Override
     public User get_user(long id) {
@@ -123,13 +128,13 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<FriendShipRequestsResponse> get_friend_requests(Long userId, Long page, Long pagesize) {
-        List<FriendShipRequestsResponse> friendShipList=friendShipMapper.page_by_userId(userId,(page-1)*pagesize,pagesize);
+        List<FriendShipRequestsResponse> friendShipList = friendShipMapper.page_by_userId(userId, (page - 1) * pagesize, pagesize);
         return friendShipList;
     }
 
     @Override
     public List<FriendResponse> get_friends(Long userId) {
-        List<FriendResponse> friendResponses=friendShipMapper.select_friend_info(userId);
+        List<FriendResponse> friendResponses = friendShipMapper.select_friend_info(userId);
         return friendResponses;
     }
 
@@ -141,8 +146,8 @@ public class AccountServiceImpl implements AccountService {
         }
         Session session = sessionMapper.select_session_by_user(userId, friendId);
         if (session != null) {
-            if(session.getStatus()!= ImSessionStatus.DISPLAY){
-                sessionMapper.update_status(session.getId(),ImSessionStatus.DISPLAY);
+            if (session.getStatus() != ImSessionStatus.DISPLAY) {
+                sessionMapper.update_status(session.getId(), ImSessionStatus.DISPLAY);
             }
             return session.getSession_id();
         }
@@ -155,9 +160,24 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void update_status(Long userId, Long friendId, String sessionId, Short status) {
         Session session = sessionMapper.select_session_by_user(userId, friendId);
-        if (session==null) {
+        if (session == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        sessionMapper.update_status(session.getId(),status);
+        sessionMapper.update_status(session.getId(), status);
+    }
+
+    @Override
+    public List<FriendStatusResponse> get_friend_status(Long userId) {
+        List<FriendStatusResponse> friendStatusResponseList = friendShipMapper.select_friend_ids(userId);
+        for (FriendStatusResponse friend :
+                friendStatusResponseList) {
+            Long id = friend.getId();
+            Boolean b = redisUtils.containerUserStatus(id);
+            if (b.equals(true))
+                friend.setStatus(true);
+            else
+                friend.setStatus(false);
+        }
+        return friendStatusResponseList;
     }
 }

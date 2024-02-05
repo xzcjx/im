@@ -107,4 +107,8 @@ public class ServerSession {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public boolean isLogin(){
+        return isLogin;
+    }
 }

@@ -3,6 +3,7 @@ package com.xzccc.mapper;
 import com.xzccc.model.Dao.FriendShip;
 import com.xzccc.model.Vo.FriendResponse;
 import com.xzccc.model.Vo.FriendShipRequestsResponse;
+import com.xzccc.model.Vo.FriendStatusResponse;
 import org.apache.ibatis.annotations.*;
 
 import java.util.Date;
@@ -37,4 +38,10 @@ public interface FriendShipMapper {
 
     @Select("select u.id,u.username,r.note from im_relationship r join im_user u on r.user_id=#{userId} and r.status>=3 and r.friend_id=u.id")
     List<FriendResponse> select_friend_info(Long userId);
+
+    @Select("select r.id from im_relationship r where r.user_id=#{userId} and r.status>=3")
+    List<FriendStatusResponse> select_friend_ids(Long userId);
+
+    @Select("select count(*) from im_relationship where user_id=#{userId} and friend_id=#{friendId} and status>=3 and deleted_at is null")
+    Integer container_by_userId_friendId(long userId, long friendId);
 }
