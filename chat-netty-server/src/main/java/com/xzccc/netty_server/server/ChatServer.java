@@ -2,8 +2,13 @@ package com.xzccc.netty_server.server;
 
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
+import com.xzccc.netty_server.session.ServerSession;
+import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.binder.netty4.NettyAllocatorMetrics;
 import com.xzccc.netty.model.msg.ProtoMsg;
 import com.xzccc.netty_server.handler.*;
+import io.micrometer.core.instrument.binder.netty4.NettyEventExecutorMetrics;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -44,10 +49,13 @@ public class ChatServer {
     private NioEventLoopGroup work;
 
     @Autowired
-    LoginRequestHandler loginRequestHandler;
+    HttpLoginHandler httpLoginHandler;
 
     @Autowired
     ServerExceptionHandler serverExceptionHandler;
+
+    @Autowired
+    MeterRegistry meterRegistry;
 
 
     public void run() {
@@ -84,16 +92,15 @@ public class ChatServer {
                     ch.pipeline().addLast(new ChunkedWriteHandler());
                     // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
                     ch.pipeline().addLast(new HttpObjectAggregator(65536));
+                    // 在websocket握手前鉴权
+                    ch.pipeline().addLast("login",httpLoginHandler);
                     // 支持WebSocket数据压缩
 //                    ch.pipeline().addLast(new WebSocketServerCompressionHandler());
-                    // WebSocket协议配置，设置访问路径，WebSocket 握手、控制帧处理
-                    ch.pipeline().addLast(new WebSocketServerProtocolHandler("/im", null, true));
+                    // WebSocket协议配置，设置访问路径，由于是握手前鉴权，所以必须保证checkStartWith为true
+                    ch.pipeline().addLast(new WebSocketServerProtocolHandler("/im", true));
 
                     // Protocol Buffers 长度属性编码器
-//                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
-                    // 协议包解码
-
-
+                    ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
                     // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
                     ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
 
@@ -105,6 +112,8 @@ public class ChatServer {
                                 // 文本消息
                                 TextWebSocketFrame textFrame = (TextWebSocketFrame)frame;
                                 log.info("MsgType is TextWebSocketFrame");
+                                ctx.writeAndFlush(new TextWebSocketFrame("不接受文本格式数据，连接断开"));
+                                ServerSession.closeSession(ctx);
                             } else if (frame instanceof BinaryWebSocketFrame) {
                                 // 二进制消息
                                 ByteBuf buf = ((BinaryWebSocketFrame) frame).content();
@@ -125,15 +134,33 @@ public class ChatServer {
                     });
                     // Protocol Buffer解码器
                     ch.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Message.getDefaultInstance()));
+
+                    // Protocol Buffer编码器
+                    ch.pipeline().addLast(new MessageToMessageEncoder<MessageLiteOrBuilder>() {
+                        @Override
+                        protected void encode(ChannelHandlerContext ctx, MessageLiteOrBuilder msg, List<Object> out) throws Exception {
+                            ByteBuf result = null;
+                            if (msg instanceof MessageLite) {
+                                // 没有build的Protobuf消息
+                                result = wrappedBuffer(((MessageLite) msg).toByteArray());
+                            }
+                            if (msg instanceof MessageLite.Builder) {
+                                // 经过build的Protobuf消息
+                                result = wrappedBuffer(((MessageLite.Builder) msg).build().toByteArray());
+                            }
+
+                            // 将Protbuf消息包装成Binary Frame 消息
+                            WebSocketFrame frame = new BinaryWebSocketFrame(result);
+                            out.add(frame);
+                        }
+                    });
                     // Protocol Buffer编码器
 //                    ch.pipeline().addLast(new ProtobufEncoder());
 //                    // WebSocket心跳检测
 ////                    ch.pipeline().addLast(new HeartBeatServerHandler());
-                    // 在流水线中添加handler来处理登录,登录后删除
-                    ch.pipeline().addLast("login",loginRequestHandler);
 ////                    ch.pipeline().addLast(chatRedirectHandler);
 //                    // 删除Session
-                    ch.pipeline().addLast(serverExceptionHandler);
+                    ch.pipeline().addLast("serverExceptionHandler",serverExceptionHandler);
                 }
             });
             ChannelFuture channelFuture = bg.bind().sync();
@@ -141,6 +168,13 @@ public class ChatServer {
                 @Override
                 public void operationComplete(ChannelFuture channelFuture) throws Exception {
                     log.info("服务端连接成功");
+                    NettyAllocatorMetrics nettyAllocatorMetrics;
+                    nettyAllocatorMetrics = new NettyAllocatorMetrics(PooledByteBufAllocator.DEFAULT);
+                    nettyAllocatorMetrics.bindTo(meterRegistry);
+                    NettyEventExecutorMetrics nettyEventExecutorMetrics = new NettyEventExecutorMetrics(work);
+                    nettyEventExecutorMetrics.bindTo(meterRegistry);
+//                    System.out.println(meterRegistry.getMeters());
+//                    List<Meter> meters = meterRegistry.getMeters();
                 }
             });
             // 7 监听通道关闭事件

@@ -1,6 +1,6 @@
 server:
   port: 8081
-  websocket-port: 9090
+  websocket-port: 9091
   servlet:
     context-path: "/api/v1"
 
@@ -26,3 +26,17 @@ spring:
 
 friendship:
   friend_limit: 200 #限制好友数量
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: configprops
+  endpoint:
+    health:
+      show-details: ALWAYS
+  metrics:
+    tags:
+      application: ${server.servlet.context-path}

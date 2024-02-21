@@ -69,8 +69,13 @@ public final class SessionMap {
         }
         ServerSession s = map.get(sessionId);
         map.remove(sessionId);
-        log.info("用户下线:id= " + s.getUser().getId()
-                + "   在线总数: " + map.size());
+        if (s.getUser()!=null) {
+            log.info("用户下线:id= " + s.getUser().getId()
+                    + "   在线总数: " + map.size());
+        }else {
+            log.info("登录失败！！！ "+ "   在线总数: " + map.size());
+        }
+
     }
 
 

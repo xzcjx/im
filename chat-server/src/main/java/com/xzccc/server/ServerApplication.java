@@ -1,6 +1,7 @@
 package com.xzccc.server;
 
 
+import com.xzccc.concurrent.CallbackTaskScheduler;
 import com.xzccc.netty_server.server.ChatServer;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
@@ -39,6 +40,11 @@ public class ServerApplication {
 
     //启动聊天服务器
     private static void startChatServer(ApplicationContext context) {
+        // 监控线程池的bean
+        CallbackTaskScheduler callbackTaskScheduler = context.getBean(CallbackTaskScheduler.class);
+        callbackTaskScheduler.run();
+
+        // netty-server的bean
         ChatServer nettyServer = context.getBean(ChatServer.class);
         nettyServer.run();
     }

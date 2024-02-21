@@ -39,7 +39,7 @@ public class ServerSession {
     public static void closeSession(ChannelHandlerContext ctx) {
         Channel channel = ctx.channel();
         ServerSession session = channel.attr(ServerSession.SESSION_KEY).get();
-        if (session != null && session.isValid()) {
+        if (session != null) {
             session.close();
             SessionMap.inst().removeSession(session.getSessionId());
         }
@@ -64,9 +64,6 @@ public class ServerSession {
         return sessionId;
     }
 
-    private boolean isValid() {
-        return getUser() != null ? true : false;
-    }
 
     //写Protobuf数据帧
     public synchronized void writeAndFlush(Object pkg) {

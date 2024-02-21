@@ -1,6 +1,6 @@
 server:
   port: 8082
-  websocket-port: 9090
+  websocket-port: 9091
   servlet:
     context-path: "/api/v1"
 

@@ -1,5 +1,6 @@
 package com.xzccc.netty.model;
 
+import com.xzccc.model.Redis.TokenUser;
 import com.xzccc.netty.model.msg.ProtoMsg;
 import io.netty.channel.Channel;
 import lombok.Data;
@@ -14,9 +15,7 @@ public class User {
     private String ip;
     private int port;
 
-    public static User fromMsg(ProtoMsg.LoginRequest msg, Channel ctx){
-        long userId = msg.getUserId();
-        String token = msg.getToken();
+    public static User fromMsg(long userId,String token, Channel ctx){
         User user = new User();
         user.setId(userId);
         user.setToken(token);

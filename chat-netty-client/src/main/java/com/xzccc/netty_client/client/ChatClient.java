@@ -55,7 +55,7 @@ public class ChatClient {
 
     public void run() throws URISyntaxException {
 
-        final URI webSocketURL = new URI("ws://127.0.0.1:" + port + "/im");
+        final URI webSocketURL = new URI("ws://127.0.0.1:" + port + "/im?token=9be5ccdd-edc8-43f8-aaad-36ee20f34dd2");
 
         Bootstrap bg = new Bootstrap();
 
@@ -98,8 +98,7 @@ public class ChatClient {
 //                    });
                     // protobuf 解码器
                     ch.pipeline().addLast(new ProtobufDecoder(ProtoMsg.Message.getDefaultInstance()));
-                    // protobuf 编码器
-//                    ch.pipeline().addLast(new ProtobufEncoder());
+
 
                     // 协议包编码
                     ch.pipeline().addLast(new MessageToMessageEncoder<MessageLiteOrBuilder>() {
@@ -120,6 +119,9 @@ public class ChatClient {
                             out.add(frame);
                         }
                     });
+
+                    // protobuf 编码器
+//                    ch.pipeline().addLast(new ProtobufEncoder());
 
                     ch.pipeline().addLast(new SimpleChannelInboundHandler<TextWebSocketFrame>() {
 
