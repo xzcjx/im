@@ -18,7 +18,8 @@ public enum ErrorCode {
     FRIENDEXISTS(40001, "已经是好友，请勿重复添加", ""),
     FRIENDNOTEXISTS(40301, "好友关系不存在", ""),
     FRIENDLIMIT(40001, "超过好友限制个数", ""),
-    SESSIONEXISTS(40001, "会话已经存在", "");
+    SESSIONEXISTS(40001, "会话已经存在", ""),
+    WxCallError(50001, "微信回调参数异常！", "");
 
     private final int code;
 

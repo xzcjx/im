@@ -43,3 +43,16 @@ management:
   metrics:
     tags:
       application: ${server.servlet.context-path}
+
+config:
+  originalid: gh_5173f25488b7
+  appid: wxe3c28f9365bbf6cb
+  token: xzccc
+  access-token-url: https://api.weixin.qq.com/cgi-bin/token
+  gzh-qrcode-create-url: https://api.weixin.qq.com/cgi-bin/qrcode/create
+  gzh-qrcode-url: https://mp.weixin.qq.com/cgi-bin/showqrcode
+
+
+app:
+  config:
+    api-version: v1
