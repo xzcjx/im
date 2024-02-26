@@ -48,27 +48,33 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
 
     @Override
     public BaseResponse login(HttpLoginRequest body) {
-        String phone = body.getPhone();
-        User user = userMapper.select_by_phone(phone);
-        if (user == null) {
-            throw new BusinessException(ErrorCode.USER_ERROR);
+        String account = body.getAccount();
+        String type = body.getType();
+        if("phone".equals(type)){
+            // 手机号登录模式
+        } else if ("account".equals(type)) {
+            // 账号登录模式
         }
-        if (hashUtils.DefaultVerify(body.getPassword(), user.getPassword_hash()) == true) {
-
-            String uuid32 = tokenUtils.getUUID32();
-            Long time = new Date().getTime();
-            Long exp = time + token_exp * 1000;
-            UserToken userToken = new UserToken(uuid32, exp);
-            TokenUser tokenUser = new TokenUser(user.getId(), exp);
-            String s_user_id = user.getId() + "";
-
-            redissonutils.lock(s_user_id);
-            redisUtils.setUserToken(s_user_id, userToken);
-            redisUtils.setTokenUser(uuid32, tokenUser);
-            redissonutils.unlock(s_user_id);
-
-            return new BaseResponse(200, new HttpLoginResponse(user.getId(), uuid32));
-        }
+//        User user = userMapper.select_by_phone(phone);
+//        if (user == null) {
+//            throw new BusinessException(ErrorCode.USER_ERROR);
+//        }
+//        if (hashUtils.DefaultVerify(body.getPassword(), user.getPassword_hash()) == true) {
+//
+//            String uuid32 = tokenUtils.getUUID32();
+//            Long time = new Date().getTime();
+//            Long exp = time + token_exp * 1000;
+//            UserToken userToken = new UserToken(uuid32, exp);
+//            TokenUser tokenUser = new TokenUser(user.getId(), exp);
+//            String s_user_id = user.getId() + "";
+//
+//            redissonutils.lock(s_user_id);
+//            redisUtils.setUserToken(s_user_id, userToken);
+//            redisUtils.setTokenUser(uuid32, tokenUser);
+//            redissonutils.unlock(s_user_id);
+//
+//            return new BaseResponse(200, new HttpLoginResponse(user.getId(), uuid32));
+//        }
         throw new BusinessException(ErrorCode.PASSWORD_ERROR);
     }
 

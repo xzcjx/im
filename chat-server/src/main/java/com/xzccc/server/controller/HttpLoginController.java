@@ -25,6 +25,5 @@ public class HttpLoginController {
     @PostMapping("/sign")
     public BaseResponse sign(HttpSignRequest body) {
         return httpLoginUserService.sign(body);
-
     }
 }
