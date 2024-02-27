@@ -7,4 +7,5 @@ public class RedisConstant {
 
     public static String UserStatus="user:status";
     public static String WxToken="auth:wx";
+    public static String AccessToken="auth:access_token";
 }

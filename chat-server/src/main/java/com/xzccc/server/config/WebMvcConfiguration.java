@@ -18,7 +18,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/swagger-ui.html/**")
                 .excludePathPatterns("/**/login")
-                .excludePathPatterns("/**/sign").order(1);
+                .excludePathPatterns("/**/sign")
+                .excludePathPatterns("/**/wx/**").order(1);
     }
 
     @Override

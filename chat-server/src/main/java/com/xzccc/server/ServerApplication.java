@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 //自动加载配置信息
 @Configuration
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan(basePackages = "com.xzccc.mapper")
 @SpringBootApplication(scanBasePackages = {"com.xzccc", "com.xzccc.netty_server", "com.xzccc.server"})
 @Slf4j
+@EnableScheduling
 //@EnableSwagger2
 //@EnableWebMvc
 public class ServerApplication {
@@ -32,7 +34,7 @@ public class ServerApplication {
                 SpringApplication.run(ServerApplication.class, args);
 
         //启动聊天服务器
-        startChatServer(context);
+//        startChatServer(context);
     }
 
     //启动 重复回显的服务器
