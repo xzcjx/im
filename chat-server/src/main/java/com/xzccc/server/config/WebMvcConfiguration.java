@@ -17,9 +17,10 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.addInterceptor(loginHandlerInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/swagger-ui.html/**")
-                .excludePathPatterns("/**/login")
-                .excludePathPatterns("/**/sign")
-                .excludePathPatterns("/**/wx/**").order(1);
+                .excludePathPatterns("/**/auth/**")
+//                .excludePathPatterns("/**/sign")
+//                .excludePathPatterns("/**/wx/**")
+                .order(1);
     }
 
     @Override

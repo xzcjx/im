@@ -34,7 +34,7 @@ public class ServerApplication {
                 SpringApplication.run(ServerApplication.class, args);
 
         //启动聊天服务器
-//        startChatServer(context);
+        startChatServer(context);
     }
 
     //启动 重复回显的服务器
@@ -48,7 +48,7 @@ public class ServerApplication {
 
         // netty-server的bean
         ChatServer nettyServer = context.getBean(ChatServer.class);
-        nettyServer.run();
+//        nettyServer.run();
     }
 
 

@@ -73,6 +73,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         return redisTemplate.opsForValue();
     }
 
+
     /**
      * 对链表类型的数据操作
      *

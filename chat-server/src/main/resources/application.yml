@@ -22,10 +22,23 @@ spring:
     redisson_database: 5
     host: 127.0.0.1
     port: 6379
+    #    password: "@Wsnidcl1"
   liquibase:
     change-log: classpath:liquibase/master.yml
     enabled: true
-#    password: "@Wsnidcl1"
+  mail:
+    host: smtp.gmail.com
+    username: xzccc704@gmail.com
+    password: "seqxrwgsbdvdwrvi"
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.port: 465
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+    exp: '#{60 * 3}'
 
 friendship:
   friend_limit: 200 #限制好友数量

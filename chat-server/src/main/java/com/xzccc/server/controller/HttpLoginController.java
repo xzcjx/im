@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.regex.Pattern;
+
 @RequestMapping("/auth")
 @RestController
 @Slf4j
@@ -28,6 +30,9 @@ public class HttpLoginController {
         return httpLoginUserService.sign(body);
     }
 
-
-
+    @GetMapping("/email/code")
+    public BaseResponse email_code(String email){
+        httpLoginUserService.email_code(email);
+        return new BaseResponse(true);
+    }
 }

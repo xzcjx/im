@@ -10,4 +10,6 @@ public interface HttpLoginUserService {
     BaseResponse login(HttpLoginRequest body);
 
     BaseResponse sign(HttpSignRequest body);
+
+    void email_code(String email);
 }
