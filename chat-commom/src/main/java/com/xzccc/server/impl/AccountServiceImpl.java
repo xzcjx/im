@@ -68,7 +68,7 @@ public class AccountServiceImpl implements AccountService {
     public void add_friend(Long userId, Long friendId, String ps) {
         Long count = friendShipMapper.count_by_userId(userId);
         if (count >= friendLimit) {
-            throw new BusinessException(ErrorCode.FRIENDLIMIT);
+            throw new BusinessException(ErrorCode.FRIEND_LIMIT);
         }
         FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
         if (friendShip != null) {
@@ -76,7 +76,7 @@ public class AccountServiceImpl implements AccountService {
                 friendShipMapper.update_status(userId, friendId, ImRelationshipStatus.AGREE);
                 return;
             }
-            throw new BusinessException(ErrorCode.FRIENDEXISTS);
+            throw new BusinessException(ErrorCode.FRIEND_EXISTS);
         }
         friendShipMapper.insert(userId, friendId, ImRelationshipStatus.SPONSOR, ps);
         friendShipMapper.insert(friendId, userId, ImRelationshipStatus.UNREAD, ps);
@@ -103,7 +103,7 @@ public class AccountServiceImpl implements AccountService {
     public void delete_friend(Long userId, Long friendId) {
         FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
         if (friendShip == null) {
-            throw new BusinessException(ErrorCode.FRIENDNOTEXISTS);
+            throw new BusinessException(ErrorCode.FRIEND_NOT_EXISTS);
         }
         friendShipMapper.delete(userId, friendId, new Date());
     }
@@ -118,7 +118,7 @@ public class AccountServiceImpl implements AccountService {
         if (agree) {
             Long count = friendShipMapper.count_by_userId(userId);
             if (count >= friendLimit) {
-                throw new BusinessException(ErrorCode.FRIENDLIMIT);
+                throw new BusinessException(ErrorCode.FRIEND_LIMIT);
             }
             friendShipMapper.update_status(userId, friendId, ImRelationshipStatus.AGREE);
         } else {
@@ -142,7 +142,7 @@ public class AccountServiceImpl implements AccountService {
     public String create_session(Long userId, Long friendId) {
         FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
         if (friendShip == null) {
-            throw new BusinessException(ErrorCode.FRIENDNOTEXISTS);
+            throw new BusinessException(ErrorCode.FRIEND_NOT_EXISTS);
         }
         Session session = sessionMapper.select_session_by_user(userId, friendId);
         if (session != null) {

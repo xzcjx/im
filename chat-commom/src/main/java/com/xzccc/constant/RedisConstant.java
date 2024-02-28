@@ -9,4 +9,5 @@ public class RedisConstant {
     public static String WxToken="auth:wx";
 //    public static String AccessToken="auth:access_token";
     public static String EmailCode="auth:email_code";
+    public static String EmailLimit="limit:email";
 }

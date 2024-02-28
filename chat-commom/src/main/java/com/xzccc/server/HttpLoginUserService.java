@@ -9,7 +9,7 @@ public interface HttpLoginUserService {
 
     BaseResponse login(HttpLoginRequest body);
 
-    BaseResponse sign(HttpSignRequest body);
+    BaseResponse register(HttpSignRequest body);
 
     void email_code(String email);
 }

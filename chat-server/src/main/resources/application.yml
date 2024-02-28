@@ -27,9 +27,9 @@ spring:
     change-log: classpath:liquibase/master.yml
     enabled: true
   mail:
-    host: smtp.gmail.com
-    username: xzccc704@gmail.com
-    password: "seqxrwgsbdvdwrvi"
+    host: smtp.163.com
+    username: 15223124096@163.com
+    password: "KDHTFSSFWBHVTYQY"
     protocol: smtp
     properties:
       mail.smtp.auth: true
@@ -38,7 +38,8 @@ spring:
       mail.smtp.starttls.required: true
       mail.smtp.ssl.enable: true
     default-encoding: utf-8
-    exp: '#{60 * 3}'
+    exp: '#{60 * 5}'
+    port: 465
 
 friendship:
   friend_limit: 200 #限制好友数量
@@ -82,3 +83,7 @@ ok:
     max-idle-connections: 200
     # 连接空闲时间最多为 300 秒
     keep-alive-duration: 300
+
+limit:
+  email:
+    exp: '#{30}'

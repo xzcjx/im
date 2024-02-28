@@ -72,6 +72,8 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
     long mail_exp;
     @Autowired
     CallbackTaskScheduler callbackTaskScheduler;
+    @Value("${limit.email.exp}")
+    long limit_email_exp;
 
     @Override
     public BaseResponse login(HttpLoginRequest body) {
@@ -81,7 +83,8 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
             // 手机号登录模式
         } else if ("account".equals(type)) {
             // 账号登录模式
-        }
+        }else
+            throw new BusinessException(ErrorCode.LOGIN_TYPE_ERROR);
 //        User user = userMapper.select_by_phone(phone);
 //        if (user == null) {
 //            throw new BusinessException(ErrorCode.USER_ERROR);
@@ -107,22 +110,43 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
 
     @Transactional
     @Override
-    public BaseResponse sign(HttpSignRequest body) {
-        String username = body.getUsername();
-        String phone = body.getPhone();
-        String password = body.getPassword();
-
-        if (StringUtils.isBlank(username) || StringUtils.isBlank(phone) || StringUtils.isBlank(password)) {
+    public BaseResponse register(HttpSignRequest body) {
+        String email = body.getEmail();
+        if (StringUtils.isBlank(email) || !isValidEmail(email)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        User user = userMapper.select_by_phone(phone);
+        String code = body.getCode();
+        redissonutils.lock(email+"register");
+        ValueOperations<String, String> stringStringValueOperations = stringRedisTemplate.opsForValue();
+        String redis_code = stringStringValueOperations.get(RedisConstant.EmailCode + ":" + email);
+        if (redis_code != null) {
+            stringRedisTemplate.delete(RedisConstant.EmailCode + ":" + email);
+        }
+        redissonutils.unlock(email+"register");
+        if (redis_code == null || !code.equals(redis_code)) {
+            throw new BusinessException(ErrorCode.EMAIL_CODE_ERROR);
+        }
+
+        String account = body.getAccount();
+        String username = body.getUsername();
+        String password = body.getPassword();
+        if (StringUtils.isBlank(username) || StringUtils.isBlank(account) || StringUtils.isBlank(password)
+                || username.length() > 20 || account.length() < 3 || account.length() > 20
+                || password.length() < 6 || password.length() > 20) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User user = userMapper.select_by_email(email);
         if (user != null) {
-            throw new BusinessException(ErrorCode.USERNAME_ERROR);
+            throw new BusinessException(ErrorCode.EMAIL_EXISTS);
+        }
+        user = userMapper.select_by_account(account);
+        if (user != null) {
+            throw new BusinessException(ErrorCode.ACCOUNT_EXISTS);
         }
         user = new User();
-
         user.setPassword_hash(hashUtils.DefaultHash(password));
-        user.setPhone(phone);
+        user.setEmail(email);
+        user.setAccount(account);
         user.setUsername(username);
         try {
             userMapper.insert(user);
@@ -136,6 +160,14 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
     @Override
     public void email_code(String email) {
         if (isValidEmail(email)) {
+            redissonutils.lock(email+"email_code");
+            ValueOperations<String, String> stringStringValueOperations = stringRedisTemplate.opsForValue();
+            Boolean b = stringStringValueOperations.setIfAbsent(RedisConstant.EmailLimit + ":" + email, "1", limit_email_exp, TimeUnit.SECONDS);
+            if (b == false) {
+                throw new BusinessException(ErrorCode.EMAIL_LIMIT_ERROR);
+            }
+            redissonutils.unlock(email+"email_code");
+
             callbackTaskScheduler.add(new CallbackTask<Boolean>() {
                 @Override
                 public Boolean execute() throws Exception {
@@ -177,7 +209,7 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
         String code = generateCode();
         stringRedisTemplate.opsForValue().set(RedisConstant.EmailCode + ":" + email, code, mail_exp, TimeUnit.SECONDS);
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-//        simpleMailMessage.setFrom(from);
+        simpleMailMessage.setFrom(from);
         simpleMailMessage.setTo(email);
         simpleMailMessage.setSubject("im邮箱验证码");
         simpleMailMessage.setText(code);

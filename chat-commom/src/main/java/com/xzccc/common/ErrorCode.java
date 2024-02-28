@@ -6,7 +6,9 @@ public enum ErrorCode {
 
     SUCCESS(0, "ok", ""),
     PARAMS_ERROR(40000, "请求参数错误", ""),
-    USERNAME_ERROR(40000, "账号重复", ""),
+    EMAIL_EXISTS(40000, "邮箱已注册", ""),
+    ACCOUNT_EXISTS(40000, "账号重复", ""),
+    LOGIN_TYPE_ERROR(40000, "登录模式错误", ""),
     USER_ERROR(40000, "账号不存在", ""),
     PASSWORD_ERROR(40000, "账号不存在", ""),
     NULL_ERROR(40001, "请求数据为空", ""),
@@ -15,11 +17,13 @@ public enum ErrorCode {
     EXP_AUTH(40101, "token过期", ""),
     FORBIDDEN(40301, "禁止操作", ""),
     SYSTEM_ERROR(50000, "系统内部异常", ""),
-    FRIENDEXISTS(40001, "已经是好友，请勿重复添加", ""),
-    FRIENDNOTEXISTS(40301, "好友关系不存在", ""),
-    FRIENDLIMIT(40001, "超过好友限制个数", ""),
-    SESSIONEXISTS(40001, "会话已经存在", ""),
-    WxCallError(50001, "微信回调参数异常！", "");
+    FRIEND_EXISTS(40001, "已经是好友，请勿重复添加", ""),
+    FRIEND_NOT_EXISTS(40301, "好友关系不存在", ""),
+    FRIEND_LIMIT(40001, "超过好友限制个数", ""),
+    SESSION_EXISTS(40001, "会话已经存在", ""),
+    WX_CALL_ERROR(50001, "微信回调参数异常！", ""),
+    EMAIL_LIMIT_ERROR(40000, "邮箱发送次数过多，请稍后重试！", ""),
+    EMAIL_CODE_ERROR(40000, "验证码错误", "");
 
     private final int code;
 

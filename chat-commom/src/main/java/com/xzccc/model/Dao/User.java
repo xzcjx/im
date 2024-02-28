@@ -7,9 +7,10 @@ import java.util.Date;
 @Data
 public class User {
     private long id;
-    private String phone;
+    private String email;
+    private String account;
     private String username;
     private String password_hash;
-    private int role;
+    private int status=1;
     private Date create_at;
 }

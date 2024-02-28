@@ -25,9 +25,9 @@ public class HttpLoginController {
         return httpLoginUserService.login(body);
     }
 
-    @PostMapping("/sign")
-    public BaseResponse sign(HttpSignRequest body) {
-        return httpLoginUserService.sign(body);
+    @PostMapping("/register")
+    public BaseResponse register(HttpSignRequest body) {
+        return httpLoginUserService.register(body);
     }
 
     @GetMapping("/email/code")
