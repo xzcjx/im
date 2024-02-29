@@ -11,4 +11,4 @@ CREATE TABLE `im_user`
     PRIMARY KEY (`id`) USING BTREE,
     UNIQUE INDEX `unique_phone_del`(`email`, `delete_time`) USING BTREE,
     UNIQUE INDEX `unique_account_del`(`account`, `delete_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
