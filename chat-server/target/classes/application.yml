@@ -1,7 +1,7 @@
 server:
   port: 8081
   websocket-port: 9091
-  servlet:
+#  servlet:
 #    context-path: "/api/v1"
 
 hash:
@@ -57,16 +57,16 @@ management:
   metrics:
     tags:
       application: ${server.servlet.context-path}
-wx:
-  config:
-    originalid: gh_5173f25488b7
-    appid: wxe3c28f9365bbf6cb
-    appSecret: a1a6bf5a407d655bc2b8ed0c3e87474c
-    token: xzccc
-    qrCodeUrl: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN                                     #获取二维码
-    accessTokenUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET       #基础接口的token
-    openIdUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET      #获取openId
-    userInfoUrl: https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
+#wx:
+#  config:
+#    originalid: gh_5173f25488b7
+#    appid: wxe3c28f9365bbf6cb
+#    appSecret: a1a6bf5a407d655bc2b8ed0c3e87474c
+#    token: xzccc
+#    qrCodeUrl: https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TOKEN                                     #获取二维码
+#    accessTokenUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET       #基础接口的token
+#    openIdUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET      #获取openId
+#    userInfoUrl: https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
 
 
 
@@ -74,15 +74,15 @@ app:
   config:
     api-version: v1
 
-ok:
-  http:
-    connect-timeout: 60
-    read-timeout: 60
-    write-timeout: 60
-    # 连接池中整体的空闲连接的最大数量
-    max-idle-connections: 200
-    # 连接空闲时间最多为 300 秒
-    keep-alive-duration: 300
+#ok:
+#  http:
+#    connect-timeout: 60
+#    read-timeout: 60
+#    write-timeout: 60
+#    # 连接池中整体的空闲连接的最大数量
+#    max-idle-connections: 200
+#    # 连接空闲时间最多为 300 秒
+#    keep-alive-duration: 300
 
 limit:
   email:

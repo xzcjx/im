@@ -5490,3 +5490,127 @@ com.xzccc.exception.BusinessException: Ë¥¶Âè∑‰∏çÂ≠òÂú®
 2024-02-29 13:47:35.364 [http-nio-8081-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: Ë¥¶Âè∑‰∏çÂ≠òÂú®]
 2024-02-29 13:57:01.957 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
 2024-02-29 13:57:01.970 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 14:13:00.942 [main] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 90616 (C:\Users\mindrank\Desktop\œÓƒø_∫Û∂À\my-im\chat-server\target\chat-server-1.0-SNAPSHOT.jar started by mindrank in C:\Users\mindrank\Desktop\œÓƒø_∫Û∂À\my-im)
+2024-02-29 14:13:00.949 [main] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 14:13:02.993 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 14:13:02.998 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 14:13:03.030 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2024-02-29 14:13:04.248 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'servletWebServerFactoryCustomizer' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryAutoConfiguration.class]: Unsatisfied dependency expressed through method 'servletWebServerFactoryCustomizer' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'server-org.springframework.boot.autoconfigure.web.ServerProperties': Could not bind properties to 'ServerProperties' : prefix=server, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'server.servlet' to org.springframework.boot.autoconfigure.web.ServerProperties$Servlet
+2024-02-29 14:13:04.266 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-29 14:13:04.287 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'server.servlet' to org.springframework.boot.autoconfigure.web.ServerProperties$Servlet:
+
+    Reason: org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [org.springframework.boot.autoconfigure.web.ServerProperties$Servlet]
+
+Action:
+
+Update your application's configuration
+
+2024-02-29 14:16:15.634 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 81424 (C:\Users\mindrank\Desktop\È°πÁõÆ_ÂêéÁ´Ø\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\È°πÁõÆ_ÂêéÁ´Ø\my-im)
+2024-02-29 14:16:15.659 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 14:16:15.770 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 14:16:15.771 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 14:16:17.958 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 14:16:17.962 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 14:16:17.997 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2024-02-29 14:16:19.016 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 14:16:19.031 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 14:16:19.032 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 14:16:19.033 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 14:16:19.169 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 14:16:19.169 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3397 ms
+2024-02-29 14:16:20.826 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 14:16:20.956 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 14:16:21.344 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 14:16:21.933 [redisson-netty-4-23] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 14:16:21.958 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 14:16:27.925 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 14:16:32.628 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 14:16:35.359 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 14:16:35.595 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 14:16:35.638 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 14:16:35.640 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 14:16:35.640 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 14:16:35.641 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 14:16:35.642 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 14:16:35.643 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 14:16:35.644 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 14:16:35.803 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 14:16:35.806 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 14:16:37.685 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 14:16:41.406 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 14:16:41.444 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 14:16:43.021 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 28.369 seconds (JVM running for 30.933)
+2024-02-29 14:16:43.428 [RMI TCP Connection(1)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 14:16:43.429 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 14:16:43.475 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 45 ms
+2024-02-29 14:17:02.869 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 14:17:02.891 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 14:18:02.228 [main] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 52668 (C:\Users\mindrank\Desktop\œÓƒø_∫Û∂À\my-im\chat-server\target\chat-server-1.0-SNAPSHOT.jar started by mindrank in C:\Users\mindrank\Desktop\œÓƒø_∫Û∂À\my-im)
+2024-02-29 14:18:02.235 [main] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 14:18:04.831 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 14:18:04.837 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 14:18:04.872 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-02-29 14:18:06.191 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'servletWebServerFactoryCustomizer' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryAutoConfiguration.class]: Unsatisfied dependency expressed through method 'servletWebServerFactoryCustomizer' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'server-org.springframework.boot.autoconfigure.web.ServerProperties': Could not bind properties to 'ServerProperties' : prefix=server, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'server.servlet' to org.springframework.boot.autoconfigure.web.ServerProperties$Servlet
+2024-02-29 14:18:06.214 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-02-29 14:18:06.238 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'server.servlet' to org.springframework.boot.autoconfigure.web.ServerProperties$Servlet:
+
+    Reason: org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [org.springframework.boot.autoconfigure.web.ServerProperties$Servlet]
+
+Action:
+
+Update your application's configuration
+
+2024-02-29 14:19:37.299 [main] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 90840 (C:\Users\mindrank\Desktop\œÓƒø_∫Û∂À\my-im\chat-server\target\chat-server-1.0-SNAPSHOT.jar started by mindrank in C:\Users\mindrank\Desktop\œÓƒø_∫Û∂À\my-im)
+2024-02-29 14:19:37.310 [main] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 14:19:39.223 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 14:19:39.228 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 14:19:39.259 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-02-29 14:19:41.375 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 14:19:41.395 [main] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 14:19:41.396 [main] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 14:19:41.396 [main] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 14:19:41.510 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 14:19:41.511 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 4113 ms
+2024-02-29 14:19:43.343 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 14:19:43.595 [main] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 14:19:44.119 [main] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 14:19:44.804 [redisson-netty-4-13] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 14:19:44.835 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 14:19:45.935 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 14:19:46.630 [main] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 14:19:47.082 [main] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 14:19:47.114 [main] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 14:19:47.121 [main] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 14:19:47.122 [main] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 14:19:47.122 [main] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 14:19:47.122 [main] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 14:19:47.122 [main] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 14:19:47.123 [main] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 14:19:47.123 [main] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 14:19:47.150 [main] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 14:19:47.151 [main] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 14:19:47.892 [main] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 14:19:47.906 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 14:19:48.318 [main] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 11.502 seconds (JVM running for 12.186)
+2024-02-29 14:20:08.242 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 14:20:08.254 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
