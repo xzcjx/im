@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/api/${app.config.api-version}/account")
 @Api(tags = {"涉及用户相关的api"})
 public class AccountController {
     @Autowired

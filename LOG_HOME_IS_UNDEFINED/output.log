@@ -4531,3 +4531,962 @@ Consider defining a bean of type 'com.xzccc.server.HttpLoginUserService' in your
 2024-02-28 21:52:42.114 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
 2024-02-28 22:04:39.223 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-5} closing ...
 2024-02-28 22:04:39.224 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-5} closed
+2024-02-29 11:30:57.205 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 15680 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 11:30:57.229 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 11:30:57.340 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 11:30:57.341 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 11:31:03.666 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 11:31:03.672 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 11:31:03.728 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2024-02-29 11:31:05.760 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 11:31:05.791 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 11:31:05.793 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 11:31:05.794 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 11:31:06.112 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/api/v1]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 11:31:06.113 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 8771 ms
+2024-02-29 11:31:08.671 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 11:31:08.859 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 11:31:09.442 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 11:31:10.355 [redisson-netty-4-16] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 11:31:10.388 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 11:31:22.033 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 11:31:27.430 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 11:31:30.645 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 11:31:30.957 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 11:31:30.996 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 11:31:30.997 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 11:31:30.998 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 11:31:30.999 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 11:31:31.000 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 11:31:31.002 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 11:31:31.004 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 11:31:31.165 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 11:31:31.169 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 11:31:33.209 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 11:31:37.351 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 11:31:37.395 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path '/api/v1'
+2024-02-29 11:31:39.385 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 43.061 seconds (JVM running for 47.502)
+2024-02-29 11:31:40.040 [RMI TCP Connection(1)-192.168.120.60] INFO  o.a.c.c.C.[Tomcat].[localhost].[/api/v1]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 11:31:40.041 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 11:31:40.100 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 58 ms
+2024-02-29 11:31:43.949 [boundedElastic-1] WARN  o.s.b.actuate.redis.RedisReactiveHealthIndicator:89 - Redis health check failed
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1671)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1579)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1365)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1348)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1099)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:511)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:103)
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:85)
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:227)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:330)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:216)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1577)
+	... 16 common frames omitted
+Caused by: java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.add(ApplicationShutdownHooks.java:66)
+	at java.lang.Runtime.addShutdownHook(Runtime.java:211)
+	at io.lettuce.core.metrics.DefaultCommandLatencyCollector$DefaultPauseDetectorWrapper.retain(DefaultCommandLatencyCollector.java:419)
+	at io.lettuce.core.metrics.DefaultCommandLatencyCollector.recordCommandLatency(DefaultCommandLatencyCollector.java:105)
+	at io.lettuce.core.protocol.CommandHandler.recordLatency(CommandHandler.java:914)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:770)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:658)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:598)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:995)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 common frames omitted
+2024-02-29 11:31:44.528 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 11:31:44.539 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 11:31:56.420 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 47412 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 11:31:56.427 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 11:31:56.545 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 11:31:56.546 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 11:31:58.432 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 11:31:58.435 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 11:31:58.473 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2024-02-29 11:31:59.433 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 11:31:59.446 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 11:31:59.447 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 11:31:59.447 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 11:31:59.562 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 11:31:59.563 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3015 ms
+2024-02-29 11:32:00.964 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 11:32:01.090 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 11:32:01.459 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 11:32:02.095 [redisson-netty-4-19] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 11:32:02.119 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 11:32:11.375 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 11:32:16.550 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 11:32:19.273 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 11:32:19.604 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 11:32:19.647 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 11:32:19.648 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 11:32:19.649 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 11:32:19.649 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 11:32:19.650 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 11:32:19.651 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 11:32:19.653 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 11:32:19.819 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 11:32:19.822 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 11:32:21.608 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 11:32:25.274 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 11:32:25.312 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 11:32:26.808 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 31.206 seconds (JVM running for 37.791)
+2024-02-29 11:32:27.556 [RMI TCP Connection(1)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 11:32:27.558 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 11:32:27.599 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 40 ms
+2024-02-29 11:34:36.087 [http-nio-8081-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.xzccc.exception.BusinessException: 无权限] with root cause
+com.xzccc.exception.BusinessException: 无权限
+	at com.xzccc.server.interceptor.LoginHandlerInterceptor.preHandle(LoginHandlerInterceptor.java:32)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 11:34:36.128 [http-nio-8081-exec-1] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 无权限
+com.xzccc.exception.BusinessException: 无权限
+	at com.xzccc.server.interceptor.LoginHandlerInterceptor.preHandle(LoginHandlerInterceptor.java:32)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:711)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:385)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:313)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:403)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:249)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:344)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 11:34:36.150 [http-nio-8081-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 无权限]
+2024-02-29 11:34:36.172 [http-nio-8081-exec-3] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.xzccc.exception.BusinessException: 无权限] with root cause
+com.xzccc.exception.BusinessException: 无权限
+	at com.xzccc.server.interceptor.LoginHandlerInterceptor.preHandle(LoginHandlerInterceptor.java:32)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 11:34:36.184 [http-nio-8081-exec-3] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 无权限
+com.xzccc.exception.BusinessException: 无权限
+	at com.xzccc.server.interceptor.LoginHandlerInterceptor.preHandle(LoginHandlerInterceptor.java:32)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:711)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:385)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:313)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:403)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:249)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:344)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 11:34:36.191 [http-nio-8081-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 无权限]
+2024-02-29 11:39:43.792 [apppool-1-mixed-2] INFO  com.xzccc.server.impl.HttpLoginUserServiceImpl:181 - 邮箱发送成功:1986243742@qq.com
+2024-02-29 11:40:15.224 [http-nio-8081-exec-4] ERROR com.alibaba.druid.pool.DruidAbstractDataSource:1488 - discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/im?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/im?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 475321
+2024-02-29 12:45:16.918 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 12:45:16.922 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 12:45:41.637 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 85420 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 12:45:41.654 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 12:45:41.751 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 12:45:41.752 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 12:45:43.638 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 12:45:43.641 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 12:45:43.676 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2024-02-29 12:45:44.591 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 12:45:44.604 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 12:45:44.605 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 12:45:44.605 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 12:45:44.732 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 12:45:44.732 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 2979 ms
+2024-02-29 12:45:46.127 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 12:45:46.257 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 12:45:46.688 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 12:45:47.561 [redisson-netty-4-23] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 12:45:47.591 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 12:45:57.359 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 12:46:02.106 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 12:46:04.514 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 12:46:04.695 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 12:46:04.726 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 12:46:04.727 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 12:46:04.728 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 12:46:04.728 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 12:46:04.729 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 12:46:04.729 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 12:46:04.730 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 12:46:04.864 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 12:46:04.866 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 12:46:06.490 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 12:46:10.069 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 12:46:10.105 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 12:46:11.667 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 30.742 seconds (JVM running for 34.52)
+2024-02-29 12:46:12.638 [RMI TCP Connection(3)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 12:46:12.639 [RMI TCP Connection(3)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 12:46:12.681 [RMI TCP Connection(3)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 42 ms
+2024-02-29 13:29:30.014 [http-nio-8081-exec-1] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 密码错误
+com.xzccc.exception.BusinessException: 密码错误
+	at com.xzccc.loginStrategy.EmailLogin.verify(EmailLogin.java:26)
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.login(AbstractLoginTemplate.java:59)
+	at com.xzccc.loginStrategy.LoginStrategy.login(LoginStrategy.java:16)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl.login(HttpLoginUserServiceImpl.java:88)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$FastClassBySpringCGLIB$$1222d106.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$EnhancerBySpringCGLIB$$5fbf0f60.login(<generated>)
+	at com.xzccc.server.controller.HttpLoginController.login(HttpLoginController.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 13:29:30.109 [http-nio-8081-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 密码错误]
+2024-02-29 13:30:51.275 [http-nio-8081-exec-2] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 密码错误
+com.xzccc.exception.BusinessException: 密码错误
+	at com.xzccc.loginStrategy.EmailLogin.verify(EmailLogin.java:26)
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.login(AbstractLoginTemplate.java:59)
+	at com.xzccc.loginStrategy.LoginStrategy.login(LoginStrategy.java:16)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl.login(HttpLoginUserServiceImpl.java:88)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$FastClassBySpringCGLIB$$1222d106.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$EnhancerBySpringCGLIB$$5fbf0f60.login(<generated>)
+	at com.xzccc.server.controller.HttpLoginController.login(HttpLoginController.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 13:30:51.281 [http-nio-8081-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 密码错误]
+2024-02-29 13:30:51.685 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 13:30:51.690 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 13:31:13.735 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 64356 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 13:31:13.746 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 13:31:13.872 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 13:31:13.873 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 13:31:16.105 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 13:31:16.108 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 13:31:16.144 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2024-02-29 13:31:17.105 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 13:31:17.120 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:31:17.121 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 13:31:17.121 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 13:31:17.273 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 13:31:17.274 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3400 ms
+2024-02-29 13:31:18.805 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 13:31:18.955 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 13:31:19.386 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 13:31:20.001 [redisson-netty-4-21] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:31:20.027 [redisson-netty-4-17] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:31:30.045 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 13:31:34.934 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 13:31:37.738 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:31:37.961 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:31:38.001 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 13:31:38.003 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 13:31:38.004 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 13:31:38.005 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 13:31:38.006 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 13:31:38.006 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 13:31:38.007 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 13:31:38.156 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 13:31:38.159 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 13:31:40.350 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 13:31:43.941 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:31:43.980 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 13:31:45.593 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 32.885 seconds (JVM running for 36.048)
+2024-02-29 13:31:46.835 [RMI TCP Connection(5)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 13:31:46.837 [RMI TCP Connection(5)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 13:31:46.879 [RMI TCP Connection(5)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 41 ms
+2024-02-29 13:32:03.596 [http-nio-8081-exec-1] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 密码错误
+com.xzccc.exception.BusinessException: 密码错误
+	at com.xzccc.loginStrategy.EmailLogin.verify(EmailLogin.java:26)
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.login(AbstractLoginTemplate.java:59)
+	at com.xzccc.loginStrategy.LoginStrategy.login(LoginStrategy.java:16)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl.login(HttpLoginUserServiceImpl.java:82)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$FastClassBySpringCGLIB$$1222d106.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$EnhancerBySpringCGLIB$$e1ba60cd.login(<generated>)
+	at com.xzccc.server.controller.HttpLoginController.login(HttpLoginController.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 13:32:03.766 [http-nio-8081-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 密码错误]
+2024-02-29 13:34:30.861 [http-nio-8081-exec-2] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 密码错误
+com.xzccc.exception.BusinessException: 密码错误
+	at com.xzccc.loginStrategy.EmailLogin.verify(EmailLogin.java:26)
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.login(AbstractLoginTemplate.java:59)
+	at com.xzccc.loginStrategy.LoginStrategy.login(LoginStrategy.java:16)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl.login(HttpLoginUserServiceImpl.java:82)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$FastClassBySpringCGLIB$$1222d106.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$EnhancerBySpringCGLIB$$e1ba60cd.login(<generated>)
+	at com.xzccc.server.controller.HttpLoginController.login(HttpLoginController.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 13:34:31.224 [http-nio-8081-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 密码错误]
+2024-02-29 13:34:41.389 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 13:34:41.397 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 13:34:53.034 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 83652 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 13:34:53.059 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 13:34:53.165 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 13:34:53.166 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 13:34:55.294 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 13:34:55.297 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 13:34:55.332 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2024-02-29 13:34:56.293 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 13:34:56.306 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:34:56.307 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 13:34:56.307 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 13:34:56.446 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 13:34:56.446 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3279 ms
+2024-02-29 13:34:57.863 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 13:34:57.974 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 13:34:58.330 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 13:34:58.873 [redisson-netty-4-17] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:34:58.893 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:35:08.094 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 13:35:13.650 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 13:35:16.324 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:35:16.574 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:35:16.608 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 13:35:16.609 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 13:35:16.610 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 13:35:16.610 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 13:35:16.611 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 13:35:16.612 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 13:35:16.613 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 13:35:16.765 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 13:35:16.770 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 13:35:18.687 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 13:35:23.169 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:35:23.212 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 13:35:25.159 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 32.878 seconds (JVM running for 35.567)
+2024-02-29 13:35:26.469 [RMI TCP Connection(3)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 13:35:26.471 [RMI TCP Connection(3)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 13:35:26.529 [RMI TCP Connection(3)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 57 ms
+2024-02-29 13:37:41.587 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 13:37:41.593 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 13:37:48.113 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 11900 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 13:37:48.116 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 13:37:48.174 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 13:37:48.175 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 13:37:49.587 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 13:37:49.591 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 13:37:49.621 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2024-02-29 13:37:50.426 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 13:37:50.439 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:37:50.440 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 13:37:50.440 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 13:37:50.676 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 13:37:50.676 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 2500 ms
+2024-02-29 13:37:52.055 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 13:37:52.159 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 13:37:52.487 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 13:37:53.141 [redisson-netty-4-22] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:37:53.164 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:38:02.364 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 13:38:07.083 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 13:38:09.763 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:38:09.986 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:38:10.021 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 13:38:10.022 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 13:38:10.022 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 13:38:10.023 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 13:38:10.024 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 13:38:10.024 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 13:38:10.025 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 13:38:10.167 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 13:38:10.170 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 13:38:11.930 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 13:38:15.494 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:38:15.534 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 13:38:16.796 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 13:38:16.797 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 13:38:16.856 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 58 ms
+2024-02-29 13:38:17.308 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 29.611 seconds (JVM running for 31.112)
+2024-02-29 13:38:48.876 [http-nio-8081-exec-2] INFO  com.xzccc.server.impl.AccountServiceImpl:93 - 5 该账号已经登录，开始踢人下线
+2024-02-29 13:44:31.828 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 13:44:31.842 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 13:44:47.488 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 90120 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 13:44:47.507 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 13:44:47.592 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 13:44:47.592 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 13:44:50.681 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 13:44:50.687 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 13:44:50.735 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2024-02-29 13:44:51.776 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 13:44:51.788 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:44:51.789 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 13:44:51.790 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 13:44:51.919 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 13:44:51.919 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 4326 ms
+2024-02-29 13:44:53.454 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 13:44:53.596 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 13:44:54.036 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 13:44:54.634 [redisson-netty-4-19] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:44:54.658 [redisson-netty-4-15] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:45:04.178 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 13:45:09.371 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 13:45:12.456 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:45:12.648 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:45:12.687 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 13:45:12.688 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 13:45:12.689 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 13:45:12.690 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 13:45:12.691 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 13:45:12.692 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 13:45:12.693 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 13:45:12.831 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 13:45:12.834 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 13:45:14.669 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 13:45:18.249 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:45:18.286 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 13:45:19.886 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 33.155 seconds (JVM running for 35.789)
+2024-02-29 13:45:20.732 [RMI TCP Connection(1)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 13:45:20.733 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 13:45:20.796 [RMI TCP Connection(1)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 62 ms
+2024-02-29 13:46:18.118 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 13:46:18.131 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
+2024-02-29 13:46:32.844 [restartedMain] INFO  com.xzccc.server.ServerApplication:55 - Starting ServerApplication using Java 1.8.0_321 on LAPTOP-RGV4ES2A with PID 86436 (C:\Users\mindrank\Desktop\项目_后端\my-im\chat-server\target\classes started by mindrank in C:\Users\mindrank\Desktop\项目_后端\my-im)
+2024-02-29 13:46:32.861 [restartedMain] INFO  com.xzccc.server.ServerApplication:659 - No active profile set, falling back to default profiles: default
+2024-02-29 13:46:32.951 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-29 13:46:32.952 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor:255 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-29 13:46:35.148 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-02-29 13:46:35.153 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-02-29 13:46:35.190 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2024-02-29 13:46:36.238 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8081 (http)
+2024-02-29 13:46:36.250 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:46:36.251 [restartedMain] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2024-02-29 13:46:36.251 [restartedMain] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.54]
+2024-02-29 13:46:36.373 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2024-02-29 13:46:36.373 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 3420 ms
+2024-02-29 13:46:37.574 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure:56 - Init DruidDataSource
+2024-02-29 13:46:37.680 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource:985 - {dataSource-1} inited
+2024-02-29 13:46:37.983 [restartedMain] INFO  org.redisson.Version:41 - Redisson 3.16.1
+2024-02-29 13:46:38.461 [redisson-netty-4-13] INFO  o.r.connection.pool.MasterPubSubConnectionPool:166 - 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:46:38.480 [redisson-netty-4-19] INFO  org.redisson.connection.pool.MasterConnectionPool:166 - 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+2024-02-29 13:46:47.669 [restartedMain] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-02-29 13:46:52.607 [restartedMain] WARN  liquibase.util:37 - Failed to perform a method call for SnakeYaml because the version of SnakeYaml being used is too old. Consider upgrading to a SnakeYaml version equal to or newer than 1.32, by downloading and installing a newer version of Liquibase (which includes a newer version of SnakeYaml). Loading particularly large JSON and YAML documents (like snapshots) in Liquibase may fail if SnakeYaml is not upgraded.
+2024-02-29 13:46:55.229 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:46:55.440 [restartedMain] INFO  liquibase.changelog:37 - Reading from im.databasechangelog
+2024-02-29 13:46:55.473 [restartedMain] INFO  liquibase.util:37 - UPDATE SUMMARY
+2024-02-29 13:46:55.473 [restartedMain] INFO  liquibase.util:37 - Run:                          0
+2024-02-29 13:46:55.474 [restartedMain] INFO  liquibase.util:37 - Previously run:               1
+2024-02-29 13:46:55.475 [restartedMain] INFO  liquibase.util:37 - Filtered out:                 0
+2024-02-29 13:46:55.475 [restartedMain] INFO  liquibase.util:37 - -------------------------------
+2024-02-29 13:46:55.476 [restartedMain] INFO  liquibase.util:37 - Total change sets:            1
+2024-02-29 13:46:55.477 [restartedMain] INFO  liquibase.util:37 - Update summary generated
+2024-02-29 13:46:55.617 [restartedMain] INFO  liquibase.lockservice:37 - Successfully released change log lock
+2024-02-29 13:46:55.620 [restartedMain] INFO  liquibase.command:37 - Command execution complete
+2024-02-29 13:46:57.410 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer:58 - LiveReload server is running on port 35729
+2024-02-29 13:47:01.559 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8081"]
+2024-02-29 13:47:01.607 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-29 13:47:03.287 [restartedMain] INFO  com.xzccc.server.ServerApplication:61 - Started ServerApplication in 31.129 seconds (JVM running for 33.475)
+2024-02-29 13:47:04.183 [RMI TCP Connection(2)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-29 13:47:04.185 [RMI TCP Connection(2)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2024-02-29 13:47:04.254 [RMI TCP Connection(2)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 68 ms
+2024-02-29 13:47:08.686 [http-nio-8081-exec-1] INFO  com.xzccc.server.impl.AccountServiceImpl:93 - 5 该账号已经登录，开始踢人下线
+2024-02-29 13:47:26.047 [http-nio-8081-exec-2] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 密码错误
+com.xzccc.exception.BusinessException: 密码错误
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.verify(AbstractLoginTemplate.java:48)
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.login(AbstractLoginTemplate.java:77)
+	at com.xzccc.loginStrategy.LoginStrategy.login(LoginStrategy.java:21)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl.login(HttpLoginUserServiceImpl.java:82)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$FastClassBySpringCGLIB$$1222d106.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$EnhancerBySpringCGLIB$$c1f07d00.login(<generated>)
+	at com.xzccc.server.controller.HttpLoginController.login(HttpLoginController.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 13:47:26.056 [http-nio-8081-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 密码错误]
+2024-02-29 13:47:35.359 [http-nio-8081-exec-3] ERROR com.xzccc.exception.GlobalExceptionHandler:21 - businessException: 账号不存在
+com.xzccc.exception.BusinessException: 账号不存在
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.verify(AbstractLoginTemplate.java:44)
+	at com.xzccc.loginStrategy.AbstractLoginTemplate.login(AbstractLoginTemplate.java:77)
+	at com.xzccc.loginStrategy.LoginStrategy.login(LoginStrategy.java:21)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl.login(HttpLoginUserServiceImpl.java:82)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$FastClassBySpringCGLIB$$1222d106.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.xzccc.server.impl.HttpLoginUserServiceImpl$$EnhancerBySpringCGLIB$$c1f07d00.login(<generated>)
+	at com.xzccc.server.controller.HttpLoginController.login(HttpLoginController.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2024-02-29 13:47:35.364 [http-nio-8081-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver:208 - Resolved [com.xzccc.exception.BusinessException: 账号不存在]
+2024-02-29 13:57:01.957 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
+2024-02-29 13:57:01.970 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed

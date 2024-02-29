@@ -6,5 +6,4 @@ import lombok.Data;
 public class HttpLoginRequest {
     private String account;
     private String password;
-    private String type;
 }

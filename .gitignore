@@ -2,6 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+/LOG_HOME_IS_UNDEFINED/**
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

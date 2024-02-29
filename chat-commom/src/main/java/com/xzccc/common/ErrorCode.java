@@ -10,7 +10,7 @@ public enum ErrorCode {
     ACCOUNT_EXISTS(40000, "账号重复", ""),
     LOGIN_TYPE_ERROR(40000, "登录模式错误", ""),
     USER_ERROR(40000, "账号不存在", ""),
-    PASSWORD_ERROR(40000, "账号不存在", ""),
+    PASSWORD_ERROR(40000, "密码错误", ""),
     NULL_ERROR(40001, "请求数据为空", ""),
     NOT_LOGIN(40100, "未登录", ""),
     NO_AUTH(40101, "无权限", ""),

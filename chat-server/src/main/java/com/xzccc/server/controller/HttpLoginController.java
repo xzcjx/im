@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.regex.Pattern;
 
-@RequestMapping("/auth")
+@RequestMapping("/api/${app.config.api-version}/auth")
 @RestController
 @Slf4j
 public class HttpLoginController {
