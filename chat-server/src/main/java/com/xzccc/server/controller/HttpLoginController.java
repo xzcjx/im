@@ -21,12 +21,12 @@ public class HttpLoginController {
     HttpLoginUserService httpLoginUserService;
 
     @PostMapping("/login")
-    public BaseResponse login(HttpLoginRequest body) {
+    public BaseResponse login(@RequestBody HttpLoginRequest body) {
         return httpLoginUserService.login(body);
     }
 
     @PostMapping("/register")
-    public BaseResponse register(HttpSignRequest body) {
+    public BaseResponse register(@RequestBody HttpSignRequest body) {
         return httpLoginUserService.register(body);
     }
 
