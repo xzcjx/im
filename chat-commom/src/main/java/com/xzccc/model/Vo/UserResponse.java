@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class UserResponse {
-    private String phone;
+    private long id;
+    private String email;
+    private String account;
     private String username;
 }

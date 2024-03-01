@@ -1,6 +1,9 @@
 package com.xzccc.server.impl;
 
 
+import com.github.houbb.sensitive.word.bs.SensitiveWordBs;
+import com.github.houbb.sensitive.word.core.SensitiveWordHelper;
+import com.github.houbb.sensitive.word.core.SensitiveWords;
 import com.xzccc.common.BaseResponse;
 import com.xzccc.common.ErrorCode;
 import com.xzccc.concurrent.CallbackTask;
@@ -70,6 +73,8 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
     long limit_email_exp;
     @Autowired
     LoginStrategy loginStrategy;
+    @Autowired
+    SensitiveWordBs sensitiveWordBs;
 
     @Override
     public BaseResponse login(HttpLoginRequest body) {
@@ -87,6 +92,9 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
     @Override
     public BaseResponse register(HttpSignRequest body) {
         String email = body.getEmail();
+        if (sensitiveWordBs.contains(email)) {
+            throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
+        }
         if (StringUtils.isBlank(email) || !isValidEmail(email)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -109,6 +117,9 @@ public class HttpLoginUserServiceImpl implements HttpLoginUserService {
                 || username.length() > 20 || account.length() < 3 || account.length() > 20
                 || password.length() < 6 || password.length() > 20) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        if (sensitiveWordBs.contains(account) || sensitiveWordBs.contains(username)) {
+            throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
         }
         User user = userMapper.select_by_email(email);
         if (user != null) {

@@ -6,6 +6,7 @@ public enum ErrorCode {
 
     SUCCESS(0, "ok", ""),
     PARAMS_ERROR(40000, "请求参数错误", ""),
+    SENSITIVE_ERROR(40000,"包含铭感词",""),
     EMAIL_EXISTS(40000, "邮箱已注册", ""),
     ACCOUNT_EXISTS(40000, "账号重复", ""),
     LOGIN_TYPE_ERROR(40000, "登录模式错误", ""),
