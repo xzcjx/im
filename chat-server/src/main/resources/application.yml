@@ -16,7 +16,7 @@ spring:
     driver: com.mysql.cj.jdbc.Driver
     username: root
     password: "@Wsnidcl1"
-    url: jdbc:mysql://localhost:3306/im?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://106.54.53.176:3306/im?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
   redis:
     user_database: 4
     redisson_database: 5
