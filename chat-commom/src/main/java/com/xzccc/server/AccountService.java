@@ -33,4 +33,8 @@ public interface AccountService {
     void update_status(Long userId, Long friendId, String sessionId, Short status);
 
     List<FriendStatusResponse> get_friend_status(Long userId);
+
+    void read_friend(Long userId);
+
+    void update_username(Long userId, String username);
 }

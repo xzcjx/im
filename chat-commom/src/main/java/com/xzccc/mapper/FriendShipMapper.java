@@ -18,11 +18,9 @@ public interface FriendShipMapper {
     @Select("select count(*) from im_friend_relationship where user_id=#{userId} and deleted_at is null")
     Long count_by_userId(@Param("userId") Long userId);
 
-    @Insert("insert into im_friend_relationship(user_id,friend_id,status,ps) values (#{userId},#{friendId},#{status},#{ps})")
+    @Insert("insert into im_friend_relationship(user_id,friend_id) values (#{userId},#{friendId})")
     void insert(@Param(value = "userId") Long userId,
-                @Param(value = "friendId") Long friendId,
-                @Param(value = "status") Short status,
-                @Param(value = "ps") String ps);
+                @Param(value = "friendId") Long friendId);
 
     @Update("update im_friend_relationship set note=#{note} where user_id=#{userId} and friend_id=#{friendId} and deleted_at is null")
     void update_note(@Param("userId") Long userId, @Param("friendId") Long friendId, @Param("note") String note);

@@ -3,7 +3,7 @@ package com.xzccc.model.request;
 import lombok.Data;
 
 @Data
-public class ProcessFriendRequest {
-    private Short status;
+public class AddFriendRequest {
     private Long friendId;
+    private String ps;
 }

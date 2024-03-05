@@ -9,6 +9,7 @@ import com.xzccc.model.Vo.FriendResponse;
 import com.xzccc.model.Vo.FriendShipRequestsResponse;
 import com.xzccc.model.Vo.FriendStatusResponse;
 import com.xzccc.model.Vo.UserResponse;
+import com.xzccc.model.request.AddFriendRequest;
 import com.xzccc.model.request.ProcessFriendRequest;
 import com.xzccc.server.AccountService;
 
@@ -44,8 +45,19 @@ public class AccountController {
         return new BaseResponse(userResponse);
     }
 
+    @GetMapping("/update/username")
+    @ApiOperation(value = "获取自己的基本信息")
+    public BaseResponse update_username(String username) {
+        Long userId = threadLocalUtils.get();
+        if (userId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        accountService.update_username(userId,username);
+        return new BaseResponse(true);
+    }
+
     @GetMapping("/get/friends")
-    @ApiOperation(value = "获取好友信息")
+    @ApiOperation(value = "获取所有好友信息")
     public BaseResponse get_friends() {
         Long userId = threadLocalUtils.get();
         if (userId == null) {
@@ -55,14 +67,39 @@ public class AccountController {
         return new BaseResponse(friends);
     }
 
-    @GetMapping("/add/friend/{friendId}")
+    @GetMapping("/add/friend")
     @ApiOperation(value = "添加好友")
-    public BaseResponse add_friend(@PathVariable("friendId") Long friendId, String ps) {
+    public BaseResponse add_friend(@RequestBody AddFriendRequest addFriendRequest) {
         Long userId = threadLocalUtils.get();
+        Long friendId = addFriendRequest.getFriendId();
+        String ps = addFriendRequest.getPs();
         if (userId == null || friendId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         accountService.add_friend(userId, friendId, ps);
+        return new BaseResponse(true);
+    }
+
+    @GetMapping("/get/friend/requests")
+    @ApiOperation(value = "获取好友申请数据")
+    public BaseResponse get_friend_requests(@RequestParam(value = "page", defaultValue = "1") Long page,
+                                            @RequestParam(value = "pagesize", defaultValue = "10") Long pagesize) {
+        Long userId = threadLocalUtils.get();
+        if (userId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        List<FriendShipRequestsResponse> friendRequests = accountService.get_friend_requests(userId, page, pagesize);
+        return new BaseResponse(friendRequests);
+    }
+
+    @DeleteMapping("/delete/friend")
+    @ApiOperation(value = "单方面删除好友")
+    public BaseResponse delete_friend(Long friendId) {
+        Long userId = threadLocalUtils.get();
+        if (userId == null || friendId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        accountService.delete_friend(userId, friendId);
         return new BaseResponse(true);
     }
 
@@ -74,17 +111,6 @@ public class AccountController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         accountService.note_friend(userId, friendId, note);
-        return new BaseResponse(true);
-    }
-
-    @DeleteMapping("/delete/friend")
-    @ApiOperation(value = "单方面删除好友")
-    public BaseResponse delete_friend(Long friendId) {
-        Long userId = threadLocalUtils.get();
-        if (userId == null || friendId == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        accountService.delete_friend(userId, friendId);
         return new BaseResponse(true);
     }
 
@@ -100,17 +126,25 @@ public class AccountController {
         return new BaseResponse(true);
     }
 
-    @GetMapping("/get/friend/requests")
-    @ApiOperation(value = "获取好友申请数据")
-    public BaseResponse get_friend_requests(@RequestParam(value = "page", defaultValue = "1") Long page,
-                                            @RequestParam(value = "pagesize", defaultValue = "10") Long pagesize) {
+    @PostMapping("/read/friend/request")
+    @ApiOperation(value = "好友请求全部已读")
+    public BaseResponse read_friend() {
         Long userId = threadLocalUtils.get();
         if (userId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        List<FriendShipRequestsResponse> friendRequests = accountService.get_friend_requests(userId, page, pagesize);
-        return new BaseResponse(friendRequests);
+        accountService.read_friend(userId);
+        return new BaseResponse(true);
     }
+
+    @GetMapping("/get/friend/status")
+    @ApiOperation(value = "获取好友在线状态")
+    public BaseResponse get_friend_status(){
+        Long userId = threadLocalUtils.get();
+        List<FriendStatusResponse> friendStatusResponseList=accountService.get_friend_status(userId);
+        return new BaseResponse(friendStatusResponseList);
+    }
+
 
 
 
@@ -148,11 +182,5 @@ public class AccountController {
         return new BaseResponse(true);
     }
 
-    @GetMapping("/get/friend/status")
-    @ApiOperation(value = "获取好友在线状态")
-    public BaseResponse get_friend_status(){
-        Long userId = threadLocalUtils.get();
-        List<FriendStatusResponse> friendStatusResponseList=accountService.get_friend_status(userId);
-        return new BaseResponse(friendStatusResponseList);
-    }
+
 }

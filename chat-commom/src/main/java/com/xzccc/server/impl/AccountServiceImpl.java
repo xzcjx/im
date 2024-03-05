@@ -2,7 +2,7 @@ package com.xzccc.server.impl;
 
 
 import com.xzccc.common.ErrorCode;
-import com.xzccc.constant.ImRelationshipStatus;
+import com.xzccc.constant.ImFriendRelationshipStatus;
 import com.xzccc.constant.ImSessionStatus;
 import com.xzccc.constant.RedisConstant;
 import com.xzccc.exception.BusinessException;
@@ -78,10 +78,9 @@ public class AccountServiceImpl implements AccountService {
         if (friendShip != null) {
             throw new BusinessException(ErrorCode.FRIEND_EXISTS);
         }
-
-//        friendShipMapper.insert(userId, friendId, ImRelationshipStatus.SPONSOR, ps);
-//        friendShipMapper.insert(friendId, userId, ImRelationshipStatus.UNREAD, ps);
-        // 此处需要通过websocket通知对方，如果对方在线，需要使用mq，后面在家逻辑
+        friendShipInfoMapper.insert(userId, friendId, ImFriendRelationshipStatus.READ, ImFriendRelationshipStatus.SPONSOR, ps);
+        friendShipInfoMapper.insert(friendId, userId, ImFriendRelationshipStatus.UNREAD, ImFriendRelationshipStatus.NOT_PROCESSED, ps);
+        // 此处需要通过websocket通知对方，如果对方在线
     }
 
     @Override
@@ -112,24 +111,38 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void process_friend(Long userId, ProcessFriendRequest processFriendRequest) {
         Long friendId = processFriendRequest.getFriendId();
-        Boolean agree = processFriendRequest.getAgree();
-        if (agree == null) {
+        Short status = processFriendRequest.getStatus();
+        if (status == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        if (agree) {
-            Long count = friendShipMapper.count_by_userId(userId);
-            if (count >= friendLimit) {
-                throw new BusinessException(ErrorCode.FRIEND_LIMIT);
-            }
-            friendShipMapper.update_status(userId, friendId, ImRelationshipStatus.AGREE);
-        } else {
-            friendShipMapper.update_status(userId, friendId, ImRelationshipStatus.REJECT);
+        switch (status) {
+            case 0:
+                throw new BusinessException(ErrorCode.PARAMS_ERROR);
+            case 1:
+                Long count = friendShipMapper.count_by_userId(userId);
+                if (count >= friendLimit) {
+                    throw new BusinessException(ErrorCode.FRIEND_LIMIT);
+                }
+                friendShipInfoMapper.update(userId, friendId, ImFriendRelationshipStatus.READ,
+                        ImFriendRelationshipStatus.AGREE);
+                friendShipInfoMapper.update_status(friendId, userId, ImFriendRelationshipStatus.AGREE);
+                friendShipMapper.insert(userId, friendId);
+                friendShipMapper.insert(friendId, userId);
+            case 2:
+                friendShipInfoMapper.update(userId, friendId, ImFriendRelationshipStatus.READ,
+                        ImFriendRelationshipStatus.REJECT);
+                friendShipInfoMapper.update_status(friendId, userId, ImFriendRelationshipStatus.REJECT);
+            case 3:
+                friendShipInfoMapper.update(userId, friendId, ImFriendRelationshipStatus.READ,
+                        ImFriendRelationshipStatus.IGNORE);
+            default:
+                throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
     }
 
     @Override
     public List<FriendShipRequestsResponse> get_friend_requests(Long userId, Long page, Long pagesize) {
-        List<FriendShipRequestsResponse> friendShipList = friendShipMapper.page_by_userId(userId, (page - 1) * pagesize, pagesize);
+        List<FriendShipRequestsResponse> friendShipList = friendShipInfoMapper.page_by_userId(userId, (page - 1) * pagesize, pagesize);
         return friendShipList;
     }
 
@@ -180,5 +193,15 @@ public class AccountServiceImpl implements AccountService {
                 friend.setStatus(false);
         }
         return friendStatusResponseList;
+    }
+
+    @Override
+    public void read_friend(Long userId) {
+        friendShipInfoMapper.update_by_user(userId, ImFriendRelationshipStatus.READ);
+    }
+
+    @Override
+    public void update_username(Long userId, String username) {
+        userMapper.update_username(userId,username);
     }
 }
