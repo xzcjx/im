@@ -6,6 +6,7 @@ import com.xzccc.constant.ImRelationshipStatus;
 import com.xzccc.constant.ImSessionStatus;
 import com.xzccc.constant.RedisConstant;
 import com.xzccc.exception.BusinessException;
+import com.xzccc.mapper.FriendShipInfoMapper;
 import com.xzccc.mapper.FriendShipMapper;
 import com.xzccc.mapper.SessionMapper;
 import com.xzccc.mapper.UserMapper;
@@ -42,6 +43,9 @@ public class AccountServiceImpl implements AccountService {
     FriendShipMapper friendShipMapper;
 
     @Autowired
+    FriendShipInfoMapper friendShipInfoMapper;
+
+    @Autowired
     RedisTemplate redisTemplate;
 
     @Autowired
@@ -72,14 +76,11 @@ public class AccountServiceImpl implements AccountService {
         }
         FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
         if (friendShip != null) {
-            if (friendShip.getStatus() < ImRelationshipStatus.AGREE) {
-                friendShipMapper.update_status(userId, friendId, ImRelationshipStatus.AGREE);
-                return;
-            }
             throw new BusinessException(ErrorCode.FRIEND_EXISTS);
         }
-        friendShipMapper.insert(userId, friendId, ImRelationshipStatus.SPONSOR, ps);
-        friendShipMapper.insert(friendId, userId, ImRelationshipStatus.UNREAD, ps);
+
+//        friendShipMapper.insert(userId, friendId, ImRelationshipStatus.SPONSOR, ps);
+//        friendShipMapper.insert(friendId, userId, ImRelationshipStatus.UNREAD, ps);
         // 此处需要通过websocket通知对方，如果对方在线，需要使用mq，后面在家逻辑
     }
 

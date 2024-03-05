@@ -19,4 +19,23 @@ databaseChangeLog:
               - column:
                   name: avatar
                   type: varchar(255)
-
+  - changeSet:
+      id: 20240305-16
+      author: xzccc
+      changes:
+        - sqlFile:
+            dbms: '!h2,  oracle,  mysql'
+            endDelimiter: \nGO
+            splitStatements: true
+            path: liquibase/db/changelog/db.changelog-20240305-16.sql
+            stripComments: true
+  - changeSet:
+      id: 20240305-17
+      author: xzccc
+      changes:
+        - sqlFile:
+            dbms: '!h2,  oracle,  mysql'
+            endDelimiter: \nGO
+            splitStatements: true
+            path: liquibase/db/changelog/db.changelog-20240305-17.sql
+            stripComments: true

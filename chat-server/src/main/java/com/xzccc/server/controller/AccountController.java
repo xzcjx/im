@@ -44,6 +44,17 @@ public class AccountController {
         return new BaseResponse(userResponse);
     }
 
+    @GetMapping("/get/friends")
+    @ApiOperation(value = "获取好友信息")
+    public BaseResponse get_friends() {
+        Long userId = threadLocalUtils.get();
+        if (userId == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        List<FriendResponse> friends = accountService.get_friends(userId);
+        return new BaseResponse(friends);
+    }
+
     @GetMapping("/add/friend/{friendId}")
     @ApiOperation(value = "添加好友")
     public BaseResponse add_friend(@PathVariable("friendId") Long friendId, String ps) {
@@ -101,16 +112,7 @@ public class AccountController {
         return new BaseResponse(friendRequests);
     }
 
-    @GetMapping("/get/friends")
-    @ApiOperation(value = "获取好友信息")
-    public BaseResponse get_friends() {
-        Long userId = threadLocalUtils.get();
-        if (userId == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        List<FriendResponse> friends = accountService.get_friends(userId);
-        return new BaseResponse(friends);
-    }
+
 
     @GetMapping("/create/session/{friendId}")
     @ApiOperation(value = "创建好友会话")
