@@ -13,4 +13,5 @@ public class User {
     private String password_hash;
     private int status=1;
     private Date create_at;
+    private String avatar;
 }

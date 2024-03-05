@@ -1171,5 +1171,3 @@ com.xzccc.exception.BusinessException: 无权限
 2024-03-01 18:25:35.947 [RMI TCP Connection(5)-192.168.120.60] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-01 18:25:35.949 [RMI TCP Connection(5)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
 2024-03-01 18:25:36.027 [RMI TCP Connection(5)-192.168.120.60] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 77 ms
-2024-03-01 18:34:08.828 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2032 - {dataSource-1} closing ...
-2024-03-01 18:34:08.845 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource:2104 - {dataSource-1} closed
