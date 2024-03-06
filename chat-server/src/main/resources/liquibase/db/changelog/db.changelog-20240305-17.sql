@@ -8,5 +8,5 @@ CREATE TABLE `im_friend_relationship_info`
     `ps`         varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '添加好友时附言',
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `deleted_at` timestamp NULL DEFAULT NULL COMMENT '逻辑删除时间',
-    PRIMARY KEY (`id`) USING BTREE,
+    PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
