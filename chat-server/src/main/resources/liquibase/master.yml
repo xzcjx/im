@@ -10,16 +10,6 @@ databaseChangeLog:
             path: liquibase/db/changelog/db.changelog-20240226-17.sql
             stripComments: true
   - changeSet:
-      id: 20240304-21
-      author: xzccc
-      changes:
-        - addColumn:
-            tableName: im_user
-            columns:
-              - column:
-                  name: avatar
-                  type: varchar(255)
-  - changeSet:
       id: 20240305-16
       author: xzccc
       changes:
