@@ -1,6 +1,7 @@
 package com.xzccc.mapper;
 
 import com.xzccc.model.Dao.FriendShip;
+import com.xzccc.model.Dao.FriendShipInfo;
 import com.xzccc.model.Vo.FriendResponse;
 import com.xzccc.model.Vo.FriendShipRequestsResponse;
 import com.xzccc.model.Vo.FriendStatusResponse;
@@ -27,4 +28,7 @@ public interface FriendShipInfoMapper {
 
     @Update("update im_friend_relationship_info set read=#{read} where user_id=#{userId} and deleted_at is null")
     void update_by_user(Long userId, Short read);
+
+    @Select("select * from im_friend_relationship_info where user_id=#{userId} and friend_id=#{friendId} and deleted_at is null")
+    FriendShipInfo select_by_userId_friendId(Long userId, Long friendId);
 }

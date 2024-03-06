@@ -1,5 +1,6 @@
 package com.xzccc.server.controller;
 
+import com.github.houbb.sensitive.word.bs.SensitiveWordBs;
 import com.xzccc.common.BaseResponse;
 import com.xzccc.common.ErrorCode;
 import com.xzccc.constant.ImSessionStatus;
@@ -9,8 +10,7 @@ import com.xzccc.model.Vo.FriendResponse;
 import com.xzccc.model.Vo.FriendShipRequestsResponse;
 import com.xzccc.model.Vo.FriendStatusResponse;
 import com.xzccc.model.Vo.UserResponse;
-import com.xzccc.model.request.AddFriendRequest;
-import com.xzccc.model.request.ProcessFriendRequest;
+import com.xzccc.model.request.*;
 import com.xzccc.server.AccountService;
 
 import com.xzccc.utils.ThreadLocalUtils;
@@ -32,6 +32,7 @@ public class AccountController {
     @Autowired
     ThreadLocalUtils threadLocalUtils;
 
+
     @GetMapping("/user")
     @ApiOperation(value = "获取自己的基本信息")
     public BaseResponse get_user() {
@@ -45,13 +46,14 @@ public class AccountController {
         return new BaseResponse(userResponse);
     }
 
-    @GetMapping("/update/username")
-    @ApiOperation(value = "获取自己的基本信息")
-    public BaseResponse update_username(String username) {
+    @PostMapping("/update/username")
+    @ApiOperation(value = "修改用户名")
+    public BaseResponse update_username(@RequestBody UpdateUsernameRequest updateUsernameRequest) {
         Long userId = threadLocalUtils.get();
         if (userId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
+        String username = updateUsernameRequest.getUsername();
         accountService.update_username(userId,username);
         return new BaseResponse(true);
     }
@@ -67,7 +69,7 @@ public class AccountController {
         return new BaseResponse(friends);
     }
 
-    @GetMapping("/add/friend")
+    @PostMapping("/add/friend")
     @ApiOperation(value = "添加好友")
     public BaseResponse add_friend(@RequestBody AddFriendRequest addFriendRequest) {
         Long userId = threadLocalUtils.get();
@@ -94,7 +96,8 @@ public class AccountController {
 
     @DeleteMapping("/delete/friend")
     @ApiOperation(value = "单方面删除好友")
-    public BaseResponse delete_friend(Long friendId) {
+    public BaseResponse delete_friend(@RequestBody DeleteFriendRequest deleteFriendRequest) {
+        Long friendId = deleteFriendRequest.getFriendId();
         Long userId = threadLocalUtils.get();
         if (userId == null || friendId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -104,9 +107,11 @@ public class AccountController {
     }
 
     @GetMapping("/note/friend")
-    @ApiOperation(value = "为好友设置备注")
-    public BaseResponse note_friend(Long friendId, String note) {
+    @ApiOperation(value = "为好友设置或修改备注")
+    public BaseResponse note_friend(@RequestBody NoteFriendRequest noteFriendRequest) {
         Long userId = threadLocalUtils.get();
+        Long friendId = noteFriendRequest.getFriendId();
+        String note = noteFriendRequest.getNote();
         if (userId == null || friendId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -116,7 +121,7 @@ public class AccountController {
 
     @PostMapping("/process/friend/request")
     @ApiOperation(value = "处理好友请求申请")
-    public BaseResponse process_friend(ProcessFriendRequest processFriendRequest) {
+    public BaseResponse process_friend(@RequestBody ProcessFriendRequest processFriendRequest) {
         Long friendId = processFriendRequest.getFriendId();
         Long userId = threadLocalUtils.get();
         if (userId == null || friendId == null) {

@@ -1,6 +1,7 @@
 package com.xzccc.server.impl;
 
 
+import com.github.houbb.sensitive.word.bs.SensitiveWordBs;
 import com.xzccc.common.ErrorCode;
 import com.xzccc.constant.ImFriendRelationshipStatus;
 import com.xzccc.constant.ImSessionStatus;
@@ -11,6 +12,7 @@ import com.xzccc.mapper.FriendShipMapper;
 import com.xzccc.mapper.SessionMapper;
 import com.xzccc.mapper.UserMapper;
 import com.xzccc.model.Dao.FriendShip;
+import com.xzccc.model.Dao.FriendShipInfo;
 import com.xzccc.model.Dao.Session;
 import com.xzccc.model.Dao.User;
 import com.xzccc.model.Redis.UserToken;
@@ -22,6 +24,7 @@ import com.xzccc.server.AccountService;
 import com.xzccc.utils.RedisUtils;
 import com.xzccc.utils.UUIDUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -63,6 +66,9 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     RedisUtils redisUtils;
 
+    @Autowired
+    SensitiveWordBs sensitiveWordBs;
+
     @Override
     public User get_user(long id) {
         return userMapper.select_by_id(id);
@@ -70,6 +76,12 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void add_friend(Long userId, Long friendId, String ps) {
+        if (StringUtils.isBlank(ps) || ps.length() > 500) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        if (sensitiveWordBs.contains(ps)) {
+            throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
+        }
         Long count = friendShipMapper.count_by_userId(userId);
         if (count >= friendLimit) {
             throw new BusinessException(ErrorCode.FRIEND_LIMIT);
@@ -85,6 +97,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void note_friend(Long userId, Long friendId, String note) {
+        if (StringUtils.isBlank(note) || note.length() > 20) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
         friendShipMapper.update_note(userId, friendId, note);
     }
 
@@ -115,9 +130,12 @@ public class AccountServiceImpl implements AccountService {
         if (status == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
+        // 这里可能有bug，接收者的被删除后，再进行处理是不被允许的
+        FriendShipInfo friendShipInfo = friendShipInfoMapper.select_by_userId_friendId(userId, friendId);
+        if (friendShipInfo == null) {
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR);
+        }
         switch (status) {
-            case 0:
-                throw new BusinessException(ErrorCode.PARAMS_ERROR);
             case 1:
                 Long count = friendShipMapper.count_by_userId(userId);
                 if (count >= friendLimit) {
@@ -202,6 +220,12 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void update_username(Long userId, String username) {
-        userMapper.update_username(userId,username);
+        if (StringUtils.isBlank(username) || username.length() > 20) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        if (sensitiveWordBs.contains(username)) {
+            throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
+        }
+        userMapper.update_username(userId, username);
     }
 }
