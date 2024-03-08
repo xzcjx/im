@@ -11,22 +11,22 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RedissonConfig {
 
-    @Value("${spring.redis.host}")
-    private String host;
+  @Value("${spring.redis.host}")
+  private String host;
 
-    @Value("${spring.redis.port}")
-    private int port;
+  @Value("${spring.redis.port}")
+  private int port;
 
-    @Value("${spring.redis.redisson_database}")
-    private int database;
+  @Value("${spring.redis.redisson_database}")
+  private int database;
 
-    @Bean(destroyMethod = "shutdown")
-    public RedissonClient createRedissonClient(){
-        Config config = new Config();
-        SingleServerConfig singleServerConfig = config.useSingleServer();
-        singleServerConfig.setAddress(String.format("redis://%s:%s", host,port));
-//        singleServerConfig.setPassword("")
-        singleServerConfig.setDatabase(database);
-        return Redisson.create(config);
-    }
+  @Bean(destroyMethod = "shutdown")
+  public RedissonClient createRedissonClient() {
+    Config config = new Config();
+    SingleServerConfig singleServerConfig = config.useSingleServer();
+    singleServerConfig.setAddress(String.format("redis://%s:%s", host, port));
+    //        singleServerConfig.setPassword("")
+    singleServerConfig.setDatabase(database);
+    return Redisson.create(config);
+  }
 }

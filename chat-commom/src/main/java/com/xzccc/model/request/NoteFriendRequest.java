@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class NoteFriendRequest {
-    private Long friendId;
-    private String note;
+  private Long friendId;
+  private String note;
 }

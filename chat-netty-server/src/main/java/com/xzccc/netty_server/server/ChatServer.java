@@ -1,13 +1,14 @@
 package com.xzccc.netty_server.server;
 
+import static io.netty.buffer.Unpooled.wrappedBuffer;
+
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
-import com.xzccc.netty_server.session.ServerSession;
-import io.micrometer.core.instrument.Meter;
-import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.core.instrument.binder.netty4.NettyAllocatorMetrics;
 import com.xzccc.netty.model.msg.ProtoMsg;
 import com.xzccc.netty_server.handler.*;
+import com.xzccc.netty_server.session.ServerSession;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.binder.netty4.NettyAllocatorMetrics;
 import io.micrometer.core.instrument.binder.netty4.NettyEventExecutorMetrics;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
@@ -21,42 +22,33 @@ import io.netty.handler.codec.MessageToMessageEncoder;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.*;
-import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
+import java.net.InetSocketAddress;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.net.InetSocketAddress;
-import java.util.List;
-
-import static io.netty.buffer.Unpooled.wrappedBuffer;
-
 @Service("ChatServer")
 @Slf4j
 public class ChatServer {
 
+    @Autowired
+    HttpLoginHandler httpLoginHandler;
+    @Autowired
+    ServerExceptionHandler serverExceptionHandler;
+    @Autowired
+    MeterRegistry meterRegistry;
     @Value("${server.websocket-port}")
     private int port;
     private EventLoopGroup boss;
     private NioEventLoopGroup work;
-
-    @Autowired
-    HttpLoginHandler httpLoginHandler;
-
-    @Autowired
-    ServerExceptionHandler serverExceptionHandler;
-
-    @Autowired
-    MeterRegistry meterRegistry;
-
 
     public void run() {
         ServerBootstrap bg = new ServerBootstrap();

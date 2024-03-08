@@ -1,14 +1,13 @@
 package com.xzccc.model.Vo;
 
-import lombok.Data;
-
 import java.util.Date;
+import lombok.Data;
 
 @Data
 public class FriendShipRequestsResponse {
-    private Long friend_id;
-    private Short read;
-    private Short status;
-    private String ps;
-    private Date created_at;
+  private Long friendId;
+  private Short read;
+  private Short status;
+  private String ps;
+  private Date createdAt;
 }

@@ -1,12 +1,10 @@
-package com.xzccc.model.Dao;
+package com.xzccc.model.Vo;
 
 import lombok.Data;
 
 @Data
-public class Session {
-  private Long id;
+public class SessionResponse {
   private String sessionId;
   private Long userId;
   private Long friendId;
-  private Short status;
 }

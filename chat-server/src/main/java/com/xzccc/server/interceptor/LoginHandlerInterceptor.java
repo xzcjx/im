@@ -14,41 +14,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
-
 @Component
 public class LoginHandlerInterceptor implements HandlerInterceptor {
 
-    @Autowired
-    RedisUtils redisUtils;
+  @Autowired RedisUtils redisUtils;
 
-    @Autowired
-    ThreadLocalUtils threadLocalUtils;
+  @Autowired ThreadLocalUtils threadLocalUtils;
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+  @Override
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+      throws Exception {
 
-        String authorization = request.getHeader("Authorization");
-        if (authorization == null) {
-            throw new BusinessException(ErrorCode.NO_AUTH);
-        }
-        authorization = authorization.replaceFirst("Bearer ", "");
-        TokenUser tokenUser = redisUtils.getTokenUser(authorization);
-        if (tokenUser == null) {
-            throw new BusinessException(ErrorCode.NO_AUTH);
-        }
-        long userId = tokenUser.getUserId();
-        Long exp = tokenUser.getExp();
-        long time = new Date().getTime();
-        if (time >= exp) {
-            throw new BusinessException(ErrorCode.EXP_AUTH);
-        }
-
-        threadLocalUtils.set(userId);
-        return true;
+    String authorization = request.getHeader("Authorization");
+    if (authorization == null) {
+      throw new BusinessException(ErrorCode.NO_AUTH);
+    }
+    authorization = authorization.replaceFirst("Bearer ", "");
+    TokenUser tokenUser = redisUtils.getTokenUser(authorization);
+    if (tokenUser == null) {
+      throw new BusinessException(ErrorCode.NO_AUTH);
+    }
+    long userId = tokenUser.getUserId();
+    Long exp = tokenUser.getExp();
+    long time = new Date().getTime();
+    if (time >= exp) {
+      throw new BusinessException(ErrorCode.EXP_AUTH);
     }
 
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        threadLocalUtils.remove();
-    }
+    threadLocalUtils.set(userId);
+    return true;
+  }
+
+  @Override
+  public void postHandle(
+      HttpServletRequest request,
+      HttpServletResponse response,
+      Object handler,
+      ModelAndView modelAndView)
+      throws Exception {
+    threadLocalUtils.remove();
+  }
 }

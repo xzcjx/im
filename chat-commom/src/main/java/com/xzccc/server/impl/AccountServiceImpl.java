@@ -1,6 +1,5 @@
 package com.xzccc.server.impl;
 
-
 import com.github.houbb.sensitive.word.bs.SensitiveWordBs;
 import com.xzccc.common.ErrorCode;
 import com.xzccc.constant.ImFriendRelationshipStatus;
@@ -16,216 +15,246 @@ import com.xzccc.model.Dao.FriendShipInfo;
 import com.xzccc.model.Dao.Session;
 import com.xzccc.model.Dao.User;
 import com.xzccc.model.Redis.UserToken;
-import com.xzccc.model.Vo.FriendResponse;
-import com.xzccc.model.Vo.FriendShipRequestsResponse;
-import com.xzccc.model.Vo.FriendStatusResponse;
+import com.xzccc.model.Vo.*;
 import com.xzccc.model.request.ProcessFriendRequest;
 import com.xzccc.server.AccountService;
+import com.xzccc.utils.EmailValidator;
 import com.xzccc.utils.RedisUtils;
-import com.xzccc.utils.UUIDUtils;
+import com.xzccc.utils.TokenUtils;
+import java.util.Date;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-
-
 @Slf4j
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    @Autowired
-    UserMapper userMapper;
+  @Autowired UserMapper userMapper;
 
-    @Autowired
-    FriendShipMapper friendShipMapper;
+  @Autowired FriendShipMapper friendShipMapper;
 
-    @Autowired
-    FriendShipInfoMapper friendShipInfoMapper;
+  @Autowired FriendShipInfoMapper friendShipInfoMapper;
 
-    @Autowired
-    RedisTemplate redisTemplate;
+  @Autowired RedisTemplate redisTemplate;
 
-    @Autowired
-    ValueOperations<String, Object> valueOperations;
+  @Autowired ValueOperations<String, Object> valueOperations;
 
-    @Autowired
-    UUIDUtils uuidUtils;
+  @Autowired TokenUtils tokenUtils;
 
-    @Autowired
-    SessionMapper sessionMapper;
+  @Autowired SessionMapper sessionMapper;
 
-    @Value("${friendship.friend_limit}")
-    Long friendLimit;
+  @Value("${friendship.friend_limit}")
+  Long friendLimit;
 
-    @Autowired
-    RedisUtils redisUtils;
+  @Autowired RedisUtils redisUtils;
 
-    @Autowired
-    SensitiveWordBs sensitiveWordBs;
+  @Autowired SensitiveWordBs sensitiveWordBs;
 
-    @Override
-    public User get_user(long id) {
-        return userMapper.select_by_id(id);
+  @Autowired EmailValidator emailValidator;
+
+  @Override
+  public User get_user(long id) {
+    return userMapper.select_by_id(id);
+  }
+
+  @Override
+  public void add_friend(Long userId, Long friendId, String ps) {
+    if (StringUtils.isBlank(ps) || ps.length() > 500) {
+      throw new BusinessException(ErrorCode.PARAMS_ERROR);
     }
+    if (sensitiveWordBs.contains(ps)) {
+      throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
+    }
+    Long count = friendShipMapper.count_by_userId(userId);
+    if (count >= friendLimit) {
+      throw new BusinessException(ErrorCode.FRIEND_LIMIT);
+    }
+    FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
+    if (friendShip != null) {
+      throw new BusinessException(ErrorCode.FRIEND_EXISTS);
+    }
+    friendShipInfoMapper.insert(
+        userId,
+        friendId,
+        ImFriendRelationshipStatus.READ,
+        ImFriendRelationshipStatus.SPONSOR,
+        "我：" + ps);
+    friendShipInfoMapper.insert(
+        friendId,
+        userId,
+        ImFriendRelationshipStatus.UNREAD,
+        ImFriendRelationshipStatus.NOT_PROCESSED,
+        ps);
+    // 此处需要通过websocket通知对方，如果对方在线
+  }
 
-    @Override
-    public void add_friend(Long userId, Long friendId, String ps) {
-        if (StringUtils.isBlank(ps) || ps.length() > 500) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        if (sensitiveWordBs.contains(ps)) {
-            throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
-        }
+  @Override
+  public void note_friend(Long userId, Long friendId, String note) {
+    if (StringUtils.isBlank(note) || note.length() > 20) {
+      throw new BusinessException(ErrorCode.PARAMS_ERROR);
+    }
+    if (sensitiveWordBs.contains(note)) {
+      throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
+    }
+    friendShipMapper.update_note(userId, friendId, note);
+  }
+
+  @Override
+  public void kick_user(String userId) {
+    log.info(userId + " 该账号已经登录，开始踢人下线");
+    String key = RedisConstant.UserToken + ":" + userId;
+    UserToken userToken = (UserToken) valueOperations.get(key);
+    String token = userToken.getToken();
+    redisTemplate.delete(key);
+    key = RedisConstant.TokenUser + ":" + token;
+    redisTemplate.delete(key);
+  }
+
+  @Override
+  public void delete_friend(Long userId, Long friendId) {
+    FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
+    if (friendShip == null) {
+      throw new BusinessException(ErrorCode.FRIEND_NOT_EXISTS);
+    }
+    friendShipMapper.delete(userId, friendId, new Date());
+  }
+
+  @Override
+  public void process_friend(Long userId, ProcessFriendRequest processFriendRequest) {
+    Long friendId = processFriendRequest.getFriendId();
+    Short status = processFriendRequest.getStatus();
+    if (status == null) {
+      throw new BusinessException(ErrorCode.PARAMS_ERROR);
+    }
+    // 这里可能有bug，接收者的被删除后，再进行处理是不被允许的
+    FriendShipInfo friendShipInfo =
+        friendShipInfoMapper.select_by_userId_friendId(userId, friendId);
+    if (friendShipInfo == null) {
+      throw new BusinessException(ErrorCode.SYSTEM_ERROR);
+    }
+    switch (status) {
+      case 1:
         Long count = friendShipMapper.count_by_userId(userId);
         if (count >= friendLimit) {
-            throw new BusinessException(ErrorCode.FRIEND_LIMIT);
+          throw new BusinessException(ErrorCode.FRIEND_LIMIT);
         }
-        FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
-        if (friendShip != null) {
-            throw new BusinessException(ErrorCode.FRIEND_EXISTS);
-        }
-        friendShipInfoMapper.insert(userId, friendId, ImFriendRelationshipStatus.READ, ImFriendRelationshipStatus.SPONSOR, ps);
-        friendShipInfoMapper.insert(friendId, userId, ImFriendRelationshipStatus.UNREAD, ImFriendRelationshipStatus.NOT_PROCESSED, ps);
-        // 此处需要通过websocket通知对方，如果对方在线
+        friendShipInfoMapper.update(
+            userId, friendId, ImFriendRelationshipStatus.READ, ImFriendRelationshipStatus.AGREE);
+        friendShipInfoMapper.update_status(friendId, userId, ImFriendRelationshipStatus.AGREE);
+        friendShipMapper.insert(userId, friendId);
+        friendShipMapper.insert(friendId, userId);
+      case 2:
+        friendShipInfoMapper.update(
+            userId, friendId, ImFriendRelationshipStatus.READ, ImFriendRelationshipStatus.REJECT);
+        friendShipInfoMapper.update_status(friendId, userId, ImFriendRelationshipStatus.REJECT);
+      case 3:
+        friendShipInfoMapper.update(
+            userId, friendId, ImFriendRelationshipStatus.READ, ImFriendRelationshipStatus.IGNORE);
+      default:
+        throw new BusinessException(ErrorCode.PARAMS_ERROR);
     }
+  }
 
-    @Override
-    public void note_friend(Long userId, Long friendId, String note) {
-        if (StringUtils.isBlank(note) || note.length() > 20) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        friendShipMapper.update_note(userId, friendId, note);
-    }
+  @Override
+  public List<FriendShipRequestsResponse> get_friend_requests(
+      Long userId, Long page, Long pagesize) {
+    List<FriendShipRequestsResponse> friendShipList =
+        friendShipInfoMapper.page_by_userId(userId, (page - 1) * pagesize, pagesize);
+    return friendShipList;
+  }
 
-    @Override
-    public void kick_user(String userId) {
-        log.info(userId + " 该账号已经登录，开始踢人下线");
-        String key = RedisConstant.UserToken + ":" + userId;
-        UserToken userToken = (UserToken) valueOperations.get(key);
-        String token = userToken.getToken();
-        redisTemplate.delete(key);
-        key = RedisConstant.TokenUser + ":" + token;
-        redisTemplate.delete(key);
-    }
+  @Override
+  public List<FriendResponse> get_friends(Long userId) {
+    List<FriendResponse> friendResponses = friendShipMapper.select_friend_info(userId);
+    return friendResponses;
+  }
 
-    @Override
-    public void delete_friend(Long userId, Long friendId) {
-        FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
-        if (friendShip == null) {
-            throw new BusinessException(ErrorCode.FRIEND_NOT_EXISTS);
-        }
-        friendShipMapper.delete(userId, friendId, new Date());
+  @Override
+  public String create_session(Long userId, Long friendId) {
+    FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
+    if (friendShip == null) {
+      throw new BusinessException(ErrorCode.FRIEND_NOT_EXISTS);
     }
+    Session session = sessionMapper.select_session_by_user_friend(userId, friendId);
+    if (session != null) {
+      if (!session.getStatus().equals(ImSessionStatus.DISPLAY)) {
+        sessionMapper.update_status(
+            session.getId(), session.getSessionId(), ImSessionStatus.DISPLAY);
+      }
+      return session.getSessionId();
+    }
+    String sessionId = tokenUtils.getSessionId();
+    sessionMapper.insert(sessionId, userId, friendId, ImSessionStatus.DISPLAY);
+    sessionMapper.insert(sessionId, friendId, userId, ImSessionStatus.HIDDEN);
+    return sessionId;
+  }
 
-    @Override
-    public void process_friend(Long userId, ProcessFriendRequest processFriendRequest) {
-        Long friendId = processFriendRequest.getFriendId();
-        Short status = processFriendRequest.getStatus();
-        if (status == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        // 这里可能有bug，接收者的被删除后，再进行处理是不被允许的
-        FriendShipInfo friendShipInfo = friendShipInfoMapper.select_by_userId_friendId(userId, friendId);
-        if (friendShipInfo == null) {
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR);
-        }
-        switch (status) {
-            case 1:
-                Long count = friendShipMapper.count_by_userId(userId);
-                if (count >= friendLimit) {
-                    throw new BusinessException(ErrorCode.FRIEND_LIMIT);
-                }
-                friendShipInfoMapper.update(userId, friendId, ImFriendRelationshipStatus.READ,
-                        ImFriendRelationshipStatus.AGREE);
-                friendShipInfoMapper.update_status(friendId, userId, ImFriendRelationshipStatus.AGREE);
-                friendShipMapper.insert(userId, friendId);
-                friendShipMapper.insert(friendId, userId);
-            case 2:
-                friendShipInfoMapper.update(userId, friendId, ImFriendRelationshipStatus.READ,
-                        ImFriendRelationshipStatus.REJECT);
-                friendShipInfoMapper.update_status(friendId, userId, ImFriendRelationshipStatus.REJECT);
-            case 3:
-                friendShipInfoMapper.update(userId, friendId, ImFriendRelationshipStatus.READ,
-                        ImFriendRelationshipStatus.IGNORE);
-            default:
-                throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
+  @Override
+  public void update_status(Long userId, String sessionId, Short status) {
+    Session session = sessionMapper.select_session_by_user_session(userId, sessionId);
+    if (session == null) {
+      throw new BusinessException(ErrorCode.PARAMS_ERROR);
     }
+    sessionMapper.update_status(userId, sessionId, status);
+  }
 
-    @Override
-    public List<FriendShipRequestsResponse> get_friend_requests(Long userId, Long page, Long pagesize) {
-        List<FriendShipRequestsResponse> friendShipList = friendShipInfoMapper.page_by_userId(userId, (page - 1) * pagesize, pagesize);
-        return friendShipList;
+  @Override
+  public List<FriendStatusResponse> get_friend_status(Long userId) {
+    List<FriendStatusResponse> friendStatusResponseList =
+        friendShipMapper.select_friend_ids(userId);
+    for (FriendStatusResponse friend : friendStatusResponseList) {
+      Long id = friend.getId();
+      Boolean b = redisUtils.containerUserStatus(id);
+      if (b.equals(true)) friend.setStatus(true);
+      else friend.setStatus(false);
     }
+    return friendStatusResponseList;
+  }
 
-    @Override
-    public List<FriendResponse> get_friends(Long userId) {
-        List<FriendResponse> friendResponses = friendShipMapper.select_friend_info(userId);
-        return friendResponses;
-    }
+  @Override
+  public void read_friend(Long userId) {
+    friendShipInfoMapper.update_by_user(userId, ImFriendRelationshipStatus.READ);
+  }
 
-    @Override
-    public String create_session(Long userId, Long friendId) {
-        FriendShip friendShip = friendShipMapper.select_by_userId_friendId(userId, friendId);
-        if (friendShip == null) {
-            throw new BusinessException(ErrorCode.FRIEND_NOT_EXISTS);
-        }
-        Session session = sessionMapper.select_session_by_user(userId, friendId);
-        if (session != null) {
-            if (session.getStatus() != ImSessionStatus.DISPLAY) {
-                sessionMapper.update_status(session.getId(), ImSessionStatus.DISPLAY);
-            }
-            return session.getSession_id();
-        }
-        String uuid = uuidUtils.create_uuid();
-        sessionMapper.insert(uuid, userId, friendId, ImSessionStatus.DISPLAY);
-        sessionMapper.insert(uuid, friendId, userId, ImSessionStatus.HIDDEN);
-        return uuid;
+  @Override
+  public void update_username(Long userId, String username) {
+    if (StringUtils.isBlank(username) || username.length() > 20) {
+      throw new BusinessException(ErrorCode.PARAMS_ERROR);
     }
+    if (sensitiveWordBs.contains(username)) {
+      throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
+    }
+    userMapper.update_username(userId, username);
+  }
 
-    @Override
-    public void update_status(Long userId, Long friendId, String sessionId, Short status) {
-        Session session = sessionMapper.select_session_by_user(userId, friendId);
-        if (session == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        sessionMapper.update_status(session.getId(), status);
+  @Override
+  public SearchUserResponse search_account(String account) {
+    if (StringUtils.isBlank(account)) {
+      throw new BusinessException(ErrorCode.PARAMS_ERROR);
     }
+    User user;
+    if (emailValidator.isValidEmail(account)) {
+      user = userMapper.select_by_email(account);
+    } else user = userMapper.select_by_account(account);
+    if (user == null) {
+      return null;
+    }
+    SearchUserResponse searchUserResponse = new SearchUserResponse();
+    BeanUtils.copyProperties(user, searchUserResponse);
+    return searchUserResponse;
+  }
 
-    @Override
-    public List<FriendStatusResponse> get_friend_status(Long userId) {
-        List<FriendStatusResponse> friendStatusResponseList = friendShipMapper.select_friend_ids(userId);
-        for (FriendStatusResponse friend :
-                friendStatusResponseList) {
-            Long id = friend.getId();
-            Boolean b = redisUtils.containerUserStatus(id);
-            if (b.equals(true))
-                friend.setStatus(true);
-            else
-                friend.setStatus(false);
-        }
-        return friendStatusResponseList;
-    }
-
-    @Override
-    public void read_friend(Long userId) {
-        friendShipInfoMapper.update_by_user(userId, ImFriendRelationshipStatus.READ);
-    }
-
-    @Override
-    public void update_username(Long userId, String username) {
-        if (StringUtils.isBlank(username) || username.length() > 20) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
-        if (sensitiveWordBs.contains(username)) {
-            throw new BusinessException(ErrorCode.SENSITIVE_ERROR);
-        }
-        userMapper.update_username(userId, username);
-    }
+  @Override
+  public List<SessionResponse> get_sessions(Long userId) {
+    List<SessionResponse> sessionResponses =
+        sessionMapper.select_session_by_user(userId, ImSessionStatus.DISPLAY);
+    return sessionResponses;
+  }
 }

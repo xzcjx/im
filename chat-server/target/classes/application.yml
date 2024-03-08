@@ -87,3 +87,8 @@ app:
 limit:
   email:
     exp: '#{30}'
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

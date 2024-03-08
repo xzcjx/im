@@ -1,17 +1,17 @@
-//package com.xzccc.server.utils;
+// package com.xzccc.server.utils;
 //
-//import com.auth0.jwt.JWT;
-//import com.auth0.jwt.JWTCreator;
-//import com.auth0.jwt.algorithms.Algorithm;
-//import com.auth0.jwt.interfaces.DecodedJWT;
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.stereotype.Component;
+// import com.auth0.jwt.JWT;
+// import com.auth0.jwt.JWTCreator;
+// import com.auth0.jwt.algorithms.Algorithm;
+// import com.auth0.jwt.interfaces.DecodedJWT;
+// import org.springframework.beans.factory.annotation.Value;
+// import org.springframework.stereotype.Component;
 //
-//import java.util.Calendar;
-//import java.util.Map;
+// import java.util.Calendar;
+// import java.util.Map;
 //
-//@Component
-//public class JWTUtils {
+// @Component
+// public class JWTUtils {
 //    /**
 //     * 生成token  header.payload.singature
 //     */
@@ -52,4 +52,4 @@
 //        return JWT.require(Algorithm.HMAC256(secret)).build().verify(token);
 //    }
 //
-//}
+// }

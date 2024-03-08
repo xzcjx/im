@@ -1,19 +1,13 @@
 package com.xzccc.server.utils;
 
-import com.xzccc.exception.BusinessException;
-import lombok.extern.slf4j.Slf4j;
-import org.dom4j.*;
-import org.dom4j.io.SAXReader;
-
-import javax.servlet.http.HttpServletRequest;
-
 import java.io.*;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
+import org.dom4j.*;
+import org.dom4j.io.SAXReader;
 
 /**
  * 微信消息处理类（微信消息交互大部分就是xml格式交互）

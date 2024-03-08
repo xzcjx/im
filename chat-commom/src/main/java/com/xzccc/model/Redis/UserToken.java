@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserToken {
-    private String token;
-    private Long exp;
+  private String token;
+  private Long exp;
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class FriendResponse {
-    private Long id;
-    private String username;
-    private String note;
+  private Long id;
+  private String username;
+  private String note;
 }

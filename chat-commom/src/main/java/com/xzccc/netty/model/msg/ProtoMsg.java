@@ -5,80 +5,255 @@
 package com.xzccc.netty.model.msg;
 
 public final class ProtoMsg {
-  private ProtoMsg() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_LoginRequest_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LoginRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_LoginResponse_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LoginResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_ChatMessageRequest_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatMessageRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_ChatMessageResponse_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatMessageResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_ChatServerNotify_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatServerNotify_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_ChatClientACK_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatClientACK_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_ChatServerACK_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatServerACK_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_ChatServerNotifyACK_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatServerNotifyACK_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_Message_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Message_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\rMessage.proto\".\n\014LoginRequest\022\017\n\007user_"
+          + "id\030\001 \001(\004\022\r\n\005token\030\002 \001(\t\"K\n\rLoginResponse"
+          + "\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003"
+          + " \001(\t\022\016\n\006expose\030\004 \001(\r\"\241\001\n\022ChatMessageRequ"
+          + "est\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022\032\n\010m"
+          + "sg_type\030\003 \001(\0162\010.MsgType\022\016\n\006msg_id\030\004 \001(\t\022"
+          + "\021\n\tsend_time\030\005 \001(\r\022\027\n\004type\030\006 \001(\0162\t.ChatT"
+          + "ype\022\023\n\013msg_content\030\007 \001(\t\"u\n\023ChatMessageR"
+          + "esponse\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022"
+          + "\016\n\006msg_id\030\003 \001(\t\022\021\n\tsend_time\030\004 \001(\r\022\016\n\006re"
+          + "sult\030\005 \001(\010\022\013\n\003msg\030\006 \001(\t\"\237\001\n\020ChatServerNo"
+          + "tify\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022\032\n\010"
+          + "msg_type\030\003 \001(\0162\010.MsgType\022\016\n\006msg_id\030\004 \001(\t"
+          + "\022\021\n\tsend_time\030\005 \001(\r\022\027\n\004type\030\006 \001(\0162\t.Chat"
+          + "Type\022\023\n\013msg_content\030\007 \001(\t\"b\n\rChatClientA"
+          + "CK\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022\016\n\006ms"
+          + "g_id\030\003 \001(\t\022\021\n\tsend_time\030\004 \001(\r\022\016\n\006result\030"
+          + "\005 \001(\010\"b\n\rChatServerACK\022\017\n\007from_id\030\001 \001(\004\022"
+          + "\r\n\005to_id\030\002 \001(\004\022\016\n\006msg_id\030\003 \001(\t\022\021\n\tsend_t"
+          + "ime\030\004 \001(\r\022\016\n\006result\030\005 \001(\010\"h\n\023ChatServerN"
+          + "otifyACK\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004"
+          + "\022\016\n\006msg_id\030\003 \001(\t\022\021\n\tsend_time\030\004 \001(\r\022\016\n\006r"
+          + "esult\030\005 \001(\010\"\337\004\n\007Message\022\027\n\004type\030\001 \001(\0162\t."
+          + "HeadType\022\022\n\nsession_id\030\002 \001(\t\022(\n\014loginReq"
+          + "uest\030\004 \001(\0132\r.LoginRequestH\000\210\001\001\022*\n\rloginR"
+          + "esponse\030\005 \001(\0132\016.LoginResponseH\001\210\001\001\0224\n\022ch"
+          + "atMessageRequest\030\006 \001(\0132\023.ChatMessageRequ"
+          + "estH\002\210\001\001\0226\n\023chatMessageResponse\030\007 \001(\0132\024."
+          + "ChatMessageResponseH\003\210\001\001\0220\n\020chatServerNo"
+          + "tify\030\010 \001(\0132\021.ChatServerNotifyH\004\210\001\001\022*\n\rch"
+          + "atClientACK\030\t \001(\0132\016.ChatClientACKH\005\210\001\001\022*"
+          + "\n\rchatServerACK\030\n \001(\0132\016.ChatServerACKH\006\210"
+          + "\001\001\0226\n\023chatServerNotifyACK\030\013 \001(\0132\024.ChatSe"
+          + "rverNotifyACKH\007\210\001\001B\017\n\r_loginRequestB\020\n\016_"
+          + "loginResponseB\025\n\023_chatMessageRequestB\026\n\024"
+          + "_chatMessageResponseB\023\n\021_chatServerNotif"
+          + "yB\020\n\016_chatClientACKB\020\n\016_chatServerACKB\026\n"
+          + "\024_chatServerNotifyACK*\316\001\n\010HeadType\022\021\n\rLO"
+          + "GIN_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOG"
+          + "OUT_REQUEST\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\025\n\021KE"
+          + "EPALIVE_REQUEST\020\004\022\026\n\022KEEPALIVE_RESPONSE\020"
+          + "\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RESPON"
+          + "SE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010*\\\n\007MsgTyp"
+          + "e\022\010\n\004TEXT\020\000\022\007\n\003IMG\020\001\022\010\n\004FILE\020\002\022\016\n\nRED_PA"
+          + "CKET\020\003\022\t\n\005VOICE\020\004\022\t\n\005VIDEO\020\005\022\016\n\nRETRACTI"
+          + "ON\020\006*$\n\010ChatType\022\010\n\004CHAT\020\000\022\016\n\nGROUP_CHAT"
+          + "\020\001B%\n\031com.xzccc.netty.model.msgB\010ProtoMs"
+          + "gb\006proto3"
+    };
+    descriptor =
+        com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+            descriptorData, new com.google.protobuf.Descriptors.FileDescriptor[] {});
+    internal_static_LoginRequest_descriptor = getDescriptor().getMessageTypes().get(0);
+    internal_static_LoginRequest_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_LoginRequest_descriptor,
+            new java.lang.String[] {
+              "UserId", "Token",
+            });
+    internal_static_LoginResponse_descriptor = getDescriptor().getMessageTypes().get(1);
+    internal_static_LoginResponse_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_LoginResponse_descriptor,
+            new java.lang.String[] {
+              "Result", "Code", "Info", "Expose",
+            });
+    internal_static_ChatMessageRequest_descriptor = getDescriptor().getMessageTypes().get(2);
+    internal_static_ChatMessageRequest_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_ChatMessageRequest_descriptor,
+            new java.lang.String[] {
+              "FromId", "ToId", "MsgType", "MsgId", "SendTime", "Type", "MsgContent",
+            });
+    internal_static_ChatMessageResponse_descriptor = getDescriptor().getMessageTypes().get(3);
+    internal_static_ChatMessageResponse_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_ChatMessageResponse_descriptor,
+            new java.lang.String[] {
+              "FromId", "ToId", "MsgId", "SendTime", "Result", "Msg",
+            });
+    internal_static_ChatServerNotify_descriptor = getDescriptor().getMessageTypes().get(4);
+    internal_static_ChatServerNotify_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_ChatServerNotify_descriptor,
+            new java.lang.String[] {
+              "FromId", "ToId", "MsgType", "MsgId", "SendTime", "Type", "MsgContent",
+            });
+    internal_static_ChatClientACK_descriptor = getDescriptor().getMessageTypes().get(5);
+    internal_static_ChatClientACK_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_ChatClientACK_descriptor,
+            new java.lang.String[] {
+              "FromId", "ToId", "MsgId", "SendTime", "Result",
+            });
+    internal_static_ChatServerACK_descriptor = getDescriptor().getMessageTypes().get(6);
+    internal_static_ChatServerACK_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_ChatServerACK_descriptor,
+            new java.lang.String[] {
+              "FromId", "ToId", "MsgId", "SendTime", "Result",
+            });
+    internal_static_ChatServerNotifyACK_descriptor = getDescriptor().getMessageTypes().get(7);
+    internal_static_ChatServerNotifyACK_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_ChatServerNotifyACK_descriptor,
+            new java.lang.String[] {
+              "FromId", "ToId", "MsgId", "SendTime", "Result",
+            });
+    internal_static_Message_descriptor = getDescriptor().getMessageTypes().get(8);
+    internal_static_Message_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_Message_descriptor,
+            new java.lang.String[] {
+              "Type",
+              "SessionId",
+              "LoginRequest",
+              "LoginResponse",
+              "ChatMessageRequest",
+              "ChatMessageResponse",
+              "ChatServerNotify",
+              "ChatClientACK",
+              "ChatServerACK",
+              "ChatServerNotifyACK",
+            });
   }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
+  private ProtoMsg() {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  /**
-   * Protobuf enum {@code HeadType}
-   */
-  public enum HeadType
-      implements com.google.protobuf.ProtocolMessageEnum {
+
+  public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
+    return descriptor;
+  }
+
+  /** Protobuf enum {@code HeadType} */
+  public enum HeadType implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     *
+     *
      * <pre>
-     *登陆请求
+     * 登陆请求
      * </pre>
      *
      * <code>LOGIN_REQUEST = 0;</code>
      */
     LOGIN_REQUEST(0),
     /**
+     *
+     *
      * <pre>
-     *登录响应
+     * 登录响应
      * </pre>
      *
      * <code>LOGIN_RESPONSE = 1;</code>
      */
     LOGIN_RESPONSE(1),
     /**
+     *
+     *
      * <pre>
-     *退出请求
+     * 退出请求
      * </pre>
      *
      * <code>LOGOUT_REQUEST = 2;</code>
      */
     LOGOUT_REQUEST(2),
-    /**
-     * <code>LOGOUT_RESPONSE = 3;</code>
-     */
+    /** <code>LOGOUT_RESPONSE = 3;</code> */
     LOGOUT_RESPONSE(3),
     /**
+     *
+     *
      * <pre>
-     *心跳请求PING;
+     * 心跳请求PING;
      * </pre>
      *
      * <code>KEEPALIVE_REQUEST = 4;</code>
      */
     KEEPALIVE_REQUEST(4),
-    /**
-     * <code>KEEPALIVE_RESPONSE = 5;</code>
-     */
+    /** <code>KEEPALIVE_RESPONSE = 5;</code> */
     KEEPALIVE_RESPONSE(5),
     /**
+     *
+     *
      * <pre>
-     *消息请求;
+     * 消息请求;
      * </pre>
      *
      * <code>MESSAGE_REQUEST = 6;</code>
      */
     MESSAGE_REQUEST(6),
     /**
+     *
+     *
      * <pre>
-     *消息回执;
+     * 消息回执;
      * </pre>
      *
      * <code>MESSAGE_RESPONSE = 7;</code>
      */
     MESSAGE_RESPONSE(7),
     /**
+     *
+     *
      * <pre>
-     *通知消息
+     * 通知消息
      * </pre>
      *
      * <code>MESSAGE_NOTIFICATION = 8;</code>
@@ -88,77 +263,98 @@ public final class ProtoMsg {
     ;
 
     /**
+     *
+     *
      * <pre>
-     *登陆请求
+     * 登陆请求
      * </pre>
      *
      * <code>LOGIN_REQUEST = 0;</code>
      */
     public static final int LOGIN_REQUEST_VALUE = 0;
+
     /**
+     *
+     *
      * <pre>
-     *登录响应
+     * 登录响应
      * </pre>
      *
      * <code>LOGIN_RESPONSE = 1;</code>
      */
     public static final int LOGIN_RESPONSE_VALUE = 1;
+
     /**
+     *
+     *
      * <pre>
-     *退出请求
+     * 退出请求
      * </pre>
      *
      * <code>LOGOUT_REQUEST = 2;</code>
      */
     public static final int LOGOUT_REQUEST_VALUE = 2;
-    /**
-     * <code>LOGOUT_RESPONSE = 3;</code>
-     */
+
+    /** <code>LOGOUT_RESPONSE = 3;</code> */
     public static final int LOGOUT_RESPONSE_VALUE = 3;
+
     /**
+     *
+     *
      * <pre>
-     *心跳请求PING;
+     * 心跳请求PING;
      * </pre>
      *
      * <code>KEEPALIVE_REQUEST = 4;</code>
      */
     public static final int KEEPALIVE_REQUEST_VALUE = 4;
-    /**
-     * <code>KEEPALIVE_RESPONSE = 5;</code>
-     */
+
+    /** <code>KEEPALIVE_RESPONSE = 5;</code> */
     public static final int KEEPALIVE_RESPONSE_VALUE = 5;
+
     /**
+     *
+     *
      * <pre>
-     *消息请求;
+     * 消息请求;
      * </pre>
      *
      * <code>MESSAGE_REQUEST = 6;</code>
      */
     public static final int MESSAGE_REQUEST_VALUE = 6;
+
     /**
+     *
+     *
      * <pre>
-     *消息回执;
+     * 消息回执;
      * </pre>
      *
      * <code>MESSAGE_RESPONSE = 7;</code>
      */
     public static final int MESSAGE_RESPONSE_VALUE = 7;
+
     /**
+     *
+     *
      * <pre>
-     *通知消息
+     * 通知消息
      * </pre>
      *
      * <code>MESSAGE_NOTIFICATION = 8;</code>
      */
     public static final int MESSAGE_NOTIFICATION_VALUE = 8;
+    private static final com.google.protobuf.Internal.EnumLiteMap<HeadType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<HeadType>() {
+          public HeadType findValueByNumber(int number) {
+            return HeadType.forNumber(number);
+          }
+        };
+    private static final HeadType[] VALUES = values();
+    private final int value;
 
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
+    private HeadType(int value) {
+      this.value = value;
     }
 
     /**
@@ -177,55 +373,40 @@ public final class ProtoMsg {
      */
     public static HeadType forNumber(int value) {
       switch (value) {
-        case 0: return LOGIN_REQUEST;
-        case 1: return LOGIN_RESPONSE;
-        case 2: return LOGOUT_REQUEST;
-        case 3: return LOGOUT_RESPONSE;
-        case 4: return KEEPALIVE_REQUEST;
-        case 5: return KEEPALIVE_RESPONSE;
-        case 6: return MESSAGE_REQUEST;
-        case 7: return MESSAGE_RESPONSE;
-        case 8: return MESSAGE_NOTIFICATION;
-        default: return null;
+        case 0:
+          return LOGIN_REQUEST;
+        case 1:
+          return LOGIN_RESPONSE;
+        case 2:
+          return LOGOUT_REQUEST;
+        case 3:
+          return LOGOUT_RESPONSE;
+        case 4:
+          return KEEPALIVE_REQUEST;
+        case 5:
+          return KEEPALIVE_RESPONSE;
+        case 6:
+          return MESSAGE_REQUEST;
+        case 7:
+          return MESSAGE_RESPONSE;
+        case 8:
+          return MESSAGE_NOTIFICATION;
+        default:
+          return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<HeadType>
-        internalGetValueMap() {
+    public static com.google.protobuf.Internal.EnumLiteMap<HeadType> internalGetValueMap() {
       return internalValueMap;
     }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        HeadType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<HeadType>() {
-            public HeadType findValueByNumber(int number) {
-              return HeadType.forNumber(number);
-            }
-          };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
+    public static final com.google.protobuf.Descriptors.EnumDescriptor getDescriptor() {
       return com.xzccc.netty.model.msg.ProtoMsg.getDescriptor().getEnumTypes().get(0);
     }
 
-    private static final HeadType[] VALUES = values();
-
-    public static HeadType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    public static HeadType valueOf(com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
+        throw new java.lang.IllegalArgumentException("EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -233,71 +414,95 @@ public final class ProtoMsg {
       return VALUES[desc.getIndex()];
     }
 
-    private final int value;
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
 
-    private HeadType(int value) {
-      this.value = value;
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {
+      return getDescriptor();
     }
 
     // @@protoc_insertion_point(enum_scope:HeadType)
   }
-
-  /**
-   * Protobuf enum {@code MsgType}
-   */
-  public enum MsgType
-      implements com.google.protobuf.ProtocolMessageEnum {
+  /** Protobuf enum {@code MsgType} */
+  public enum MsgType implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     *
+     *
      * <pre>
-     *文字消息
+     * 文字消息
      * </pre>
      *
      * <code>TEXT = 0;</code>
      */
     TEXT(0),
     /**
+     *
+     *
      * <pre>
-     *图片消息
+     * 图片消息
      * </pre>
      *
      * <code>IMG = 1;</code>
      */
     IMG(1),
     /**
+     *
+     *
      * <pre>
-     *文件消息
+     * 文件消息
      * </pre>
      *
      * <code>FILE = 2;</code>
      */
     FILE(2),
     /**
+     *
+     *
      * <pre>
-     *红包消息
+     * 红包消息
      * </pre>
      *
      * <code>RED_PACKET = 3;</code>
      */
     RED_PACKET(3),
     /**
+     *
+     *
      * <pre>
-     *语音消息
+     * 语音消息
      * </pre>
      *
      * <code>VOICE = 4;</code>
      */
     VOICE(4),
     /**
+     *
+     *
      * <pre>
-     *视频消息
+     * 视频消息
      * </pre>
      *
      * <code>VIDEO = 5;</code>
      */
     VIDEO(5),
     /**
+     *
+     *
      * <pre>
-     *撤回消息
+     * 撤回消息
      * </pre>
      *
      * <code>RETRACTION = 6;</code>
@@ -307,69 +512,92 @@ public final class ProtoMsg {
     ;
 
     /**
+     *
+     *
      * <pre>
-     *文字消息
+     * 文字消息
      * </pre>
      *
      * <code>TEXT = 0;</code>
      */
     public static final int TEXT_VALUE = 0;
+
     /**
+     *
+     *
      * <pre>
-     *图片消息
+     * 图片消息
      * </pre>
      *
      * <code>IMG = 1;</code>
      */
     public static final int IMG_VALUE = 1;
+
     /**
+     *
+     *
      * <pre>
-     *文件消息
+     * 文件消息
      * </pre>
      *
      * <code>FILE = 2;</code>
      */
     public static final int FILE_VALUE = 2;
+
     /**
+     *
+     *
      * <pre>
-     *红包消息
+     * 红包消息
      * </pre>
      *
      * <code>RED_PACKET = 3;</code>
      */
     public static final int RED_PACKET_VALUE = 3;
+
     /**
+     *
+     *
      * <pre>
-     *语音消息
+     * 语音消息
      * </pre>
      *
      * <code>VOICE = 4;</code>
      */
     public static final int VOICE_VALUE = 4;
+
     /**
+     *
+     *
      * <pre>
-     *视频消息
+     * 视频消息
      * </pre>
      *
      * <code>VIDEO = 5;</code>
      */
     public static final int VIDEO_VALUE = 5;
+
     /**
+     *
+     *
      * <pre>
-     *撤回消息
+     * 撤回消息
      * </pre>
      *
      * <code>RETRACTION = 6;</code>
      */
     public static final int RETRACTION_VALUE = 6;
+    private static final com.google.protobuf.Internal.EnumLiteMap<MsgType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
+          public MsgType findValueByNumber(int number) {
+            return MsgType.forNumber(number);
+          }
+        };
+    private static final MsgType[] VALUES = values();
+    private final int value;
 
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
+    private MsgType(int value) {
+      this.value = value;
     }
 
     /**
@@ -388,53 +616,36 @@ public final class ProtoMsg {
      */
     public static MsgType forNumber(int value) {
       switch (value) {
-        case 0: return TEXT;
-        case 1: return IMG;
-        case 2: return FILE;
-        case 3: return RED_PACKET;
-        case 4: return VOICE;
-        case 5: return VIDEO;
-        case 6: return RETRACTION;
-        default: return null;
+        case 0:
+          return TEXT;
+        case 1:
+          return IMG;
+        case 2:
+          return FILE;
+        case 3:
+          return RED_PACKET;
+        case 4:
+          return VOICE;
+        case 5:
+          return VIDEO;
+        case 6:
+          return RETRACTION;
+        default:
+          return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<MsgType>
-        internalGetValueMap() {
+    public static com.google.protobuf.Internal.EnumLiteMap<MsgType> internalGetValueMap() {
       return internalValueMap;
     }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        MsgType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
-            public MsgType findValueByNumber(int number) {
-              return MsgType.forNumber(number);
-            }
-          };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
+    public static final com.google.protobuf.Descriptors.EnumDescriptor getDescriptor() {
       return com.xzccc.netty.model.msg.ProtoMsg.getDescriptor().getEnumTypes().get(1);
     }
 
-    private static final MsgType[] VALUES = values();
-
-    public static MsgType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    public static MsgType valueOf(com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
+        throw new java.lang.IllegalArgumentException("EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -442,31 +653,45 @@ public final class ProtoMsg {
       return VALUES[desc.getIndex()];
     }
 
-    private final int value;
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
 
-    private MsgType(int value) {
-      this.value = value;
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {
+      return getDescriptor();
     }
 
     // @@protoc_insertion_point(enum_scope:MsgType)
   }
-
-  /**
-   * Protobuf enum {@code ChatType}
-   */
-  public enum ChatType
-      implements com.google.protobuf.ProtocolMessageEnum {
+  /** Protobuf enum {@code ChatType} */
+  public enum ChatType implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     *
+     *
      * <pre>
-     *单聊
+     * 单聊
      * </pre>
      *
      * <code>CHAT = 0;</code>
      */
     CHAT(0),
     /**
+     *
+     *
      * <pre>
-     *群聊
+     * 群聊
      * </pre>
      *
      * <code>GROUP_CHAT = 1;</code>
@@ -476,29 +701,37 @@ public final class ProtoMsg {
     ;
 
     /**
+     *
+     *
      * <pre>
-     *单聊
+     * 单聊
      * </pre>
      *
      * <code>CHAT = 0;</code>
      */
     public static final int CHAT_VALUE = 0;
+
     /**
+     *
+     *
      * <pre>
-     *群聊
+     * 群聊
      * </pre>
      *
      * <code>GROUP_CHAT = 1;</code>
      */
     public static final int GROUP_CHAT_VALUE = 1;
+    private static final com.google.protobuf.Internal.EnumLiteMap<ChatType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<ChatType>() {
+          public ChatType findValueByNumber(int number) {
+            return ChatType.forNumber(number);
+          }
+        };
+    private static final ChatType[] VALUES = values();
+    private final int value;
 
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
+    private ChatType(int value) {
+      this.value = value;
     }
 
     /**
@@ -517,48 +750,26 @@ public final class ProtoMsg {
      */
     public static ChatType forNumber(int value) {
       switch (value) {
-        case 0: return CHAT;
-        case 1: return GROUP_CHAT;
-        default: return null;
+        case 0:
+          return CHAT;
+        case 1:
+          return GROUP_CHAT;
+        default:
+          return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<ChatType>
-        internalGetValueMap() {
+    public static com.google.protobuf.Internal.EnumLiteMap<ChatType> internalGetValueMap() {
       return internalValueMap;
     }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        ChatType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<ChatType>() {
-            public ChatType findValueByNumber(int number) {
-              return ChatType.forNumber(number);
-            }
-          };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
+    public static final com.google.protobuf.Descriptors.EnumDescriptor getDescriptor() {
       return com.xzccc.netty.model.msg.ProtoMsg.getDescriptor().getEnumTypes().get(2);
     }
 
-    private static final ChatType[] VALUES = values();
-
-    public static ChatType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    public static ChatType valueOf(com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
+        throw new java.lang.IllegalArgumentException("EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -566,63 +777,1121 @@ public final class ProtoMsg {
       return VALUES[desc.getIndex()];
     }
 
-    private final int value;
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
 
-    private ChatType(int value) {
-      this.value = value;
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {
+      return getDescriptor();
     }
 
     // @@protoc_insertion_point(enum_scope:ChatType)
   }
-
-  public interface LoginRequestOrBuilder extends
+  public interface LoginRequestOrBuilder
+      extends
       // @@protoc_insertion_point(interface_extends:LoginRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>uint64 user_id = 1;</code>
+     *
      * @return The userId.
      */
     long getUserId();
 
     /**
      * <code>string token = 2;</code>
+     *
      * @return The token.
      */
     java.lang.String getToken();
+
     /**
      * <code>string token = 2;</code>
+     *
      * @return The bytes for token.
      */
-    com.google.protobuf.ByteString
-        getTokenBytes();
+    com.google.protobuf.ByteString getTokenBytes();
   }
-  /**
-   * Protobuf type {@code LoginRequest}
-   */
-  public static final class LoginRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public interface LoginResponseOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:LoginResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * true 表示成功，false表示失败
+     * </pre>
+     *
+     * <code>bool result = 1;</code>
+     *
+     * @return The result.
+     */
+    boolean getResult();
+
+    /**
+     *
+     *
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>uint32 code = 2;</code>
+     *
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     *
+     *
+     * <pre>
+     * 错误描述
+     * </pre>
+     *
+     * <code>string info = 3;</code>
+     *
+     * @return The info.
+     */
+    java.lang.String getInfo();
+
+    /**
+     *
+     *
+     * <pre>
+     * 错误描述
+     * </pre>
+     *
+     * <code>string info = 3;</code>
+     *
+     * @return The bytes for info.
+     */
+    com.google.protobuf.ByteString getInfoBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 错误描述是否提示给用户:1 提示;0 不提示
+     * </pre>
+     *
+     * <code>uint32 expose = 4;</code>
+     *
+     * @return The expose.
+     */
+    int getExpose();
+  }
+  public interface ChatMessageRequestOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:ChatMessageRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送人id
+     * </pre>
+     *
+     * <code>uint64 from_id = 1;</code>
+     *
+     * @return The fromId.
+     */
+    long getFromId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 接收人id
+     * </pre>
+     *
+     * <code>uint64 to_id = 2;</code>
+     *
+     * @return The toId.
+     */
+    long getToId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息类型
+     * </pre>
+     *
+     * <code>.MsgType msg_type = 3;</code>
+     *
+     * @return The enum numeric value on the wire for msgType.
+     */
+    int getMsgTypeValue();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息类型
+     * </pre>
+     *
+     * <code>.MsgType msg_type = 3;</code>
+     *
+     * @return The msgType.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 4;</code>
+     *
+     * @return The msgId.
+     */
+    java.lang.String getMsgId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 4;</code>
+     *
+     * @return The bytes for msgId.
+     */
+    com.google.protobuf.ByteString getMsgIdBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端发送时间，用于保证时序性
+     * </pre>
+     *
+     * <code>uint32 send_time = 5;</code>
+     *
+     * @return The sendTime.
+     */
+    int getSendTime();
+
+    /**
+     *
+     *
+     * <pre>
+     * 聊天类型
+     * </pre>
+     *
+     * <code>.ChatType type = 6;</code>
+     *
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+
+    /**
+     *
+     *
+     * <pre>
+     * 聊天类型
+     * </pre>
+     *
+     * <code>.ChatType type = 6;</code>
+     *
+     * @return The type.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatType getType();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息内容
+     * </pre>
+     *
+     * <code>string msg_content = 7;</code>
+     *
+     * @return The msgContent.
+     */
+    java.lang.String getMsgContent();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息内容
+     * </pre>
+     *
+     * <code>string msg_content = 7;</code>
+     *
+     * @return The bytes for msgContent.
+     */
+    com.google.protobuf.ByteString getMsgContentBytes();
+  }
+  public interface ChatMessageResponseOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:ChatMessageResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送人id
+     * </pre>
+     *
+     * <code>uint64 from_id = 1;</code>
+     *
+     * @return The fromId.
+     */
+    long getFromId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 接收人id
+     * </pre>
+     *
+     * <code>uint64 to_id = 2;</code>
+     *
+     * @return The toId.
+     */
+    long getToId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The msgId.
+     */
+    java.lang.String getMsgId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The bytes for msgId.
+     */
+    com.google.protobuf.ByteString getMsgIdBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端发送时间，用于保证时序性
+     * </pre>
+     *
+     * <code>uint32 send_time = 4;</code>
+     *
+     * @return The sendTime.
+     */
+    int getSendTime();
+
+    /**
+     *
+     *
+     * <pre>
+     * 服务器是否成功收到消息并发送
+     * </pre>
+     *
+     * <code>bool result = 5;</code>
+     *
+     * @return The result.
+     */
+    boolean getResult();
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送失败原因
+     * </pre>
+     *
+     * <code>string msg = 6;</code>
+     *
+     * @return The msg.
+     */
+    java.lang.String getMsg();
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送失败原因
+     * </pre>
+     *
+     * <code>string msg = 6;</code>
+     *
+     * @return The bytes for msg.
+     */
+    com.google.protobuf.ByteString getMsgBytes();
+  }
+  public interface ChatServerNotifyOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:ChatServerNotify)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送人id
+     * </pre>
+     *
+     * <code>uint64 from_id = 1;</code>
+     *
+     * @return The fromId.
+     */
+    long getFromId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 接收人id
+     * </pre>
+     *
+     * <code>uint64 to_id = 2;</code>
+     *
+     * @return The toId.
+     */
+    long getToId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息类型
+     * </pre>
+     *
+     * <code>.MsgType msg_type = 3;</code>
+     *
+     * @return The enum numeric value on the wire for msgType.
+     */
+    int getMsgTypeValue();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息类型
+     * </pre>
+     *
+     * <code>.MsgType msg_type = 3;</code>
+     *
+     * @return The msgType.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 4;</code>
+     *
+     * @return The msgId.
+     */
+    java.lang.String getMsgId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 4;</code>
+     *
+     * @return The bytes for msgId.
+     */
+    com.google.protobuf.ByteString getMsgIdBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端发送时间，用于保证时序性
+     * </pre>
+     *
+     * <code>uint32 send_time = 5;</code>
+     *
+     * @return The sendTime.
+     */
+    int getSendTime();
+
+    /**
+     *
+     *
+     * <pre>
+     * 聊天类型
+     * </pre>
+     *
+     * <code>.ChatType type = 6;</code>
+     *
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+
+    /**
+     *
+     *
+     * <pre>
+     * 聊天类型
+     * </pre>
+     *
+     * <code>.ChatType type = 6;</code>
+     *
+     * @return The type.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatType getType();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息内容
+     * </pre>
+     *
+     * <code>string msg_content = 7;</code>
+     *
+     * @return The msgContent.
+     */
+    java.lang.String getMsgContent();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息内容
+     * </pre>
+     *
+     * <code>string msg_content = 7;</code>
+     *
+     * @return The bytes for msgContent.
+     */
+    com.google.protobuf.ByteString getMsgContentBytes();
+  }
+  public interface ChatClientACKOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:ChatClientACK)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送人id
+     * </pre>
+     *
+     * <code>uint64 from_id = 1;</code>
+     *
+     * @return The fromId.
+     */
+    long getFromId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 接收人id
+     * </pre>
+     *
+     * <code>uint64 to_id = 2;</code>
+     *
+     * @return The toId.
+     */
+    long getToId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The msgId.
+     */
+    java.lang.String getMsgId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The bytes for msgId.
+     */
+    com.google.protobuf.ByteString getMsgIdBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端发送时间，用于保证时序性
+     * </pre>
+     *
+     * <code>uint32 send_time = 4;</code>
+     *
+     * @return The sendTime.
+     */
+    int getSendTime();
+
+    /**
+     *
+     *
+     * <pre>
+     * 服务器返回的ack
+     * </pre>
+     *
+     * <code>bool result = 5;</code>
+     *
+     * @return The result.
+     */
+    boolean getResult();
+  }
+  public interface ChatServerACKOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:ChatServerACK)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送人id
+     * </pre>
+     *
+     * <code>uint64 from_id = 1;</code>
+     *
+     * @return The fromId.
+     */
+    long getFromId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 接收人id
+     * </pre>
+     *
+     * <code>uint64 to_id = 2;</code>
+     *
+     * @return The toId.
+     */
+    long getToId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The msgId.
+     */
+    java.lang.String getMsgId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The bytes for msgId.
+     */
+    com.google.protobuf.ByteString getMsgIdBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端发送时间，用于保证时序性
+     * </pre>
+     *
+     * <code>uint32 send_time = 4;</code>
+     *
+     * @return The sendTime.
+     */
+    int getSendTime();
+
+    /**
+     *
+     *
+     * <pre>
+     * 服务器返回的ack
+     * </pre>
+     *
+     * <code>bool result = 5;</code>
+     *
+     * @return The result.
+     */
+    boolean getResult();
+  }
+  public interface ChatServerNotifyACKOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:ChatServerNotifyACK)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 发送人id
+     * </pre>
+     *
+     * <code>uint64 from_id = 1;</code>
+     *
+     * @return The fromId.
+     */
+    long getFromId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 接收人id
+     * </pre>
+     *
+     * <code>uint64 to_id = 2;</code>
+     *
+     * @return The toId.
+     */
+    long getToId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The msgId.
+     */
+    java.lang.String getMsgId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端生成的msg_id
+     * </pre>
+     *
+     * <code>string msg_id = 3;</code>
+     *
+     * @return The bytes for msgId.
+     */
+    com.google.protobuf.ByteString getMsgIdBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * 客户端发送时间，用于保证时序性
+     * </pre>
+     *
+     * <code>uint32 send_time = 4;</code>
+     *
+     * @return The sendTime.
+     */
+    int getSendTime();
+
+    /**
+     *
+     *
+     * <pre>
+     * 服务器返回的ack
+     * </pre>
+     *
+     * <code>bool result = 5;</code>
+     *
+     * @return The result.
+     */
+    boolean getResult();
+  }
+  public interface MessageOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:Message)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息类型
+     * </pre>
+     *
+     * <code>.HeadType type = 1;</code>
+     *
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+
+    /**
+     *
+     *
+     * <pre>
+     * 消息类型
+     * </pre>
+     *
+     * <code>.HeadType type = 1;</code>
+     *
+     * @return The type.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.HeadType getType();
+
+    /**
+     *
+     *
+     * <pre>
+     * 会话
+     * </pre>
+     *
+     * <code>string session_id = 2;</code>
+     *
+     * @return The sessionId.
+     */
+    java.lang.String getSessionId();
+
+    /**
+     *
+     *
+     * <pre>
+     * 会话
+     * </pre>
+     *
+     * <code>string session_id = 2;</code>
+     *
+     * @return The bytes for sessionId.
+     */
+    com.google.protobuf.ByteString getSessionIdBytes();
+
+    /**
+     * <code>optional .LoginRequest loginRequest = 4;</code>
+     *
+     * @return Whether the loginRequest field is set.
+     */
+    boolean hasLoginRequest();
+
+    /**
+     * <code>optional .LoginRequest loginRequest = 4;</code>
+     *
+     * @return The loginRequest.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getLoginRequest();
+
+    /** <code>optional .LoginRequest loginRequest = 4;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder getLoginRequestOrBuilder();
+
+    /**
+     * <code>optional .LoginResponse loginResponse = 5;</code>
+     *
+     * @return Whether the loginResponse field is set.
+     */
+    boolean hasLoginResponse();
+
+    /**
+     * <code>optional .LoginResponse loginResponse = 5;</code>
+     *
+     * @return The loginResponse.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getLoginResponse();
+
+    /** <code>optional .LoginResponse loginResponse = 5;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder();
+
+    /**
+     * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
+     *
+     * @return Whether the chatMessageRequest field is set.
+     */
+    boolean hasChatMessageRequest();
+
+    /**
+     * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
+     *
+     * @return The chatMessageRequest.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getChatMessageRequest();
+
+    /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder getChatMessageRequestOrBuilder();
+
+    /**
+     * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
+     *
+     * @return Whether the chatMessageResponse field is set.
+     */
+    boolean hasChatMessageResponse();
+
+    /**
+     * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
+     *
+     * @return The chatMessageResponse.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getChatMessageResponse();
+
+    /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder
+        getChatMessageResponseOrBuilder();
+
+    /**
+     * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
+     *
+     * @return Whether the chatServerNotify field is set.
+     */
+    boolean hasChatServerNotify();
+
+    /**
+     * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
+     *
+     * @return The chatServerNotify.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getChatServerNotify();
+
+    /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder getChatServerNotifyOrBuilder();
+
+    /**
+     * <code>optional .ChatClientACK chatClientACK = 9;</code>
+     *
+     * @return Whether the chatClientACK field is set.
+     */
+    boolean hasChatClientACK();
+
+    /**
+     * <code>optional .ChatClientACK chatClientACK = 9;</code>
+     *
+     * @return The chatClientACK.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getChatClientACK();
+
+    /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder getChatClientACKOrBuilder();
+
+    /**
+     * <code>optional .ChatServerACK chatServerACK = 10;</code>
+     *
+     * @return Whether the chatServerACK field is set.
+     */
+    boolean hasChatServerACK();
+
+    /**
+     * <code>optional .ChatServerACK chatServerACK = 10;</code>
+     *
+     * @return The chatServerACK.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getChatServerACK();
+
+    /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder getChatServerACKOrBuilder();
+
+    /**
+     * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
+     *
+     * @return Whether the chatServerNotifyACK field is set.
+     */
+    boolean hasChatServerNotifyACK();
+
+    /**
+     * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
+     *
+     * @return The chatServerNotifyACK.
+     */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getChatServerNotifyACK();
+
+    /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
+    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder
+        getChatServerNotifyACKOrBuilder();
+  }
+
+  /** Protobuf type {@code LoginRequest} */
+  public static final class LoginRequest extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:LoginRequest)
       LoginRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    public static final int TOKEN_FIELD_NUMBER = 2;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:LoginRequest)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.LoginRequest DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<LoginRequest> PARSER =
+        new com.google.protobuf.AbstractParser<LoginRequest>() {
+          @java.lang.Override
+          public LoginRequest parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.LoginRequest();
+    }
+
+    private long userId_ = 0L;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object token_ = "";
+    private byte memoizedIsInitialized = -1;
+
     // Use LoginRequest.newBuilder() to construct.
     private LoginRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private LoginRequest() {
       token_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new LoginRequest();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginRequest_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginRequest_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.LoginRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<LoginRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new LoginRequest();
     }
 
     @java.lang.Override
@@ -630,13 +1899,13 @@ public final class ProtoMsg {
         internalGetFieldAccessorTable() {
       return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.class, com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.class,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder.class);
     }
 
-    public static final int USER_ID_FIELD_NUMBER = 1;
-    private long userId_ = 0L;
     /**
      * <code>uint64 user_id = 1;</code>
+     *
      * @return The userId.
      */
     @java.lang.Override
@@ -644,11 +1913,9 @@ public final class ProtoMsg {
       return userId_;
     }
 
-    public static final int TOKEN_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object token_ = "";
     /**
      * <code>string token = 2;</code>
+     *
      * @return The token.
      */
     @java.lang.Override
@@ -657,25 +1924,24 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         token_ = s;
         return s;
       }
     }
+
     /**
      * <code>string token = 2;</code>
+     *
      * @return The bytes for token.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
+    public com.google.protobuf.ByteString getTokenBytes() {
       java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         token_ = b;
         return b;
       } else {
@@ -683,7 +1949,6 @@ public final class ProtoMsg {
       }
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -695,8 +1960,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (userId_ != 0L) {
         output.writeUInt64(1, userId_);
       }
@@ -713,8 +1977,7 @@ public final class ProtoMsg {
 
       size = 0;
       if (userId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, userId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, userId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
@@ -727,17 +1990,16 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.LoginRequest)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.LoginRequest other = (com.xzccc.netty.model.msg.ProtoMsg.LoginRequest) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.LoginRequest other =
+          (com.xzccc.netty.model.msg.ProtoMsg.LoginRequest) obj;
 
-      if (getUserId()
-          != other.getUserId()) return false;
-      if (!getToken()
-          .equals(other.getToken())) return false;
+      if (getUserId() != other.getUserId()) return false;
+      if (!getToken().equals(other.getToken())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -750,8 +2012,7 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getUserId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getUserId());
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -759,90 +2020,14 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.LoginRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -851,15 +2036,35 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code LoginRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoginRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code LoginRequest} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:LoginRequest)
         com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long userId_;
+      private java.lang.Object token_ = "";
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginRequest_descriptor;
       }
 
@@ -868,19 +2073,10 @@ public final class ProtoMsg {
           internalGetFieldAccessorTable() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.class, com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.class,
+                com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -891,8 +2087,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginRequest_descriptor;
       }
 
@@ -912,8 +2107,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.LoginRequest buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.LoginRequest result = new com.xzccc.netty.model.msg.ProtoMsg.LoginRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.LoginRequest result =
+            new com.xzccc.netty.model.msg.ProtoMsg.LoginRequest(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -932,38 +2130,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.LoginRequest) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.LoginRequest)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.LoginRequest) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -971,7 +2172,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.LoginRequest other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance())
+          return this;
         if (other.getUserId() != 0L) {
           setUserId(other.getUserId());
         }
@@ -1006,22 +2208,25 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                token_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  userId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 18:
+                {
+                  token_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1031,19 +2236,20 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long userId_ ;
       /**
        * <code>uint64 user_id = 1;</code>
+       *
        * @return The userId.
        */
       @java.lang.Override
       public long getUserId() {
         return userId_;
       }
+
       /**
        * <code>uint64 user_id = 1;</code>
+       *
        * @param value The userId to set.
        * @return This builder for chaining.
        */
@@ -1054,8 +2260,10 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
        * <code>uint64 user_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
@@ -1065,16 +2273,15 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object token_ = "";
       /**
        * <code>string token = 2;</code>
+       *
        * @return The token.
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           token_ = s;
           return s;
@@ -1082,38 +2289,60 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
        * <code>string token = 2;</code>
+       *
+       * @param value The token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToken(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        token_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>string token = 2;</code>
+       *
        * @return The bytes for token.
        */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
+      public com.google.protobuf.ByteString getTokenBytes() {
         java.lang.Object ref = token_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           token_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
        * <code>string token = 2;</code>
-       * @param value The token to set.
+       *
+       * @param value The bytes for token to set.
        * @return This builder for chaining.
        */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setTokenBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         token_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
+
       /**
        * <code>string token = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToken() {
@@ -1122,20 +2351,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>string token = 2;</code>
-       * @param value The bytes for token to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        token_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1148,138 +2364,161 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:LoginRequest)
     }
-
-    // @@protoc_insertion_point(class_scope:LoginRequest)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.LoginRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.LoginRequest();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<LoginRequest>
-        PARSER = new com.google.protobuf.AbstractParser<LoginRequest>() {
-      @java.lang.Override
-      public LoginRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<LoginRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<LoginRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface LoginResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LoginResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *true 表示成功，false表示失败
-     * </pre>
-     *
-     * <code>bool result = 1;</code>
-     * @return The result.
-     */
-    boolean getResult();
-
-    /**
-     * <pre>
-     *错误码
-     * </pre>
-     *
-     * <code>uint32 code = 2;</code>
-     * @return The code.
-     */
-    int getCode();
-
-    /**
-     * <pre>
-     *错误描述
-     * </pre>
-     *
-     * <code>string info = 3;</code>
-     * @return The info.
-     */
-    java.lang.String getInfo();
-    /**
-     * <pre>
-     *错误描述
-     * </pre>
-     *
-     * <code>string info = 3;</code>
-     * @return The bytes for info.
-     */
-    com.google.protobuf.ByteString
-        getInfoBytes();
-
-    /**
-     * <pre>
-     *错误描述是否提示给用户:1 提示;0 不提示
-     * </pre>
-     *
-     * <code>uint32 expose = 4;</code>
-     * @return The expose.
-     */
-    int getExpose();
-  }
-  /**
-   * Protobuf type {@code LoginResponse}
-   */
-  public static final class LoginResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code LoginResponse} */
+  public static final class LoginResponse extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:LoginResponse)
       LoginResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int RESULT_FIELD_NUMBER = 1;
+    public static final int CODE_FIELD_NUMBER = 2;
+    public static final int INFO_FIELD_NUMBER = 3;
+    public static final int EXPOSE_FIELD_NUMBER = 4;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:LoginResponse)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.LoginResponse DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<LoginResponse> PARSER =
+        new com.google.protobuf.AbstractParser<LoginResponse>() {
+          @java.lang.Override
+          public LoginResponse parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.LoginResponse();
+    }
+
+    private boolean result_ = false;
+    private int code_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object info_ = "";
+    private int expose_ = 0;
+    private byte memoizedIsInitialized = -1;
+
     // Use LoginResponse.newBuilder() to construct.
     private LoginResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private LoginResponse() {
       info_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new LoginResponse();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginResponse_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginResponse_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.LoginResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<LoginResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new LoginResponse();
     }
 
     @java.lang.Override
@@ -1287,17 +2526,19 @@ public final class ProtoMsg {
         internalGetFieldAccessorTable() {
       return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.class, com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.class,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder.class);
     }
 
-    public static final int RESULT_FIELD_NUMBER = 1;
-    private boolean result_ = false;
     /**
+     *
+     *
      * <pre>
-     *true 表示成功，false表示失败
+     * true 表示成功，false表示失败
      * </pre>
      *
      * <code>bool result = 1;</code>
+     *
      * @return The result.
      */
     @java.lang.Override
@@ -1305,14 +2546,15 @@ public final class ProtoMsg {
       return result_;
     }
 
-    public static final int CODE_FIELD_NUMBER = 2;
-    private int code_ = 0;
     /**
+     *
+     *
      * <pre>
-     *错误码
+     * 错误码
      * </pre>
      *
      * <code>uint32 code = 2;</code>
+     *
      * @return The code.
      */
     @java.lang.Override
@@ -1320,15 +2562,15 @@ public final class ProtoMsg {
       return code_;
     }
 
-    public static final int INFO_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object info_ = "";
     /**
+     *
+     *
      * <pre>
-     *错误描述
+     * 错误描述
      * </pre>
      *
      * <code>string info = 3;</code>
+     *
      * @return The info.
      */
     @java.lang.Override
@@ -1337,29 +2579,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         info_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *错误描述
+     * 错误描述
      * </pre>
      *
      * <code>string info = 3;</code>
+     *
      * @return The bytes for info.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getInfoBytes() {
+    public com.google.protobuf.ByteString getInfoBytes() {
       java.lang.Object ref = info_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         info_ = b;
         return b;
       } else {
@@ -1367,14 +2610,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int EXPOSE_FIELD_NUMBER = 4;
-    private int expose_ = 0;
     /**
+     *
+     *
      * <pre>
-     *错误描述是否提示给用户:1 提示;0 不提示
+     * 错误描述是否提示给用户:1 提示;0 不提示
      * </pre>
      *
      * <code>uint32 expose = 4;</code>
+     *
      * @return The expose.
      */
     @java.lang.Override
@@ -1382,7 +2626,6 @@ public final class ProtoMsg {
       return expose_;
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1394,8 +2637,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (result_ != false) {
         output.writeBool(1, result_);
       }
@@ -1418,19 +2660,16 @@ public final class ProtoMsg {
 
       size = 0;
       if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, result_);
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(1, result_);
       }
       if (code_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, code_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(2, code_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, info_);
       }
       if (expose_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, expose_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(4, expose_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1440,21 +2679,18 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.LoginResponse)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.LoginResponse other = (com.xzccc.netty.model.msg.ProtoMsg.LoginResponse) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.LoginResponse other =
+          (com.xzccc.netty.model.msg.ProtoMsg.LoginResponse) obj;
 
-      if (getResult()
-          != other.getResult()) return false;
-      if (getCode()
-          != other.getCode()) return false;
-      if (!getInfo()
-          .equals(other.getInfo())) return false;
-      if (getExpose()
-          != other.getExpose()) return false;
+      if (getResult() != other.getResult()) return false;
+      if (getCode() != other.getCode()) return false;
+      if (!getInfo().equals(other.getInfo())) return false;
+      if (getExpose() != other.getExpose()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1467,8 +2703,7 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getResult());
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
@@ -1480,90 +2715,14 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.LoginResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -1572,15 +2731,37 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code LoginResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoginResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code LoginResponse} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:LoginResponse)
         com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private boolean result_;
+      private int code_;
+      private java.lang.Object info_ = "";
+      private int expose_;
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginResponse_descriptor;
       }
 
@@ -1589,19 +2770,10 @@ public final class ProtoMsg {
           internalGetFieldAccessorTable() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.class, com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.class,
+                com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -1614,8 +2786,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_LoginResponse_descriptor;
       }
 
@@ -1635,8 +2806,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.LoginResponse buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.LoginResponse result = new com.xzccc.netty.model.msg.ProtoMsg.LoginResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.LoginResponse result =
+            new com.xzccc.netty.model.msg.ProtoMsg.LoginResponse(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -1661,38 +2835,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.LoginResponse) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.LoginResponse)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.LoginResponse) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -1700,7 +2877,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.LoginResponse other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance())
+          return this;
         if (other.getResult() != false) {
           setResult(other.getResult());
         }
@@ -1741,32 +2919,37 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                result_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                code_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                info_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                expose_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  result_ = input.readBool();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  code_ = input.readUInt32();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 26:
+                {
+                  info_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+              case 32:
+                {
+                  expose_ = input.readUInt32();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1776,27 +2959,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private boolean result_ ;
       /**
+       *
+       *
        * <pre>
-       *true 表示成功，false表示失败
+       * true 表示成功，false表示失败
        * </pre>
        *
        * <code>bool result = 1;</code>
+       *
        * @return The result.
        */
       @java.lang.Override
       public boolean getResult() {
         return result_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *true 表示成功，false表示失败
+       * true 表示成功，false表示失败
        * </pre>
        *
        * <code>bool result = 1;</code>
+       *
        * @param value The result to set.
        * @return This builder for chaining.
        */
@@ -1807,12 +2995,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *true 表示成功，false表示失败
+       * true 表示成功，false表示失败
        * </pre>
        *
        * <code>bool result = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearResult() {
@@ -1822,25 +3014,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int code_ ;
       /**
+       *
+       *
        * <pre>
-       *错误码
+       * 错误码
        * </pre>
        *
        * <code>uint32 code = 2;</code>
+       *
        * @return The code.
        */
       @java.lang.Override
       public int getCode() {
         return code_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误码
+       * 错误码
        * </pre>
        *
        * <code>uint32 code = 2;</code>
+       *
        * @param value The code to set.
        * @return This builder for chaining.
        */
@@ -1851,12 +3049,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误码
+       * 错误码
        * </pre>
        *
        * <code>uint32 code = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearCode() {
@@ -1866,20 +3068,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object info_ = "";
       /**
+       *
+       *
        * <pre>
-       *错误描述
+       * 错误描述
        * </pre>
        *
        * <code>string info = 3;</code>
+       *
        * @return The info.
        */
       public java.lang.String getInfo() {
         java.lang.Object ref = info_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           info_ = s;
           return s;
@@ -1887,50 +3090,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误描述
+       * 错误描述
        * </pre>
        *
        * <code>string info = 3;</code>
+       *
+       * @param value The info to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInfo(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        info_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 错误描述
+       * </pre>
+       *
+       * <code>string info = 3;</code>
+       *
        * @return The bytes for info.
        */
-      public com.google.protobuf.ByteString
-          getInfoBytes() {
+      public com.google.protobuf.ByteString getInfoBytes() {
         java.lang.Object ref = info_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           info_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误描述
+       * 错误描述
        * </pre>
        *
        * <code>string info = 3;</code>
-       * @param value The info to set.
+       *
+       * @param value The bytes for info to set.
        * @return This builder for chaining.
        */
-      public Builder setInfo(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setInfoBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         info_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误描述
+       * 错误描述
        * </pre>
        *
        * <code>string info = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
@@ -1939,44 +3176,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *错误描述
-       * </pre>
-       *
-       * <code>string info = 3;</code>
-       * @param value The bytes for info to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInfoBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        info_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      private int expose_ ;
       /**
+       *
+       *
        * <pre>
-       *错误描述是否提示给用户:1 提示;0 不提示
+       * 错误描述是否提示给用户:1 提示;0 不提示
        * </pre>
        *
        * <code>uint32 expose = 4;</code>
+       *
        * @return The expose.
        */
       @java.lang.Override
       public int getExpose() {
         return expose_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误描述是否提示给用户:1 提示;0 不提示
+       * 错误描述是否提示给用户:1 提示;0 不提示
        * </pre>
        *
        * <code>uint32 expose = 4;</code>
+       *
        * @param value The expose to set.
        * @return This builder for chaining.
        */
@@ -1987,12 +3212,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *错误描述是否提示给用户:1 提示;0 不提示
+       * 错误描述是否提示给用户:1 提示;0 不提示
        * </pre>
        *
        * <code>uint32 expose = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearExpose() {
@@ -2001,6 +3230,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2013,182 +3243,68 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:LoginResponse)
     }
-
-    // @@protoc_insertion_point(class_scope:LoginResponse)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.LoginResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.LoginResponse();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<LoginResponse>
-        PARSER = new com.google.protobuf.AbstractParser<LoginResponse>() {
-      @java.lang.Override
-      public LoginResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<LoginResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<LoginResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface ChatMessageRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatMessageRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *发送人id
-     * </pre>
-     *
-     * <code>uint64 from_id = 1;</code>
-     * @return The fromId.
-     */
-    long getFromId();
-
-    /**
-     * <pre>
-     *接收人id
-     * </pre>
-     *
-     * <code>uint64 to_id = 2;</code>
-     * @return The toId.
-     */
-    long getToId();
-
-    /**
-     * <pre>
-     *消息类型
-     * </pre>
-     *
-     * <code>.MsgType msg_type = 3;</code>
-     * @return The enum numeric value on the wire for msgType.
-     */
-    int getMsgTypeValue();
-    /**
-     * <pre>
-     *消息类型
-     * </pre>
-     *
-     * <code>.MsgType msg_type = 3;</code>
-     * @return The msgType.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType();
-
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 4;</code>
-     * @return The msgId.
-     */
-    java.lang.String getMsgId();
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 4;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
-
-    /**
-     * <pre>
-     *客户端发送时间，用于保证时序性
-     * </pre>
-     *
-     * <code>uint32 send_time = 5;</code>
-     * @return The sendTime.
-     */
-    int getSendTime();
-
-    /**
-     * <pre>
-     *聊天类型
-     * </pre>
-     *
-     * <code>.ChatType type = 6;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    int getTypeValue();
-    /**
-     * <pre>
-     *聊天类型
-     * </pre>
-     *
-     * <code>.ChatType type = 6;</code>
-     * @return The type.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatType getType();
-
-    /**
-     * <pre>
-     *消息内容
-     * </pre>
-     *
-     * <code>string msg_content = 7;</code>
-     * @return The msgContent.
-     */
-    java.lang.String getMsgContent();
-    /**
-     * <pre>
-     *消息内容
-     * </pre>
-     *
-     * <code>string msg_content = 7;</code>
-     * @return The bytes for msgContent.
-     */
-    com.google.protobuf.ByteString
-        getMsgContentBytes();
-  }
-  /**
-   * Protobuf type {@code ChatMessageRequest}
-   */
-  public static final class ChatMessageRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code ChatMessageRequest} */
+  public static final class ChatMessageRequest extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:ChatMessageRequest)
       ChatMessageRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int FROM_ID_FIELD_NUMBER = 1;
+    public static final int TO_ID_FIELD_NUMBER = 2;
+    public static final int MSG_TYPE_FIELD_NUMBER = 3;
+    public static final int MSG_ID_FIELD_NUMBER = 4;
+    public static final int SEND_TIME_FIELD_NUMBER = 5;
+    public static final int TYPE_FIELD_NUMBER = 6;
+    public static final int MSG_CONTENT_FIELD_NUMBER = 7;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ChatMessageRequest)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<ChatMessageRequest> PARSER =
+        new com.google.protobuf.AbstractParser<ChatMessageRequest>() {
+          @java.lang.Override
+          public ChatMessageRequest parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest();
+    }
+
+    private long fromId_ = 0L;
+    private long toId_ = 0L;
+    private int msgType_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgId_ = "";
+    private int sendTime_ = 0;
+    private int type_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgContent_ = "";
+    private byte memoizedIsInitialized = -1;
+
     // Use ChatMessageRequest.newBuilder() to construct.
     private ChatMessageRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private ChatMessageRequest() {
       msgType_ = 0;
       msgId_ = "";
@@ -2196,34 +3312,124 @@ public final class ProtoMsg {
       msgContent_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ChatMessageRequest();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageRequest_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageRequest_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<ChatMessageRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new ChatMessageRequest();
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageRequest_fieldAccessorTable
+      return com.xzccc.netty.model.msg.ProtoMsg
+          .internal_static_ChatMessageRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.class, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.class,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder.class);
     }
 
-    public static final int FROM_ID_FIELD_NUMBER = 1;
-    private long fromId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *发送人id
+     * 发送人id
      * </pre>
      *
      * <code>uint64 from_id = 1;</code>
+     *
      * @return The fromId.
      */
     @java.lang.Override
@@ -2231,14 +3437,15 @@ public final class ProtoMsg {
       return fromId_;
     }
 
-    public static final int TO_ID_FIELD_NUMBER = 2;
-    private long toId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *接收人id
+     * 接收人id
      * </pre>
      *
      * <code>uint64 to_id = 2;</code>
+     *
      * @return The toId.
      */
     @java.lang.Override
@@ -2246,41 +3453,49 @@ public final class ProtoMsg {
       return toId_;
     }
 
-    public static final int MSG_TYPE_FIELD_NUMBER = 3;
-    private int msgType_ = 0;
     /**
+     *
+     *
      * <pre>
-     *消息类型
+     * 消息类型
      * </pre>
      *
      * <code>.MsgType msg_type = 3;</code>
+     *
      * @return The enum numeric value on the wire for msgType.
      */
-    @java.lang.Override public int getMsgTypeValue() {
+    @java.lang.Override
+    public int getMsgTypeValue() {
       return msgType_;
     }
+
     /**
+     *
+     *
      * <pre>
-     *消息类型
+     * 消息类型
      * </pre>
      *
      * <code>.MsgType msg_type = 3;</code>
+     *
      * @return The msgType.
      */
-    @java.lang.Override public com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType() {
-      com.xzccc.netty.model.msg.ProtoMsg.MsgType result = com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType() {
+      com.xzccc.netty.model.msg.ProtoMsg.MsgType result =
+          com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
       return result == null ? com.xzccc.netty.model.msg.ProtoMsg.MsgType.UNRECOGNIZED : result;
     }
 
-    public static final int MSG_ID_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgId_ = "";
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 4;</code>
+     *
      * @return The msgId.
      */
     @java.lang.Override
@@ -2289,29 +3504,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 4;</code>
+     *
      * @return The bytes for msgId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
+    public com.google.protobuf.ByteString getMsgIdBytes() {
       java.lang.Object ref = msgId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -2319,14 +3535,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int SEND_TIME_FIELD_NUMBER = 5;
-    private int sendTime_ = 0;
     /**
+     *
+     *
      * <pre>
-     *客户端发送时间，用于保证时序性
+     * 客户端发送时间，用于保证时序性
      * </pre>
      *
      * <code>uint32 send_time = 5;</code>
+     *
      * @return The sendTime.
      */
     @java.lang.Override
@@ -2334,41 +3551,49 @@ public final class ProtoMsg {
       return sendTime_;
     }
 
-    public static final int TYPE_FIELD_NUMBER = 6;
-    private int type_ = 0;
     /**
+     *
+     *
      * <pre>
-     *聊天类型
+     * 聊天类型
      * </pre>
      *
      * <code>.ChatType type = 6;</code>
+     *
      * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override public int getTypeValue() {
+    @java.lang.Override
+    public int getTypeValue() {
       return type_;
     }
+
     /**
+     *
+     *
      * <pre>
-     *聊天类型
+     * 聊天类型
      * </pre>
      *
      * <code>.ChatType type = 6;</code>
+     *
      * @return The type.
      */
-    @java.lang.Override public com.xzccc.netty.model.msg.ProtoMsg.ChatType getType() {
-      com.xzccc.netty.model.msg.ProtoMsg.ChatType result = com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatType getType() {
+      com.xzccc.netty.model.msg.ProtoMsg.ChatType result =
+          com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
       return result == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatType.UNRECOGNIZED : result;
     }
 
-    public static final int MSG_CONTENT_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgContent_ = "";
     /**
+     *
+     *
      * <pre>
-     *消息内容
+     * 消息内容
      * </pre>
      *
      * <code>string msg_content = 7;</code>
+     *
      * @return The msgContent.
      */
     @java.lang.Override
@@ -2377,29 +3602,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgContent_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *消息内容
+     * 消息内容
      * </pre>
      *
      * <code>string msg_content = 7;</code>
+     *
      * @return The bytes for msgContent.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgContentBytes() {
+    public com.google.protobuf.ByteString getMsgContentBytes() {
       java.lang.Object ref = msgContent_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgContent_ = b;
         return b;
       } else {
@@ -2407,7 +3633,6 @@ public final class ProtoMsg {
       }
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2419,8 +3644,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (fromId_ != 0L) {
         output.writeUInt64(1, fromId_);
       }
@@ -2452,27 +3676,22 @@ public final class ProtoMsg {
 
       size = 0;
       if (fromId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, fromId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, fromId_);
       }
       if (toId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, toId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, toId_);
       }
       if (msgType_ != com.xzccc.netty.model.msg.ProtoMsg.MsgType.TEXT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, msgType_);
+        size += com.google.protobuf.CodedOutputStream.computeEnumSize(3, msgType_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msgId_);
       }
       if (sendTime_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, sendTime_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(5, sendTime_);
       }
       if (type_ != com.xzccc.netty.model.msg.ProtoMsg.ChatType.CHAT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, type_);
+        size += com.google.protobuf.CodedOutputStream.computeEnumSize(6, type_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgContent_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, msgContent_);
@@ -2485,25 +3704,21 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest other = (com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest other =
+          (com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest) obj;
 
-      if (getFromId()
-          != other.getFromId()) return false;
-      if (getToId()
-          != other.getToId()) return false;
+      if (getFromId() != other.getFromId()) return false;
+      if (getToId() != other.getToId()) return false;
       if (msgType_ != other.msgType_) return false;
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
-      if (getSendTime()
-          != other.getSendTime()) return false;
+      if (!getMsgId().equals(other.getMsgId())) return false;
+      if (getSendTime() != other.getSendTime()) return false;
       if (type_ != other.type_) return false;
-      if (!getMsgContent()
-          .equals(other.getMsgContent())) return false;
+      if (!getMsgContent().equals(other.getMsgContent())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2516,11 +3731,9 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getFromId());
       hash = (37 * hash) + TO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getToId());
       hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + msgType_;
       hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
@@ -2536,90 +3749,14 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -2628,36 +3765,53 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ChatMessageRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatMessageRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code ChatMessageRequest} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:ChatMessageRequest)
         com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long fromId_;
+      private long toId_;
+      private int msgType_ = 0;
+      private java.lang.Object msgId_ = "";
+      private int sendTime_;
+      private int type_ = 0;
+      private java.lang.Object msgContent_ = "";
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageRequest_fieldAccessorTable
+        return com.xzccc.netty.model.msg.ProtoMsg
+            .internal_static_ChatMessageRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.class, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.class,
+                com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -2673,8 +3827,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageRequest_descriptor;
       }
 
@@ -2694,8 +3847,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest result = new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest result =
+            new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -2729,38 +3885,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -2768,7 +3927,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance())
+          return this;
         if (other.getFromId() != 0L) {
           setFromId(other.getFromId());
         }
@@ -2820,47 +3980,55 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                toId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                msgType_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                msgId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 40: {
-                sendTime_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                type_ = input.readEnum();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              case 58: {
-                msgContent_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  fromId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  toId_ = input.readUInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 24:
+                {
+                  msgType_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+              case 34:
+                {
+                  msgId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 34
+              case 40:
+                {
+                  sendTime_ = input.readUInt32();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+              case 48:
+                {
+                  type_ = input.readEnum();
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 48
+              case 58:
+                {
+                  msgContent_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000040;
+                  break;
+                } // case 58
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2870,27 +4038,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long fromId_ ;
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return The fromId.
        */
       @java.lang.Override
       public long getFromId() {
         return fromId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @param value The fromId to set.
        * @return This builder for chaining.
        */
@@ -2901,12 +4074,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearFromId() {
@@ -2916,25 +4093,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private long toId_ ;
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return The toId.
        */
       @java.lang.Override
       public long getToId() {
         return toId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @param value The toId to set.
        * @return This builder for chaining.
        */
@@ -2945,12 +4128,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToId() {
@@ -2960,24 +4147,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int msgType_ = 0;
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @return The enum numeric value on the wire for msgType.
        */
-      @java.lang.Override public int getMsgTypeValue() {
+      @java.lang.Override
+      public int getMsgTypeValue() {
         return msgType_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @param value The enum numeric value on the wire for msgType to set.
        * @return This builder for chaining.
        */
@@ -2987,25 +4181,34 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @return The msgType.
        */
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType() {
-        com.xzccc.netty.model.msg.ProtoMsg.MsgType result = com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
+        com.xzccc.netty.model.msg.ProtoMsg.MsgType result =
+            com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
         return result == null ? com.xzccc.netty.model.msg.ProtoMsg.MsgType.UNRECOGNIZED : result;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @param value The msgType to set.
        * @return This builder for chaining.
        */
@@ -3018,12 +4221,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgType() {
@@ -3033,20 +4240,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
+       *
        * @return The msgId.
        */
       public java.lang.String getMsgId() {
         java.lang.Object ref = msgId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -3054,50 +4262,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
+       *
+       * @param value The msgId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgId_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 客户端生成的msg_id
+       * </pre>
+       *
+       * <code>string msg_id = 4;</code>
+       *
        * @return The bytes for msgId.
        */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
+      public com.google.protobuf.ByteString getMsgIdBytes() {
         java.lang.Object ref = msgId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
-       * @param value The msgId to set.
+       *
+       * @param value The bytes for msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgId_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -3106,44 +4348,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *客户端生成的msg_id
-       * </pre>
-       *
-       * <code>string msg_id = 4;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgId_ = value;
-        bitField0_ |= 0x00000008;
-        onChanged();
-        return this;
-      }
 
-      private int sendTime_ ;
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 5;</code>
+       *
        * @return The sendTime.
        */
       @java.lang.Override
       public int getSendTime() {
         return sendTime_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 5;</code>
+       *
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -3154,12 +4384,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 5;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -3169,24 +4403,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int type_ = 0;
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @return The enum numeric value on the wire for type.
        */
-      @java.lang.Override public int getTypeValue() {
+      @java.lang.Override
+      public int getTypeValue() {
         return type_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -3196,25 +4437,34 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @return The type.
        */
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatType getType() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatType result = com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
+        com.xzccc.netty.model.msg.ProtoMsg.ChatType result =
+            com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
         return result == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatType.UNRECOGNIZED : result;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -3227,12 +4477,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -3242,20 +4496,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgContent_ = "";
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
+       *
        * @return The msgContent.
        */
       public java.lang.String getMsgContent() {
         java.lang.Object ref = msgContent_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgContent_ = s;
           return s;
@@ -3263,50 +4518,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
+       *
+       * @param value The msgContent to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgContent(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgContent_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 消息内容
+       * </pre>
+       *
+       * <code>string msg_content = 7;</code>
+       *
        * @return The bytes for msgContent.
        */
-      public com.google.protobuf.ByteString
-          getMsgContentBytes() {
+      public com.google.protobuf.ByteString getMsgContentBytes() {
         java.lang.Object ref = msgContent_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgContent_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
-       * @param value The msgContent to set.
+       *
+       * @param value The bytes for msgContent to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgContent(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgContentBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgContent_ = value;
         bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgContent() {
@@ -3315,24 +4604,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *消息内容
-       * </pre>
-       *
-       * <code>string msg_content = 7;</code>
-       * @param value The bytes for msgContent to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgContentBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgContent_ = value;
-        bitField0_ |= 0x00000040;
-        onChanged();
-        return this;
-      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3345,187 +4617,188 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:ChatMessageRequest)
     }
-
-    // @@protoc_insertion_point(class_scope:ChatMessageRequest)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ChatMessageRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ChatMessageRequest>() {
-      @java.lang.Override
-      public ChatMessageRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<ChatMessageRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatMessageRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface ChatMessageResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatMessageResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *发送人id
-     * </pre>
-     *
-     * <code>uint64 from_id = 1;</code>
-     * @return The fromId.
-     */
-    long getFromId();
-
-    /**
-     * <pre>
-     *接收人id
-     * </pre>
-     *
-     * <code>uint64 to_id = 2;</code>
-     * @return The toId.
-     */
-    long getToId();
-
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The msgId.
-     */
-    java.lang.String getMsgId();
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
-
-    /**
-     * <pre>
-     *客户端发送时间，用于保证时序性
-     * </pre>
-     *
-     * <code>uint32 send_time = 4;</code>
-     * @return The sendTime.
-     */
-    int getSendTime();
-
-    /**
-     * <pre>
-     *服务器是否成功收到消息并发送
-     * </pre>
-     *
-     * <code>bool result = 5;</code>
-     * @return The result.
-     */
-    boolean getResult();
-
-    /**
-     * <pre>
-     *发送失败原因
-     * </pre>
-     *
-     * <code>string msg = 6;</code>
-     * @return The msg.
-     */
-    java.lang.String getMsg();
-    /**
-     * <pre>
-     *发送失败原因
-     * </pre>
-     *
-     * <code>string msg = 6;</code>
-     * @return The bytes for msg.
-     */
-    com.google.protobuf.ByteString
-        getMsgBytes();
-  }
-  /**
-   * Protobuf type {@code ChatMessageResponse}
-   */
-  public static final class ChatMessageResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code ChatMessageResponse} */
+  public static final class ChatMessageResponse extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:ChatMessageResponse)
       ChatMessageResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int FROM_ID_FIELD_NUMBER = 1;
+    public static final int TO_ID_FIELD_NUMBER = 2;
+    public static final int MSG_ID_FIELD_NUMBER = 3;
+    public static final int SEND_TIME_FIELD_NUMBER = 4;
+    public static final int RESULT_FIELD_NUMBER = 5;
+    public static final int MSG_FIELD_NUMBER = 6;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ChatMessageResponse)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<ChatMessageResponse> PARSER =
+        new com.google.protobuf.AbstractParser<ChatMessageResponse>() {
+          @java.lang.Override
+          public ChatMessageResponse parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse();
+    }
+
+    private long fromId_ = 0L;
+    private long toId_ = 0L;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgId_ = "";
+    private int sendTime_ = 0;
+    private boolean result_ = false;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msg_ = "";
+    private byte memoizedIsInitialized = -1;
     // Use ChatMessageResponse.newBuilder() to construct.
     private ChatMessageResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private ChatMessageResponse() {
       msgId_ = "";
       msg_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ChatMessageResponse();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageResponse_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageResponse_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<ChatMessageResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new ChatMessageResponse();
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageResponse_fieldAccessorTable
+      return com.xzccc.netty.model.msg.ProtoMsg
+          .internal_static_ChatMessageResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.class, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.class,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder.class);
     }
 
-    public static final int FROM_ID_FIELD_NUMBER = 1;
-    private long fromId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *发送人id
+     * 发送人id
      * </pre>
      *
      * <code>uint64 from_id = 1;</code>
+     *
      * @return The fromId.
      */
     @java.lang.Override
@@ -3533,14 +4806,15 @@ public final class ProtoMsg {
       return fromId_;
     }
 
-    public static final int TO_ID_FIELD_NUMBER = 2;
-    private long toId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *接收人id
+     * 接收人id
      * </pre>
      *
      * <code>uint64 to_id = 2;</code>
+     *
      * @return The toId.
      */
     @java.lang.Override
@@ -3548,15 +4822,15 @@ public final class ProtoMsg {
       return toId_;
     }
 
-    public static final int MSG_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgId_ = "";
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The msgId.
      */
     @java.lang.Override
@@ -3565,29 +4839,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The bytes for msgId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
+    public com.google.protobuf.ByteString getMsgIdBytes() {
       java.lang.Object ref = msgId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -3595,14 +4870,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int SEND_TIME_FIELD_NUMBER = 4;
-    private int sendTime_ = 0;
     /**
+     *
+     *
      * <pre>
-     *客户端发送时间，用于保证时序性
+     * 客户端发送时间，用于保证时序性
      * </pre>
      *
      * <code>uint32 send_time = 4;</code>
+     *
      * @return The sendTime.
      */
     @java.lang.Override
@@ -3610,14 +4886,15 @@ public final class ProtoMsg {
       return sendTime_;
     }
 
-    public static final int RESULT_FIELD_NUMBER = 5;
-    private boolean result_ = false;
     /**
+     *
+     *
      * <pre>
-     *服务器是否成功收到消息并发送
+     * 服务器是否成功收到消息并发送
      * </pre>
      *
      * <code>bool result = 5;</code>
+     *
      * @return The result.
      */
     @java.lang.Override
@@ -3625,15 +4902,15 @@ public final class ProtoMsg {
       return result_;
     }
 
-    public static final int MSG_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msg_ = "";
     /**
+     *
+     *
      * <pre>
-     *发送失败原因
+     * 发送失败原因
      * </pre>
      *
      * <code>string msg = 6;</code>
+     *
      * @return The msg.
      */
     @java.lang.Override
@@ -3642,29 +4919,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msg_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *发送失败原因
+     * 发送失败原因
      * </pre>
      *
      * <code>string msg = 6;</code>
+     *
      * @return The bytes for msg.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgBytes() {
+    public com.google.protobuf.ByteString getMsgBytes() {
       java.lang.Object ref = msg_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msg_ = b;
         return b;
       } else {
@@ -3672,7 +4950,6 @@ public final class ProtoMsg {
       }
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3684,8 +4961,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (fromId_ != 0L) {
         output.writeUInt64(1, fromId_);
       }
@@ -3714,23 +4990,19 @@ public final class ProtoMsg {
 
       size = 0;
       if (fromId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, fromId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, fromId_);
       }
       if (toId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, toId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, toId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msgId_);
       }
       if (sendTime_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, sendTime_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(4, sendTime_);
       }
       if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, result_);
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(5, result_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, msg_);
@@ -3743,25 +5015,20 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse other = (com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse other =
+          (com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse) obj;
 
-      if (getFromId()
-          != other.getFromId()) return false;
-      if (getToId()
-          != other.getToId()) return false;
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
-      if (getSendTime()
-          != other.getSendTime()) return false;
-      if (getResult()
-          != other.getResult()) return false;
-      if (!getMsg()
-          .equals(other.getMsg())) return false;
+      if (getFromId() != other.getFromId()) return false;
+      if (getToId() != other.getToId()) return false;
+      if (!getMsgId().equals(other.getMsgId())) return false;
+      if (getSendTime() != other.getSendTime()) return false;
+      if (getResult() != other.getResult()) return false;
+      if (!getMsg().equals(other.getMsg())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3774,18 +5041,15 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getFromId());
       hash = (37 * hash) + TO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getToId());
       hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
       hash = (53 * hash) + getMsgId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getSendTime();
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getResult());
       hash = (37 * hash) + MSG_FIELD_NUMBER;
       hash = (53 * hash) + getMsg().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -3793,90 +5057,14 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -3885,36 +5073,52 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ChatMessageResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatMessageResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code ChatMessageResponse} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:ChatMessageResponse)
         com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long fromId_;
+      private long toId_;
+      private java.lang.Object msgId_ = "";
+      private int sendTime_;
+      private boolean result_;
+      private java.lang.Object msg_ = "";
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageResponse_fieldAccessorTable
+        return com.xzccc.netty.model.msg.ProtoMsg
+            .internal_static_ChatMessageResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.class, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.class,
+                com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -3929,8 +5133,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatMessageResponse_descriptor;
       }
 
@@ -3950,8 +5153,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse result = new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse result =
+            new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -3982,38 +5188,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -4021,7 +5230,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance())
+          return this;
         if (other.getFromId() != 0L) {
           setFromId(other.getFromId());
         }
@@ -4070,42 +5280,49 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                toId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                msgId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                sendTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                result_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 50: {
-                msg_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  fromId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  toId_ = input.readUInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 26:
+                {
+                  msgId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+              case 32:
+                {
+                  sendTime_ = input.readUInt32();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+              case 40:
+                {
+                  result_ = input.readBool();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+              case 50:
+                {
+                  msg_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 50
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4115,27 +5332,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long fromId_ ;
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return The fromId.
        */
       @java.lang.Override
       public long getFromId() {
         return fromId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @param value The fromId to set.
        * @return This builder for chaining.
        */
@@ -4146,12 +5368,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearFromId() {
@@ -4161,25 +5387,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private long toId_ ;
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return The toId.
        */
       @java.lang.Override
       public long getToId() {
         return toId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @param value The toId to set.
        * @return This builder for chaining.
        */
@@ -4190,12 +5422,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToId() {
@@ -4205,20 +5441,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return The msgId.
        */
       public java.lang.String getMsgId() {
         java.lang.Object ref = msgId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -4226,50 +5463,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
+       * @param value The msgId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 客户端生成的msg_id
+       * </pre>
+       *
+       * <code>string msg_id = 3;</code>
+       *
        * @return The bytes for msgId.
        */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
+      public com.google.protobuf.ByteString getMsgIdBytes() {
         java.lang.Object ref = msgId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
-       * @param value The msgId to set.
+       *
+       * @param value The bytes for msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -4278,44 +5549,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *客户端生成的msg_id
-       * </pre>
-       *
-       * <code>string msg_id = 3;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgId_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      private int sendTime_ ;
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return The sendTime.
        */
       @java.lang.Override
       public int getSendTime() {
         return sendTime_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -4326,12 +5585,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -4341,25 +5604,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private boolean result_ ;
       /**
+       *
+       *
        * <pre>
-       *服务器是否成功收到消息并发送
+       * 服务器是否成功收到消息并发送
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return The result.
        */
       @java.lang.Override
       public boolean getResult() {
         return result_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器是否成功收到消息并发送
+       * 服务器是否成功收到消息并发送
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @param value The result to set.
        * @return This builder for chaining.
        */
@@ -4370,12 +5639,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器是否成功收到消息并发送
+       * 服务器是否成功收到消息并发送
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearResult() {
@@ -4385,20 +5658,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msg_ = "";
       /**
+       *
+       *
        * <pre>
-       *发送失败原因
+       * 发送失败原因
        * </pre>
        *
        * <code>string msg = 6;</code>
+       *
        * @return The msg.
        */
       public java.lang.String getMsg() {
         java.lang.Object ref = msg_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msg_ = s;
           return s;
@@ -4406,50 +5680,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送失败原因
+       * 发送失败原因
        * </pre>
        *
        * <code>string msg = 6;</code>
+       *
+       * @param value The msg to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsg(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msg_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 发送失败原因
+       * </pre>
+       *
+       * <code>string msg = 6;</code>
+       *
        * @return The bytes for msg.
        */
-      public com.google.protobuf.ByteString
-          getMsgBytes() {
+      public com.google.protobuf.ByteString getMsgBytes() {
         java.lang.Object ref = msg_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msg_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送失败原因
+       * 发送失败原因
        * </pre>
        *
        * <code>string msg = 6;</code>
-       * @param value The msg to set.
+       *
+       * @param value The bytes for msg to set.
        * @return This builder for chaining.
        */
-      public Builder setMsg(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msg_ = value;
         bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送失败原因
+       * 发送失败原因
        * </pre>
        *
        * <code>string msg = 6;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsg() {
@@ -4458,24 +5766,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *发送失败原因
-       * </pre>
-       *
-       * <code>string msg = 6;</code>
-       * @param value The bytes for msg to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msg_ = value;
-        bitField0_ |= 0x00000020;
-        onChanged();
-        return this;
-      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4488,182 +5779,68 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:ChatMessageResponse)
     }
-
-    // @@protoc_insertion_point(class_scope:ChatMessageResponse)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ChatMessageResponse>
-        PARSER = new com.google.protobuf.AbstractParser<ChatMessageResponse>() {
-      @java.lang.Override
-      public ChatMessageResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<ChatMessageResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatMessageResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface ChatServerNotifyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatServerNotify)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *发送人id
-     * </pre>
-     *
-     * <code>uint64 from_id = 1;</code>
-     * @return The fromId.
-     */
-    long getFromId();
-
-    /**
-     * <pre>
-     *接收人id
-     * </pre>
-     *
-     * <code>uint64 to_id = 2;</code>
-     * @return The toId.
-     */
-    long getToId();
-
-    /**
-     * <pre>
-     *消息类型
-     * </pre>
-     *
-     * <code>.MsgType msg_type = 3;</code>
-     * @return The enum numeric value on the wire for msgType.
-     */
-    int getMsgTypeValue();
-    /**
-     * <pre>
-     *消息类型
-     * </pre>
-     *
-     * <code>.MsgType msg_type = 3;</code>
-     * @return The msgType.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType();
-
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 4;</code>
-     * @return The msgId.
-     */
-    java.lang.String getMsgId();
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 4;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
-
-    /**
-     * <pre>
-     *客户端发送时间，用于保证时序性
-     * </pre>
-     *
-     * <code>uint32 send_time = 5;</code>
-     * @return The sendTime.
-     */
-    int getSendTime();
-
-    /**
-     * <pre>
-     *聊天类型
-     * </pre>
-     *
-     * <code>.ChatType type = 6;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    int getTypeValue();
-    /**
-     * <pre>
-     *聊天类型
-     * </pre>
-     *
-     * <code>.ChatType type = 6;</code>
-     * @return The type.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatType getType();
-
-    /**
-     * <pre>
-     *消息内容
-     * </pre>
-     *
-     * <code>string msg_content = 7;</code>
-     * @return The msgContent.
-     */
-    java.lang.String getMsgContent();
-    /**
-     * <pre>
-     *消息内容
-     * </pre>
-     *
-     * <code>string msg_content = 7;</code>
-     * @return The bytes for msgContent.
-     */
-    com.google.protobuf.ByteString
-        getMsgContentBytes();
-  }
-  /**
-   * Protobuf type {@code ChatServerNotify}
-   */
-  public static final class ChatServerNotify extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code ChatServerNotify} */
+  public static final class ChatServerNotify extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:ChatServerNotify)
       ChatServerNotifyOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int FROM_ID_FIELD_NUMBER = 1;
+    public static final int TO_ID_FIELD_NUMBER = 2;
+    public static final int MSG_TYPE_FIELD_NUMBER = 3;
+    public static final int MSG_ID_FIELD_NUMBER = 4;
+    public static final int SEND_TIME_FIELD_NUMBER = 5;
+    public static final int TYPE_FIELD_NUMBER = 6;
+    public static final int MSG_CONTENT_FIELD_NUMBER = 7;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ChatServerNotify)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<ChatServerNotify> PARSER =
+        new com.google.protobuf.AbstractParser<ChatServerNotify>() {
+          @java.lang.Override
+          public ChatServerNotify parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify();
+    }
+
+    private long fromId_ = 0L;
+    private long toId_ = 0L;
+    private int msgType_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgId_ = "";
+    private int sendTime_ = 0;
+    private int type_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgContent_ = "";
+    private byte memoizedIsInitialized = -1;
+
     // Use ChatServerNotify.newBuilder() to construct.
     private ChatServerNotify(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private ChatServerNotify() {
       msgType_ = 0;
       msgId_ = "";
@@ -4671,16 +5848,103 @@ public final class ProtoMsg {
       msgContent_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ChatServerNotify();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotify_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotify_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<ChatServerNotify> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new ChatServerNotify();
     }
 
     @java.lang.Override
@@ -4688,17 +5952,19 @@ public final class ProtoMsg {
         internalGetFieldAccessorTable() {
       return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotify_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.class, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.class,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder.class);
     }
 
-    public static final int FROM_ID_FIELD_NUMBER = 1;
-    private long fromId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *发送人id
+     * 发送人id
      * </pre>
      *
      * <code>uint64 from_id = 1;</code>
+     *
      * @return The fromId.
      */
     @java.lang.Override
@@ -4706,14 +5972,15 @@ public final class ProtoMsg {
       return fromId_;
     }
 
-    public static final int TO_ID_FIELD_NUMBER = 2;
-    private long toId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *接收人id
+     * 接收人id
      * </pre>
      *
      * <code>uint64 to_id = 2;</code>
+     *
      * @return The toId.
      */
     @java.lang.Override
@@ -4721,41 +5988,49 @@ public final class ProtoMsg {
       return toId_;
     }
 
-    public static final int MSG_TYPE_FIELD_NUMBER = 3;
-    private int msgType_ = 0;
     /**
+     *
+     *
      * <pre>
-     *消息类型
+     * 消息类型
      * </pre>
      *
      * <code>.MsgType msg_type = 3;</code>
+     *
      * @return The enum numeric value on the wire for msgType.
      */
-    @java.lang.Override public int getMsgTypeValue() {
+    @java.lang.Override
+    public int getMsgTypeValue() {
       return msgType_;
     }
+
     /**
+     *
+     *
      * <pre>
-     *消息类型
+     * 消息类型
      * </pre>
      *
      * <code>.MsgType msg_type = 3;</code>
+     *
      * @return The msgType.
      */
-    @java.lang.Override public com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType() {
-      com.xzccc.netty.model.msg.ProtoMsg.MsgType result = com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType() {
+      com.xzccc.netty.model.msg.ProtoMsg.MsgType result =
+          com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
       return result == null ? com.xzccc.netty.model.msg.ProtoMsg.MsgType.UNRECOGNIZED : result;
     }
 
-    public static final int MSG_ID_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgId_ = "";
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 4;</code>
+     *
      * @return The msgId.
      */
     @java.lang.Override
@@ -4764,29 +6039,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 4;</code>
+     *
      * @return The bytes for msgId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
+    public com.google.protobuf.ByteString getMsgIdBytes() {
       java.lang.Object ref = msgId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -4794,14 +6070,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int SEND_TIME_FIELD_NUMBER = 5;
-    private int sendTime_ = 0;
     /**
+     *
+     *
      * <pre>
-     *客户端发送时间，用于保证时序性
+     * 客户端发送时间，用于保证时序性
      * </pre>
      *
      * <code>uint32 send_time = 5;</code>
+     *
      * @return The sendTime.
      */
     @java.lang.Override
@@ -4809,41 +6086,49 @@ public final class ProtoMsg {
       return sendTime_;
     }
 
-    public static final int TYPE_FIELD_NUMBER = 6;
-    private int type_ = 0;
     /**
+     *
+     *
      * <pre>
-     *聊天类型
+     * 聊天类型
      * </pre>
      *
      * <code>.ChatType type = 6;</code>
+     *
      * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override public int getTypeValue() {
+    @java.lang.Override
+    public int getTypeValue() {
       return type_;
     }
+
     /**
+     *
+     *
      * <pre>
-     *聊天类型
+     * 聊天类型
      * </pre>
      *
      * <code>.ChatType type = 6;</code>
+     *
      * @return The type.
      */
-    @java.lang.Override public com.xzccc.netty.model.msg.ProtoMsg.ChatType getType() {
-      com.xzccc.netty.model.msg.ProtoMsg.ChatType result = com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatType getType() {
+      com.xzccc.netty.model.msg.ProtoMsg.ChatType result =
+          com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
       return result == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatType.UNRECOGNIZED : result;
     }
 
-    public static final int MSG_CONTENT_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgContent_ = "";
     /**
+     *
+     *
      * <pre>
-     *消息内容
+     * 消息内容
      * </pre>
      *
      * <code>string msg_content = 7;</code>
+     *
      * @return The msgContent.
      */
     @java.lang.Override
@@ -4852,29 +6137,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgContent_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *消息内容
+     * 消息内容
      * </pre>
      *
      * <code>string msg_content = 7;</code>
+     *
      * @return The bytes for msgContent.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgContentBytes() {
+    public com.google.protobuf.ByteString getMsgContentBytes() {
       java.lang.Object ref = msgContent_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgContent_ = b;
         return b;
       } else {
@@ -4882,7 +6168,6 @@ public final class ProtoMsg {
       }
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4894,8 +6179,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (fromId_ != 0L) {
         output.writeUInt64(1, fromId_);
       }
@@ -4927,27 +6211,22 @@ public final class ProtoMsg {
 
       size = 0;
       if (fromId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, fromId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, fromId_);
       }
       if (toId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, toId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, toId_);
       }
       if (msgType_ != com.xzccc.netty.model.msg.ProtoMsg.MsgType.TEXT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, msgType_);
+        size += com.google.protobuf.CodedOutputStream.computeEnumSize(3, msgType_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msgId_);
       }
       if (sendTime_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, sendTime_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(5, sendTime_);
       }
       if (type_ != com.xzccc.netty.model.msg.ProtoMsg.ChatType.CHAT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, type_);
+        size += com.google.protobuf.CodedOutputStream.computeEnumSize(6, type_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgContent_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, msgContent_);
@@ -4960,25 +6239,21 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify other = (com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify other =
+          (com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify) obj;
 
-      if (getFromId()
-          != other.getFromId()) return false;
-      if (getToId()
-          != other.getToId()) return false;
+      if (getFromId() != other.getFromId()) return false;
+      if (getToId() != other.getToId()) return false;
       if (msgType_ != other.msgType_) return false;
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
-      if (getSendTime()
-          != other.getSendTime()) return false;
+      if (!getMsgId().equals(other.getMsgId())) return false;
+      if (getSendTime() != other.getSendTime()) return false;
       if (type_ != other.type_) return false;
-      if (!getMsgContent()
-          .equals(other.getMsgContent())) return false;
+      if (!getMsgContent().equals(other.getMsgContent())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4991,11 +6266,9 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getFromId());
       hash = (37 * hash) + TO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getToId());
       hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + msgType_;
       hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
@@ -5011,90 +6284,14 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -5103,36 +6300,53 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ChatServerNotify}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatServerNotify> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code ChatServerNotify} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:ChatServerNotify)
         com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long fromId_;
+      private long toId_;
+      private int msgType_ = 0;
+      private java.lang.Object msgId_ = "";
+      private int sendTime_;
+      private int type_ = 0;
+      private java.lang.Object msgContent_ = "";
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotify_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotify_fieldAccessorTable
+        return com.xzccc.netty.model.msg.ProtoMsg
+            .internal_static_ChatServerNotify_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.class, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.class,
+                com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -5148,8 +6362,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotify_descriptor;
       }
 
@@ -5169,8 +6382,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify result = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify result =
+            new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -5204,38 +6420,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -5243,7 +6462,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance())
+          return this;
         if (other.getFromId() != 0L) {
           setFromId(other.getFromId());
         }
@@ -5295,47 +6515,55 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                toId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                msgType_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                msgId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 40: {
-                sendTime_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                type_ = input.readEnum();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              case 58: {
-                msgContent_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  fromId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  toId_ = input.readUInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 24:
+                {
+                  msgType_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+              case 34:
+                {
+                  msgId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 34
+              case 40:
+                {
+                  sendTime_ = input.readUInt32();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+              case 48:
+                {
+                  type_ = input.readEnum();
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 48
+              case 58:
+                {
+                  msgContent_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000040;
+                  break;
+                } // case 58
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5345,27 +6573,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long fromId_ ;
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return The fromId.
        */
       @java.lang.Override
       public long getFromId() {
         return fromId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @param value The fromId to set.
        * @return This builder for chaining.
        */
@@ -5376,12 +6609,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearFromId() {
@@ -5391,25 +6628,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private long toId_ ;
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return The toId.
        */
       @java.lang.Override
       public long getToId() {
         return toId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @param value The toId to set.
        * @return This builder for chaining.
        */
@@ -5420,12 +6663,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToId() {
@@ -5435,24 +6682,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int msgType_ = 0;
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @return The enum numeric value on the wire for msgType.
        */
-      @java.lang.Override public int getMsgTypeValue() {
+      @java.lang.Override
+      public int getMsgTypeValue() {
         return msgType_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @param value The enum numeric value on the wire for msgType to set.
        * @return This builder for chaining.
        */
@@ -5462,25 +6716,34 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @return The msgType.
        */
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.MsgType getMsgType() {
-        com.xzccc.netty.model.msg.ProtoMsg.MsgType result = com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
+        com.xzccc.netty.model.msg.ProtoMsg.MsgType result =
+            com.xzccc.netty.model.msg.ProtoMsg.MsgType.forNumber(msgType_);
         return result == null ? com.xzccc.netty.model.msg.ProtoMsg.MsgType.UNRECOGNIZED : result;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @param value The msgType to set.
        * @return This builder for chaining.
        */
@@ -5493,12 +6756,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.MsgType msg_type = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgType() {
@@ -5508,20 +6775,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
+       *
        * @return The msgId.
        */
       public java.lang.String getMsgId() {
         java.lang.Object ref = msgId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -5529,50 +6797,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
+       *
+       * @param value The msgId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgId_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 客户端生成的msg_id
+       * </pre>
+       *
+       * <code>string msg_id = 4;</code>
+       *
        * @return The bytes for msgId.
        */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
+      public com.google.protobuf.ByteString getMsgIdBytes() {
         java.lang.Object ref = msgId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
-       * @param value The msgId to set.
+       *
+       * @param value The bytes for msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgId_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -5581,44 +6883,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *客户端生成的msg_id
-       * </pre>
-       *
-       * <code>string msg_id = 4;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgId_ = value;
-        bitField0_ |= 0x00000008;
-        onChanged();
-        return this;
-      }
 
-      private int sendTime_ ;
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 5;</code>
+       *
        * @return The sendTime.
        */
       @java.lang.Override
       public int getSendTime() {
         return sendTime_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 5;</code>
+       *
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -5629,12 +6919,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 5;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -5644,24 +6938,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private int type_ = 0;
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @return The enum numeric value on the wire for type.
        */
-      @java.lang.Override public int getTypeValue() {
+      @java.lang.Override
+      public int getTypeValue() {
         return type_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -5671,25 +6972,34 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @return The type.
        */
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatType getType() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatType result = com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
+        com.xzccc.netty.model.msg.ProtoMsg.ChatType result =
+            com.xzccc.netty.model.msg.ProtoMsg.ChatType.forNumber(type_);
         return result == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatType.UNRECOGNIZED : result;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -5702,12 +7012,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *聊天类型
+       * 聊天类型
        * </pre>
        *
        * <code>.ChatType type = 6;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -5717,20 +7031,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgContent_ = "";
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
+       *
        * @return The msgContent.
        */
       public java.lang.String getMsgContent() {
         java.lang.Object ref = msgContent_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgContent_ = s;
           return s;
@@ -5738,50 +7053,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
+       *
+       * @param value The msgContent to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgContent(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgContent_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 消息内容
+       * </pre>
+       *
+       * <code>string msg_content = 7;</code>
+       *
        * @return The bytes for msgContent.
        */
-      public com.google.protobuf.ByteString
-          getMsgContentBytes() {
+      public com.google.protobuf.ByteString getMsgContentBytes() {
         java.lang.Object ref = msgContent_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgContent_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
-       * @param value The msgContent to set.
+       *
+       * @param value The bytes for msgContent to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgContent(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgContentBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgContent_ = value;
         bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息内容
+       * 消息内容
        * </pre>
        *
        * <code>string msg_content = 7;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgContent() {
@@ -5790,24 +7139,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *消息内容
-       * </pre>
-       *
-       * <code>string msg_content = 7;</code>
-       * @param value The bytes for msgContent to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgContentBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgContent_ = value;
-        bitField0_ |= 0x00000040;
-        onChanged();
-        return this;
-      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5820,148 +7152,163 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:ChatServerNotify)
     }
-
-    // @@protoc_insertion_point(class_scope:ChatServerNotify)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ChatServerNotify>
-        PARSER = new com.google.protobuf.AbstractParser<ChatServerNotify>() {
-      @java.lang.Override
-      public ChatServerNotify parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<ChatServerNotify> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatServerNotify> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface ChatClientACKOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatClientACK)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *发送人id
-     * </pre>
-     *
-     * <code>uint64 from_id = 1;</code>
-     * @return The fromId.
-     */
-    long getFromId();
-
-    /**
-     * <pre>
-     *接收人id
-     * </pre>
-     *
-     * <code>uint64 to_id = 2;</code>
-     * @return The toId.
-     */
-    long getToId();
-
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The msgId.
-     */
-    java.lang.String getMsgId();
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
-
-    /**
-     * <pre>
-     *客户端发送时间，用于保证时序性
-     * </pre>
-     *
-     * <code>uint32 send_time = 4;</code>
-     * @return The sendTime.
-     */
-    int getSendTime();
-
-    /**
-     * <pre>
-     *服务器返回的ack
-     * </pre>
-     *
-     * <code>bool result = 5;</code>
-     * @return The result.
-     */
-    boolean getResult();
-  }
-  /**
-   * Protobuf type {@code ChatClientACK}
-   */
-  public static final class ChatClientACK extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code ChatClientACK} */
+  public static final class ChatClientACK extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:ChatClientACK)
       ChatClientACKOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int FROM_ID_FIELD_NUMBER = 1;
+    public static final int TO_ID_FIELD_NUMBER = 2;
+    public static final int MSG_ID_FIELD_NUMBER = 3;
+    public static final int SEND_TIME_FIELD_NUMBER = 4;
+    public static final int RESULT_FIELD_NUMBER = 5;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ChatClientACK)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<ChatClientACK> PARSER =
+        new com.google.protobuf.AbstractParser<ChatClientACK>() {
+          @java.lang.Override
+          public ChatClientACK parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK();
+    }
+
+    private long fromId_ = 0L;
+    private long toId_ = 0L;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgId_ = "";
+    private int sendTime_ = 0;
+    private boolean result_ = false;
+    private byte memoizedIsInitialized = -1;
+
     // Use ChatClientACK.newBuilder() to construct.
     private ChatClientACK(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private ChatClientACK() {
       msgId_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ChatClientACK();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatClientACK_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatClientACK_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<ChatClientACK> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new ChatClientACK();
     }
 
     @java.lang.Override
@@ -5969,17 +7316,19 @@ public final class ProtoMsg {
         internalGetFieldAccessorTable() {
       return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatClientACK_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.class, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.class,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder.class);
     }
 
-    public static final int FROM_ID_FIELD_NUMBER = 1;
-    private long fromId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *发送人id
+     * 发送人id
      * </pre>
      *
      * <code>uint64 from_id = 1;</code>
+     *
      * @return The fromId.
      */
     @java.lang.Override
@@ -5987,14 +7336,15 @@ public final class ProtoMsg {
       return fromId_;
     }
 
-    public static final int TO_ID_FIELD_NUMBER = 2;
-    private long toId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *接收人id
+     * 接收人id
      * </pre>
      *
      * <code>uint64 to_id = 2;</code>
+     *
      * @return The toId.
      */
     @java.lang.Override
@@ -6002,15 +7352,15 @@ public final class ProtoMsg {
       return toId_;
     }
 
-    public static final int MSG_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgId_ = "";
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The msgId.
      */
     @java.lang.Override
@@ -6019,29 +7369,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The bytes for msgId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
+    public com.google.protobuf.ByteString getMsgIdBytes() {
       java.lang.Object ref = msgId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -6049,14 +7400,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int SEND_TIME_FIELD_NUMBER = 4;
-    private int sendTime_ = 0;
     /**
+     *
+     *
      * <pre>
-     *客户端发送时间，用于保证时序性
+     * 客户端发送时间，用于保证时序性
      * </pre>
      *
      * <code>uint32 send_time = 4;</code>
+     *
      * @return The sendTime.
      */
     @java.lang.Override
@@ -6064,14 +7416,15 @@ public final class ProtoMsg {
       return sendTime_;
     }
 
-    public static final int RESULT_FIELD_NUMBER = 5;
-    private boolean result_ = false;
     /**
+     *
+     *
      * <pre>
-     *服务器返回的ack
+     * 服务器返回的ack
      * </pre>
      *
      * <code>bool result = 5;</code>
+     *
      * @return The result.
      */
     @java.lang.Override
@@ -6079,7 +7432,6 @@ public final class ProtoMsg {
       return result_;
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -6091,8 +7443,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (fromId_ != 0L) {
         output.writeUInt64(1, fromId_);
       }
@@ -6118,23 +7469,19 @@ public final class ProtoMsg {
 
       size = 0;
       if (fromId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, fromId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, fromId_);
       }
       if (toId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, toId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, toId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msgId_);
       }
       if (sendTime_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, sendTime_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(4, sendTime_);
       }
       if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, result_);
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(5, result_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6144,23 +7491,19 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK other = (com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK other =
+          (com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK) obj;
 
-      if (getFromId()
-          != other.getFromId()) return false;
-      if (getToId()
-          != other.getToId()) return false;
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
-      if (getSendTime()
-          != other.getSendTime()) return false;
-      if (getResult()
-          != other.getResult()) return false;
+      if (getFromId() != other.getFromId()) return false;
+      if (getToId() != other.getToId()) return false;
+      if (!getMsgId().equals(other.getMsgId())) return false;
+      if (getSendTime() != other.getSendTime()) return false;
+      if (getResult() != other.getResult()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -6173,107 +7516,28 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getFromId());
       hash = (37 * hash) + TO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getToId());
       hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
       hash = (53 * hash) + getMsgId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getSendTime();
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getResult());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -6282,15 +7546,38 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ChatClientACK}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatClientACK> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code ChatClientACK} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:ChatClientACK)
         com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long fromId_;
+      private long toId_;
+      private java.lang.Object msgId_ = "";
+      private int sendTime_;
+      private boolean result_;
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatClientACK_descriptor;
       }
 
@@ -6299,19 +7586,10 @@ public final class ProtoMsg {
           internalGetFieldAccessorTable() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatClientACK_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.class, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.class,
+                com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -6325,8 +7603,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatClientACK_descriptor;
       }
 
@@ -6346,8 +7623,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK result = new com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK result =
+            new com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -6375,38 +7655,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -6414,7 +7697,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance())
+          return this;
         if (other.getFromId() != 0L) {
           setFromId(other.getFromId());
         }
@@ -6458,37 +7742,43 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                toId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                msgId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                sendTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                result_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  fromId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  toId_ = input.readUInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 26:
+                {
+                  msgId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+              case 32:
+                {
+                  sendTime_ = input.readUInt32();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+              case 40:
+                {
+                  result_ = input.readBool();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6498,27 +7788,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long fromId_ ;
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return The fromId.
        */
       @java.lang.Override
       public long getFromId() {
         return fromId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @param value The fromId to set.
        * @return This builder for chaining.
        */
@@ -6529,12 +7824,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearFromId() {
@@ -6544,25 +7843,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private long toId_ ;
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return The toId.
        */
       @java.lang.Override
       public long getToId() {
         return toId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @param value The toId to set.
        * @return This builder for chaining.
        */
@@ -6573,12 +7878,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToId() {
@@ -6588,20 +7897,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return The msgId.
        */
       public java.lang.String getMsgId() {
         java.lang.Object ref = msgId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -6609,50 +7919,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
+       * @param value The msgId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 客户端生成的msg_id
+       * </pre>
+       *
+       * <code>string msg_id = 3;</code>
+       *
        * @return The bytes for msgId.
        */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
+      public com.google.protobuf.ByteString getMsgIdBytes() {
         java.lang.Object ref = msgId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
-       * @param value The msgId to set.
+       *
+       * @param value The bytes for msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -6661,44 +8005,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *客户端生成的msg_id
-       * </pre>
-       *
-       * <code>string msg_id = 3;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgId_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      private int sendTime_ ;
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return The sendTime.
        */
       @java.lang.Override
       public int getSendTime() {
         return sendTime_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -6709,12 +8041,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -6724,25 +8060,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private boolean result_ ;
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return The result.
        */
       @java.lang.Override
       public boolean getResult() {
         return result_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @param value The result to set.
        * @return This builder for chaining.
        */
@@ -6753,12 +8095,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearResult() {
@@ -6767,6 +8113,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6779,148 +8126,163 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:ChatClientACK)
     }
-
-    // @@protoc_insertion_point(class_scope:ChatClientACK)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ChatClientACK>
-        PARSER = new com.google.protobuf.AbstractParser<ChatClientACK>() {
-      @java.lang.Override
-      public ChatClientACK parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<ChatClientACK> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatClientACK> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface ChatServerACKOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatServerACK)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *发送人id
-     * </pre>
-     *
-     * <code>uint64 from_id = 1;</code>
-     * @return The fromId.
-     */
-    long getFromId();
-
-    /**
-     * <pre>
-     *接收人id
-     * </pre>
-     *
-     * <code>uint64 to_id = 2;</code>
-     * @return The toId.
-     */
-    long getToId();
-
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The msgId.
-     */
-    java.lang.String getMsgId();
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
-
-    /**
-     * <pre>
-     *客户端发送时间，用于保证时序性
-     * </pre>
-     *
-     * <code>uint32 send_time = 4;</code>
-     * @return The sendTime.
-     */
-    int getSendTime();
-
-    /**
-     * <pre>
-     *服务器返回的ack
-     * </pre>
-     *
-     * <code>bool result = 5;</code>
-     * @return The result.
-     */
-    boolean getResult();
-  }
-  /**
-   * Protobuf type {@code ChatServerACK}
-   */
-  public static final class ChatServerACK extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code ChatServerACK} */
+  public static final class ChatServerACK extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:ChatServerACK)
       ChatServerACKOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int FROM_ID_FIELD_NUMBER = 1;
+    public static final int TO_ID_FIELD_NUMBER = 2;
+    public static final int MSG_ID_FIELD_NUMBER = 3;
+    public static final int SEND_TIME_FIELD_NUMBER = 4;
+    public static final int RESULT_FIELD_NUMBER = 5;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ChatServerACK)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<ChatServerACK> PARSER =
+        new com.google.protobuf.AbstractParser<ChatServerACK>() {
+          @java.lang.Override
+          public ChatServerACK parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK();
+    }
+
+    private long fromId_ = 0L;
+    private long toId_ = 0L;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgId_ = "";
+    private int sendTime_ = 0;
+    private boolean result_ = false;
+    private byte memoizedIsInitialized = -1;
+
     // Use ChatServerACK.newBuilder() to construct.
     private ChatServerACK(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private ChatServerACK() {
       msgId_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ChatServerACK();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerACK_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerACK_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<ChatServerACK> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new ChatServerACK();
     }
 
     @java.lang.Override
@@ -6928,17 +8290,19 @@ public final class ProtoMsg {
         internalGetFieldAccessorTable() {
       return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerACK_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.class, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.class,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder.class);
     }
 
-    public static final int FROM_ID_FIELD_NUMBER = 1;
-    private long fromId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *发送人id
+     * 发送人id
      * </pre>
      *
      * <code>uint64 from_id = 1;</code>
+     *
      * @return The fromId.
      */
     @java.lang.Override
@@ -6946,14 +8310,15 @@ public final class ProtoMsg {
       return fromId_;
     }
 
-    public static final int TO_ID_FIELD_NUMBER = 2;
-    private long toId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *接收人id
+     * 接收人id
      * </pre>
      *
      * <code>uint64 to_id = 2;</code>
+     *
      * @return The toId.
      */
     @java.lang.Override
@@ -6961,15 +8326,15 @@ public final class ProtoMsg {
       return toId_;
     }
 
-    public static final int MSG_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgId_ = "";
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The msgId.
      */
     @java.lang.Override
@@ -6978,29 +8343,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The bytes for msgId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
+    public com.google.protobuf.ByteString getMsgIdBytes() {
       java.lang.Object ref = msgId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -7008,14 +8374,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int SEND_TIME_FIELD_NUMBER = 4;
-    private int sendTime_ = 0;
     /**
+     *
+     *
      * <pre>
-     *客户端发送时间，用于保证时序性
+     * 客户端发送时间，用于保证时序性
      * </pre>
      *
      * <code>uint32 send_time = 4;</code>
+     *
      * @return The sendTime.
      */
     @java.lang.Override
@@ -7023,14 +8390,15 @@ public final class ProtoMsg {
       return sendTime_;
     }
 
-    public static final int RESULT_FIELD_NUMBER = 5;
-    private boolean result_ = false;
     /**
+     *
+     *
      * <pre>
-     *服务器返回的ack
+     * 服务器返回的ack
      * </pre>
      *
      * <code>bool result = 5;</code>
+     *
      * @return The result.
      */
     @java.lang.Override
@@ -7038,7 +8406,6 @@ public final class ProtoMsg {
       return result_;
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7050,8 +8417,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (fromId_ != 0L) {
         output.writeUInt64(1, fromId_);
       }
@@ -7077,23 +8443,19 @@ public final class ProtoMsg {
 
       size = 0;
       if (fromId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, fromId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, fromId_);
       }
       if (toId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, toId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, toId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msgId_);
       }
       if (sendTime_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, sendTime_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(4, sendTime_);
       }
       if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, result_);
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(5, result_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7103,23 +8465,19 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK other = (com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK other =
+          (com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK) obj;
 
-      if (getFromId()
-          != other.getFromId()) return false;
-      if (getToId()
-          != other.getToId()) return false;
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
-      if (getSendTime()
-          != other.getSendTime()) return false;
-      if (getResult()
-          != other.getResult()) return false;
+      if (getFromId() != other.getFromId()) return false;
+      if (getToId() != other.getToId()) return false;
+      if (!getMsgId().equals(other.getMsgId())) return false;
+      if (getSendTime() != other.getSendTime()) return false;
+      if (getResult() != other.getResult()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -7132,107 +8490,28 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getFromId());
       hash = (37 * hash) + TO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getToId());
       hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
       hash = (53 * hash) + getMsgId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getSendTime();
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getResult());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -7241,15 +8520,38 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ChatServerACK}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatServerACK> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code ChatServerACK} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:ChatServerACK)
         com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long fromId_;
+      private long toId_;
+      private java.lang.Object msgId_ = "";
+      private int sendTime_;
+      private boolean result_;
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerACK_descriptor;
       }
 
@@ -7258,19 +8560,10 @@ public final class ProtoMsg {
           internalGetFieldAccessorTable() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerACK_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.class, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.class,
+                com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -7284,8 +8577,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerACK_descriptor;
       }
 
@@ -7305,8 +8597,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK result = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK result =
+            new com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -7334,38 +8629,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -7373,7 +8671,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance())
+          return this;
         if (other.getFromId() != 0L) {
           setFromId(other.getFromId());
         }
@@ -7417,37 +8716,43 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                toId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                msgId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                sendTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                result_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  fromId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  toId_ = input.readUInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 26:
+                {
+                  msgId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+              case 32:
+                {
+                  sendTime_ = input.readUInt32();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+              case 40:
+                {
+                  result_ = input.readBool();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7457,27 +8762,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long fromId_ ;
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return The fromId.
        */
       @java.lang.Override
       public long getFromId() {
         return fromId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @param value The fromId to set.
        * @return This builder for chaining.
        */
@@ -7488,12 +8798,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearFromId() {
@@ -7503,25 +8817,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private long toId_ ;
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return The toId.
        */
       @java.lang.Override
       public long getToId() {
         return toId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @param value The toId to set.
        * @return This builder for chaining.
        */
@@ -7532,12 +8852,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToId() {
@@ -7547,20 +8871,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return The msgId.
        */
       public java.lang.String getMsgId() {
         java.lang.Object ref = msgId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -7568,50 +8893,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
+       * @param value The msgId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 客户端生成的msg_id
+       * </pre>
+       *
+       * <code>string msg_id = 3;</code>
+       *
        * @return The bytes for msgId.
        */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
+      public com.google.protobuf.ByteString getMsgIdBytes() {
         java.lang.Object ref = msgId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
-       * @param value The msgId to set.
+       *
+       * @param value The bytes for msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -7620,44 +8979,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *客户端生成的msg_id
-       * </pre>
-       *
-       * <code>string msg_id = 3;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgId_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      private int sendTime_ ;
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return The sendTime.
        */
       @java.lang.Override
       public int getSendTime() {
         return sendTime_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -7668,12 +9015,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -7683,25 +9034,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private boolean result_ ;
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return The result.
        */
       @java.lang.Override
       public boolean getResult() {
         return result_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @param value The result to set.
        * @return This builder for chaining.
        */
@@ -7712,12 +9069,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearResult() {
@@ -7726,6 +9087,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7738,166 +9100,185 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:ChatServerACK)
     }
-
-    // @@protoc_insertion_point(class_scope:ChatServerACK)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ChatServerACK>
-        PARSER = new com.google.protobuf.AbstractParser<ChatServerACK>() {
-      @java.lang.Override
-      public ChatServerACK parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<ChatServerACK> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatServerACK> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface ChatServerNotifyACKOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChatServerNotifyACK)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *发送人id
-     * </pre>
-     *
-     * <code>uint64 from_id = 1;</code>
-     * @return The fromId.
-     */
-    long getFromId();
-
-    /**
-     * <pre>
-     *接收人id
-     * </pre>
-     *
-     * <code>uint64 to_id = 2;</code>
-     * @return The toId.
-     */
-    long getToId();
-
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The msgId.
-     */
-    java.lang.String getMsgId();
-    /**
-     * <pre>
-     *客户端生成的msg_id
-     * </pre>
-     *
-     * <code>string msg_id = 3;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
-
-    /**
-     * <pre>
-     *客户端发送时间，用于保证时序性
-     * </pre>
-     *
-     * <code>uint32 send_time = 4;</code>
-     * @return The sendTime.
-     */
-    int getSendTime();
-
-    /**
-     * <pre>
-     *服务器返回的ack
-     * </pre>
-     *
-     * <code>bool result = 5;</code>
-     * @return The result.
-     */
-    boolean getResult();
-  }
-  /**
-   * Protobuf type {@code ChatServerNotifyACK}
-   */
-  public static final class ChatServerNotifyACK extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code ChatServerNotifyACK} */
+  public static final class ChatServerNotifyACK extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:ChatServerNotifyACK)
       ChatServerNotifyACKOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int FROM_ID_FIELD_NUMBER = 1;
+    public static final int TO_ID_FIELD_NUMBER = 2;
+    public static final int MSG_ID_FIELD_NUMBER = 3;
+    public static final int SEND_TIME_FIELD_NUMBER = 4;
+    public static final int RESULT_FIELD_NUMBER = 5;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:ChatServerNotifyACK)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<ChatServerNotifyACK> PARSER =
+        new com.google.protobuf.AbstractParser<ChatServerNotifyACK>() {
+          @java.lang.Override
+          public ChatServerNotifyACK parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK();
+    }
+
+    private long fromId_ = 0L;
+    private long toId_ = 0L;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object msgId_ = "";
+    private int sendTime_ = 0;
+    private boolean result_ = false;
+    private byte memoizedIsInitialized = -1;
+
     // Use ChatServerNotifyACK.newBuilder() to construct.
     private ChatServerNotifyACK(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private ChatServerNotifyACK() {
       msgId_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ChatServerNotifyACK();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotifyACK_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotifyACK_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<ChatServerNotifyACK> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new ChatServerNotifyACK();
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotifyACK_fieldAccessorTable
+      return com.xzccc.netty.model.msg.ProtoMsg
+          .internal_static_ChatServerNotifyACK_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.class, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.class,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder.class);
     }
 
-    public static final int FROM_ID_FIELD_NUMBER = 1;
-    private long fromId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *发送人id
+     * 发送人id
      * </pre>
      *
      * <code>uint64 from_id = 1;</code>
+     *
      * @return The fromId.
      */
     @java.lang.Override
@@ -7905,14 +9286,15 @@ public final class ProtoMsg {
       return fromId_;
     }
 
-    public static final int TO_ID_FIELD_NUMBER = 2;
-    private long toId_ = 0L;
     /**
+     *
+     *
      * <pre>
-     *接收人id
+     * 接收人id
      * </pre>
      *
      * <code>uint64 to_id = 2;</code>
+     *
      * @return The toId.
      */
     @java.lang.Override
@@ -7920,15 +9302,15 @@ public final class ProtoMsg {
       return toId_;
     }
 
-    public static final int MSG_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgId_ = "";
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The msgId.
      */
     @java.lang.Override
@@ -7937,29 +9319,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *客户端生成的msg_id
+     * 客户端生成的msg_id
      * </pre>
      *
      * <code>string msg_id = 3;</code>
+     *
      * @return The bytes for msgId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
+    public com.google.protobuf.ByteString getMsgIdBytes() {
       java.lang.Object ref = msgId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -7967,14 +9350,15 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int SEND_TIME_FIELD_NUMBER = 4;
-    private int sendTime_ = 0;
     /**
+     *
+     *
      * <pre>
-     *客户端发送时间，用于保证时序性
+     * 客户端发送时间，用于保证时序性
      * </pre>
      *
      * <code>uint32 send_time = 4;</code>
+     *
      * @return The sendTime.
      */
     @java.lang.Override
@@ -7982,14 +9366,15 @@ public final class ProtoMsg {
       return sendTime_;
     }
 
-    public static final int RESULT_FIELD_NUMBER = 5;
-    private boolean result_ = false;
     /**
+     *
+     *
      * <pre>
-     *服务器返回的ack
+     * 服务器返回的ack
      * </pre>
      *
      * <code>bool result = 5;</code>
+     *
      * @return The result.
      */
     @java.lang.Override
@@ -7997,7 +9382,6 @@ public final class ProtoMsg {
       return result_;
     }
 
-    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -8009,8 +9393,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (fromId_ != 0L) {
         output.writeUInt64(1, fromId_);
       }
@@ -8036,23 +9419,19 @@ public final class ProtoMsg {
 
       size = 0;
       if (fromId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, fromId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, fromId_);
       }
       if (toId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, toId_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, toId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msgId_);
       }
       if (sendTime_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, sendTime_);
+        size += com.google.protobuf.CodedOutputStream.computeUInt32Size(4, sendTime_);
       }
       if (result_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, result_);
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(5, result_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -8062,23 +9441,19 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK other = (com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK other =
+          (com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK) obj;
 
-      if (getFromId()
-          != other.getFromId()) return false;
-      if (getToId()
-          != other.getToId()) return false;
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
-      if (getSendTime()
-          != other.getSendTime()) return false;
-      if (getResult()
-          != other.getResult()) return false;
+      if (getFromId() != other.getFromId()) return false;
+      if (getToId() != other.getToId()) return false;
+      if (!getMsgId().equals(other.getMsgId())) return false;
+      if (getSendTime() != other.getSendTime()) return false;
+      if (getResult() != other.getResult()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -8091,107 +9466,28 @@ public final class ProtoMsg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFromId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getFromId());
       hash = (37 * hash) + TO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getToId());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getToId());
       hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
       hash = (53 * hash) + getMsgId().hashCode();
       hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getSendTime();
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResult());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getResult());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -8200,36 +9496,51 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code ChatServerNotifyACK}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ChatServerNotifyACK> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code ChatServerNotifyACK} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:ChatServerNotifyACK)
         com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private long fromId_;
+      private long toId_;
+      private java.lang.Object msgId_ = "";
+      private int sendTime_;
+      private boolean result_;
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.newBuilder()
+      private Builder() {}
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotifyACK_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotifyACK_fieldAccessorTable
+        return com.xzccc.netty.model.msg.ProtoMsg
+            .internal_static_ChatServerNotifyACK_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.class, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.class,
+                com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.newBuilder()
-      private Builder() {
-
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-
-      }
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -8243,8 +9554,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_ChatServerNotifyACK_descriptor;
       }
 
@@ -8264,8 +9574,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK result = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK result =
+            new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -8293,38 +9606,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -8332,7 +9648,8 @@ public final class ProtoMsg {
       }
 
       public Builder mergeFrom(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK other) {
-        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()) return this;
+        if (other == com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance())
+          return this;
         if (other.getFromId() != 0L) {
           setFromId(other.getFromId());
         }
@@ -8376,37 +9693,43 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                toId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                msgId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                sendTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                result_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  fromId_ = input.readUInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 16:
+                {
+                  toId_ = input.readUInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+              case 26:
+                {
+                  msgId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+              case 32:
+                {
+                  sendTime_ = input.readUInt32();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+              case 40:
+                {
+                  result_ = input.readBool();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8416,27 +9739,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private long fromId_ ;
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return The fromId.
        */
       @java.lang.Override
       public long getFromId() {
         return fromId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @param value The fromId to set.
        * @return This builder for chaining.
        */
@@ -8447,12 +9775,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *发送人id
+       * 发送人id
        * </pre>
        *
        * <code>uint64 from_id = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearFromId() {
@@ -8462,25 +9794,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private long toId_ ;
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return The toId.
        */
       @java.lang.Override
       public long getToId() {
         return toId_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @param value The toId to set.
        * @return This builder for chaining.
        */
@@ -8491,12 +9829,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *接收人id
+       * 接收人id
        * </pre>
        *
        * <code>uint64 to_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearToId() {
@@ -8506,20 +9848,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return The msgId.
        */
       public java.lang.String getMsgId() {
         java.lang.Object ref = msgId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -8527,50 +9870,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
+       * @param value The msgId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMsgId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        msgId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 客户端生成的msg_id
+       * </pre>
+       *
+       * <code>string msg_id = 3;</code>
+       *
        * @return The bytes for msgId.
        */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
+      public com.google.protobuf.ByteString getMsgIdBytes() {
         java.lang.Object ref = msgId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
-       * @param value The msgId to set.
+       *
+       * @param value The bytes for msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMsgIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         msgId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端生成的msg_id
+       * 客户端生成的msg_id
        * </pre>
        *
        * <code>string msg_id = 3;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
@@ -8579,44 +9956,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *客户端生成的msg_id
-       * </pre>
-       *
-       * <code>string msg_id = 3;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        msgId_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
 
-      private int sendTime_ ;
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return The sendTime.
        */
       @java.lang.Override
       public int getSendTime() {
         return sendTime_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @param value The sendTime to set.
        * @return This builder for chaining.
        */
@@ -8627,12 +9992,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *客户端发送时间，用于保证时序性
+       * 客户端发送时间，用于保证时序性
        * </pre>
        *
        * <code>uint32 send_time = 4;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSendTime() {
@@ -8642,25 +10011,31 @@ public final class ProtoMsg {
         return this;
       }
 
-      private boolean result_ ;
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return The result.
        */
       @java.lang.Override
       public boolean getResult() {
         return result_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @param value The result to set.
        * @return This builder for chaining.
        */
@@ -8671,12 +10046,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *服务器返回的ack
+       * 服务器返回的ack
        * </pre>
        *
        * <code>bool result = 5;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearResult() {
@@ -8685,6 +10064,7 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8697,248 +10077,174 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:ChatServerNotifyACK)
     }
-
-    // @@protoc_insertion_point(class_scope:ChatServerNotifyACK)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ChatServerNotifyACK>
-        PARSER = new com.google.protobuf.AbstractParser<ChatServerNotifyACK>() {
-      @java.lang.Override
-      public ChatServerNotifyACK parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<ChatServerNotifyACK> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ChatServerNotifyACK> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  public interface MessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Message)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *消息类型
-     * </pre>
-     *
-     * <code>.HeadType type = 1;</code>
-     * @return The enum numeric value on the wire for type.
-     */
-    int getTypeValue();
-    /**
-     * <pre>
-     *消息类型
-     * </pre>
-     *
-     * <code>.HeadType type = 1;</code>
-     * @return The type.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.HeadType getType();
-
-    /**
-     * <pre>
-     *会话
-     * </pre>
-     *
-     * <code>string session_id = 2;</code>
-     * @return The sessionId.
-     */
-    java.lang.String getSessionId();
-    /**
-     * <pre>
-     *会话
-     * </pre>
-     *
-     * <code>string session_id = 2;</code>
-     * @return The bytes for sessionId.
-     */
-    com.google.protobuf.ByteString
-        getSessionIdBytes();
-
-    /**
-     * <code>optional .LoginRequest loginRequest = 4;</code>
-     * @return Whether the loginRequest field is set.
-     */
-    boolean hasLoginRequest();
-    /**
-     * <code>optional .LoginRequest loginRequest = 4;</code>
-     * @return The loginRequest.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getLoginRequest();
-    /**
-     * <code>optional .LoginRequest loginRequest = 4;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder getLoginRequestOrBuilder();
-
-    /**
-     * <code>optional .LoginResponse loginResponse = 5;</code>
-     * @return Whether the loginResponse field is set.
-     */
-    boolean hasLoginResponse();
-    /**
-     * <code>optional .LoginResponse loginResponse = 5;</code>
-     * @return The loginResponse.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getLoginResponse();
-    /**
-     * <code>optional .LoginResponse loginResponse = 5;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder();
-
-    /**
-     * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-     * @return Whether the chatMessageRequest field is set.
-     */
-    boolean hasChatMessageRequest();
-    /**
-     * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-     * @return The chatMessageRequest.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getChatMessageRequest();
-    /**
-     * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder getChatMessageRequestOrBuilder();
-
-    /**
-     * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-     * @return Whether the chatMessageResponse field is set.
-     */
-    boolean hasChatMessageResponse();
-    /**
-     * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-     * @return The chatMessageResponse.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getChatMessageResponse();
-    /**
-     * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder getChatMessageResponseOrBuilder();
-
-    /**
-     * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-     * @return Whether the chatServerNotify field is set.
-     */
-    boolean hasChatServerNotify();
-    /**
-     * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-     * @return The chatServerNotify.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getChatServerNotify();
-    /**
-     * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder getChatServerNotifyOrBuilder();
-
-    /**
-     * <code>optional .ChatClientACK chatClientACK = 9;</code>
-     * @return Whether the chatClientACK field is set.
-     */
-    boolean hasChatClientACK();
-    /**
-     * <code>optional .ChatClientACK chatClientACK = 9;</code>
-     * @return The chatClientACK.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getChatClientACK();
-    /**
-     * <code>optional .ChatClientACK chatClientACK = 9;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder getChatClientACKOrBuilder();
-
-    /**
-     * <code>optional .ChatServerACK chatServerACK = 10;</code>
-     * @return Whether the chatServerACK field is set.
-     */
-    boolean hasChatServerACK();
-    /**
-     * <code>optional .ChatServerACK chatServerACK = 10;</code>
-     * @return The chatServerACK.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getChatServerACK();
-    /**
-     * <code>optional .ChatServerACK chatServerACK = 10;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder getChatServerACKOrBuilder();
-
-    /**
-     * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-     * @return Whether the chatServerNotifyACK field is set.
-     */
-    boolean hasChatServerNotifyACK();
-    /**
-     * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-     * @return The chatServerNotifyACK.
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getChatServerNotifyACK();
-    /**
-     * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-     */
-    com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder getChatServerNotifyACKOrBuilder();
-  }
-  /**
-   * Protobuf type {@code Message}
-   */
-  public static final class Message extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  /** Protobuf type {@code Message} */
+  public static final class Message extends com.google.protobuf.GeneratedMessageV3
+      implements
       // @@protoc_insertion_point(message_implements:Message)
       MessageOrBuilder {
-  private static final long serialVersionUID = 0L;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    public static final int SESSION_ID_FIELD_NUMBER = 2;
+    public static final int LOGINREQUEST_FIELD_NUMBER = 4;
+    public static final int LOGINRESPONSE_FIELD_NUMBER = 5;
+    public static final int CHATMESSAGEREQUEST_FIELD_NUMBER = 6;
+    public static final int CHATMESSAGERESPONSE_FIELD_NUMBER = 7;
+    public static final int CHATSERVERNOTIFY_FIELD_NUMBER = 8;
+    public static final int CHATCLIENTACK_FIELD_NUMBER = 9;
+    public static final int CHATSERVERACK_FIELD_NUMBER = 10;
+    public static final int CHATSERVERNOTIFYACK_FIELD_NUMBER = 11;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:Message)
+    private static final com.xzccc.netty.model.msg.ProtoMsg.Message DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<Message> PARSER =
+        new com.google.protobuf.AbstractParser<Message>() {
+          @java.lang.Override
+          public Message parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException()
+                  .setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+          }
+        };
+
+    static {
+      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.Message();
+    }
+
+    private int bitField0_;
+    private int type_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sessionId_ = "";
+    private com.xzccc.netty.model.msg.ProtoMsg.LoginRequest loginRequest_;
+    private com.xzccc.netty.model.msg.ProtoMsg.LoginResponse loginResponse_;
+    private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest chatMessageRequest_;
+    private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse chatMessageResponse_;
+    private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify chatServerNotify_;
+    private com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK chatClientACK_;
+    private com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK chatServerACK_;
+    private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK chatServerNotifyACK_;
+    private byte memoizedIsInitialized = -1;
     // Use Message.newBuilder() to construct.
     private Message(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
+
     private Message() {
       type_ = 0;
       sessionId_ = "";
     }
 
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Message();
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_Message_descriptor;
     }
 
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.xzccc.netty.model.msg.ProtoMsg.internal_static_Message_descriptor;
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.Message prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.xzccc.netty.model.msg.ProtoMsg.Message getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<Message> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
+      return new Message();
     }
 
     @java.lang.Override
@@ -8946,45 +10252,53 @@ public final class ProtoMsg {
         internalGetFieldAccessorTable() {
       return com.xzccc.netty.model.msg.ProtoMsg.internal_static_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xzccc.netty.model.msg.ProtoMsg.Message.class, com.xzccc.netty.model.msg.ProtoMsg.Message.Builder.class);
+              com.xzccc.netty.model.msg.ProtoMsg.Message.class,
+              com.xzccc.netty.model.msg.ProtoMsg.Message.Builder.class);
     }
 
-    private int bitField0_;
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_ = 0;
     /**
+     *
+     *
      * <pre>
-     *消息类型
+     * 消息类型
      * </pre>
      *
      * <code>.HeadType type = 1;</code>
+     *
      * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override public int getTypeValue() {
+    @java.lang.Override
+    public int getTypeValue() {
       return type_;
     }
+
     /**
+     *
+     *
      * <pre>
-     *消息类型
+     * 消息类型
      * </pre>
      *
      * <code>.HeadType type = 1;</code>
+     *
      * @return The type.
      */
-    @java.lang.Override public com.xzccc.netty.model.msg.ProtoMsg.HeadType getType() {
-      com.xzccc.netty.model.msg.ProtoMsg.HeadType result = com.xzccc.netty.model.msg.ProtoMsg.HeadType.forNumber(type_);
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.HeadType getType() {
+      com.xzccc.netty.model.msg.ProtoMsg.HeadType result =
+          com.xzccc.netty.model.msg.ProtoMsg.HeadType.forNumber(type_);
       return result == null ? com.xzccc.netty.model.msg.ProtoMsg.HeadType.UNRECOGNIZED : result;
     }
 
-    public static final int SESSION_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sessionId_ = "";
     /**
+     *
+     *
      * <pre>
-     *会话
+     * 会话
      * </pre>
      *
      * <code>string session_id = 2;</code>
+     *
      * @return The sessionId.
      */
     @java.lang.Override
@@ -8993,29 +10307,30 @@ public final class ProtoMsg {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         sessionId_ = s;
         return s;
       }
     }
+
     /**
+     *
+     *
      * <pre>
-     *会话
+     * 会话
      * </pre>
      *
      * <code>string session_id = 2;</code>
+     *
      * @return The bytes for sessionId.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSessionIdBytes() {
+    public com.google.protobuf.ByteString getSessionIdBytes() {
       java.lang.Object ref = sessionId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         sessionId_ = b;
         return b;
       } else {
@@ -9023,215 +10338,250 @@ public final class ProtoMsg {
       }
     }
 
-    public static final int LOGINREQUEST_FIELD_NUMBER = 4;
-    private com.xzccc.netty.model.msg.ProtoMsg.LoginRequest loginRequest_;
     /**
      * <code>optional .LoginRequest loginRequest = 4;</code>
+     *
      * @return Whether the loginRequest field is set.
      */
     @java.lang.Override
     public boolean hasLoginRequest() {
       return ((bitField0_ & 0x00000001) != 0);
     }
+
     /**
      * <code>optional .LoginRequest loginRequest = 4;</code>
+     *
      * @return The loginRequest.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getLoginRequest() {
-      return loginRequest_ == null ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance() : loginRequest_;
-    }
-    /**
-     * <code>optional .LoginRequest loginRequest = 4;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder getLoginRequestOrBuilder() {
-      return loginRequest_ == null ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance() : loginRequest_;
+      return loginRequest_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()
+          : loginRequest_;
     }
 
-    public static final int LOGINRESPONSE_FIELD_NUMBER = 5;
-    private com.xzccc.netty.model.msg.ProtoMsg.LoginResponse loginResponse_;
+    /** <code>optional .LoginRequest loginRequest = 4;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder getLoginRequestOrBuilder() {
+      return loginRequest_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()
+          : loginRequest_;
+    }
+
     /**
      * <code>optional .LoginResponse loginResponse = 5;</code>
+     *
      * @return Whether the loginResponse field is set.
      */
     @java.lang.Override
     public boolean hasLoginResponse() {
       return ((bitField0_ & 0x00000002) != 0);
     }
+
     /**
      * <code>optional .LoginResponse loginResponse = 5;</code>
+     *
      * @return The loginResponse.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getLoginResponse() {
-      return loginResponse_ == null ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance() : loginResponse_;
-    }
-    /**
-     * <code>optional .LoginResponse loginResponse = 5;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder() {
-      return loginResponse_ == null ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance() : loginResponse_;
+      return loginResponse_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()
+          : loginResponse_;
     }
 
-    public static final int CHATMESSAGEREQUEST_FIELD_NUMBER = 6;
-    private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest chatMessageRequest_;
+    /** <code>optional .LoginResponse loginResponse = 5;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder() {
+      return loginResponse_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()
+          : loginResponse_;
+    }
+
     /**
      * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
+     *
      * @return Whether the chatMessageRequest field is set.
      */
     @java.lang.Override
     public boolean hasChatMessageRequest() {
       return ((bitField0_ & 0x00000004) != 0);
     }
+
     /**
      * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
+     *
      * @return The chatMessageRequest.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getChatMessageRequest() {
-      return chatMessageRequest_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance() : chatMessageRequest_;
-    }
-    /**
-     * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder getChatMessageRequestOrBuilder() {
-      return chatMessageRequest_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance() : chatMessageRequest_;
+      return chatMessageRequest_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()
+          : chatMessageRequest_;
     }
 
-    public static final int CHATMESSAGERESPONSE_FIELD_NUMBER = 7;
-    private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse chatMessageResponse_;
+    /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder
+        getChatMessageRequestOrBuilder() {
+      return chatMessageRequest_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()
+          : chatMessageRequest_;
+    }
+
     /**
      * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
+     *
      * @return Whether the chatMessageResponse field is set.
      */
     @java.lang.Override
     public boolean hasChatMessageResponse() {
       return ((bitField0_ & 0x00000008) != 0);
     }
+
     /**
      * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
+     *
      * @return The chatMessageResponse.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getChatMessageResponse() {
-      return chatMessageResponse_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance() : chatMessageResponse_;
-    }
-    /**
-     * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder getChatMessageResponseOrBuilder() {
-      return chatMessageResponse_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance() : chatMessageResponse_;
+      return chatMessageResponse_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()
+          : chatMessageResponse_;
     }
 
-    public static final int CHATSERVERNOTIFY_FIELD_NUMBER = 8;
-    private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify chatServerNotify_;
+    /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder
+        getChatMessageResponseOrBuilder() {
+      return chatMessageResponse_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()
+          : chatMessageResponse_;
+    }
+
     /**
      * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
+     *
      * @return Whether the chatServerNotify field is set.
      */
     @java.lang.Override
     public boolean hasChatServerNotify() {
       return ((bitField0_ & 0x00000010) != 0);
     }
+
     /**
      * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
+     *
      * @return The chatServerNotify.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getChatServerNotify() {
-      return chatServerNotify_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance() : chatServerNotify_;
-    }
-    /**
-     * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder getChatServerNotifyOrBuilder() {
-      return chatServerNotify_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance() : chatServerNotify_;
+      return chatServerNotify_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()
+          : chatServerNotify_;
     }
 
-    public static final int CHATCLIENTACK_FIELD_NUMBER = 9;
-    private com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK chatClientACK_;
+    /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder
+        getChatServerNotifyOrBuilder() {
+      return chatServerNotify_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()
+          : chatServerNotify_;
+    }
+
     /**
      * <code>optional .ChatClientACK chatClientACK = 9;</code>
+     *
      * @return Whether the chatClientACK field is set.
      */
     @java.lang.Override
     public boolean hasChatClientACK() {
       return ((bitField0_ & 0x00000020) != 0);
     }
+
     /**
      * <code>optional .ChatClientACK chatClientACK = 9;</code>
+     *
      * @return The chatClientACK.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getChatClientACK() {
-      return chatClientACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance() : chatClientACK_;
-    }
-    /**
-     * <code>optional .ChatClientACK chatClientACK = 9;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder getChatClientACKOrBuilder() {
-      return chatClientACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance() : chatClientACK_;
+      return chatClientACK_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()
+          : chatClientACK_;
     }
 
-    public static final int CHATSERVERACK_FIELD_NUMBER = 10;
-    private com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK chatServerACK_;
+    /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder getChatClientACKOrBuilder() {
+      return chatClientACK_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()
+          : chatClientACK_;
+    }
+
     /**
      * <code>optional .ChatServerACK chatServerACK = 10;</code>
+     *
      * @return Whether the chatServerACK field is set.
      */
     @java.lang.Override
     public boolean hasChatServerACK() {
       return ((bitField0_ & 0x00000040) != 0);
     }
+
     /**
      * <code>optional .ChatServerACK chatServerACK = 10;</code>
+     *
      * @return The chatServerACK.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getChatServerACK() {
-      return chatServerACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance() : chatServerACK_;
-    }
-    /**
-     * <code>optional .ChatServerACK chatServerACK = 10;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder getChatServerACKOrBuilder() {
-      return chatServerACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance() : chatServerACK_;
+      return chatServerACK_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()
+          : chatServerACK_;
     }
 
-    public static final int CHATSERVERNOTIFYACK_FIELD_NUMBER = 11;
-    private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK chatServerNotifyACK_;
+    /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder getChatServerACKOrBuilder() {
+      return chatServerACK_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()
+          : chatServerACK_;
+    }
+
     /**
      * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
+     *
      * @return Whether the chatServerNotifyACK field is set.
      */
     @java.lang.Override
     public boolean hasChatServerNotifyACK() {
       return ((bitField0_ & 0x00000080) != 0);
     }
+
     /**
      * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
+     *
      * @return The chatServerNotifyACK.
      */
     @java.lang.Override
     public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getChatServerNotifyACK() {
-      return chatServerNotifyACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance() : chatServerNotifyACK_;
-    }
-    /**
-     * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-     */
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder getChatServerNotifyACKOrBuilder() {
-      return chatServerNotifyACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance() : chatServerNotifyACK_;
+      return chatServerNotifyACK_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()
+          : chatServerNotifyACK_;
     }
 
-    private byte memoizedIsInitialized = -1;
+    /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder
+        getChatServerNotifyACKOrBuilder() {
+      return chatServerNotifyACK_ == null
+          ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()
+          : chatServerNotifyACK_;
+    }
+
     @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -9243,8 +10593,7 @@ public final class ProtoMsg {
     }
 
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
       if (type_ != com.xzccc.netty.model.msg.ProtoMsg.HeadType.LOGIN_REQUEST.getNumber()) {
         output.writeEnum(1, type_);
       }
@@ -9285,43 +10634,37 @@ public final class ProtoMsg {
 
       size = 0;
       if (type_ != com.xzccc.netty.model.msg.ProtoMsg.HeadType.LOGIN_REQUEST.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_);
+        size += com.google.protobuf.CodedOutputStream.computeEnumSize(1, type_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sessionId_);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getLoginRequest());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getLoginRequest());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getLoginResponse());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getLoginResponse());
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getChatMessageRequest());
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(6, getChatMessageRequest());
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, getChatMessageResponse());
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(7, getChatMessageResponse());
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, getChatServerNotify());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(8, getChatServerNotify());
       }
       if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getChatClientACK());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(9, getChatClientACK());
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, getChatServerACK());
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(10, getChatServerACK());
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, getChatServerNotifyACK());
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(11, getChatServerNotifyACK());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -9331,55 +10674,47 @@ public final class ProtoMsg {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof com.xzccc.netty.model.msg.ProtoMsg.Message)) {
         return super.equals(obj);
       }
-      com.xzccc.netty.model.msg.ProtoMsg.Message other = (com.xzccc.netty.model.msg.ProtoMsg.Message) obj;
+      com.xzccc.netty.model.msg.ProtoMsg.Message other =
+          (com.xzccc.netty.model.msg.ProtoMsg.Message) obj;
 
       if (type_ != other.type_) return false;
-      if (!getSessionId()
-          .equals(other.getSessionId())) return false;
+      if (!getSessionId().equals(other.getSessionId())) return false;
       if (hasLoginRequest() != other.hasLoginRequest()) return false;
       if (hasLoginRequest()) {
-        if (!getLoginRequest()
-            .equals(other.getLoginRequest())) return false;
+        if (!getLoginRequest().equals(other.getLoginRequest())) return false;
       }
       if (hasLoginResponse() != other.hasLoginResponse()) return false;
       if (hasLoginResponse()) {
-        if (!getLoginResponse()
-            .equals(other.getLoginResponse())) return false;
+        if (!getLoginResponse().equals(other.getLoginResponse())) return false;
       }
       if (hasChatMessageRequest() != other.hasChatMessageRequest()) return false;
       if (hasChatMessageRequest()) {
-        if (!getChatMessageRequest()
-            .equals(other.getChatMessageRequest())) return false;
+        if (!getChatMessageRequest().equals(other.getChatMessageRequest())) return false;
       }
       if (hasChatMessageResponse() != other.hasChatMessageResponse()) return false;
       if (hasChatMessageResponse()) {
-        if (!getChatMessageResponse()
-            .equals(other.getChatMessageResponse())) return false;
+        if (!getChatMessageResponse().equals(other.getChatMessageResponse())) return false;
       }
       if (hasChatServerNotify() != other.hasChatServerNotify()) return false;
       if (hasChatServerNotify()) {
-        if (!getChatServerNotify()
-            .equals(other.getChatServerNotify())) return false;
+        if (!getChatServerNotify().equals(other.getChatServerNotify())) return false;
       }
       if (hasChatClientACK() != other.hasChatClientACK()) return false;
       if (hasChatClientACK()) {
-        if (!getChatClientACK()
-            .equals(other.getChatClientACK())) return false;
+        if (!getChatClientACK().equals(other.getChatClientACK())) return false;
       }
       if (hasChatServerACK() != other.hasChatServerACK()) return false;
       if (hasChatServerACK()) {
-        if (!getChatServerACK()
-            .equals(other.getChatServerACK())) return false;
+        if (!getChatServerACK().equals(other.getChatServerACK())) return false;
       }
       if (hasChatServerNotifyACK() != other.hasChatServerNotifyACK()) return false;
       if (hasChatServerNotifyACK()) {
-        if (!getChatServerNotifyACK()
-            .equals(other.getChatServerNotifyACK())) return false;
+        if (!getChatServerNotifyACK().equals(other.getChatServerNotifyACK())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -9433,90 +10768,14 @@ public final class ProtoMsg {
       return hash;
     }
 
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
     @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
+    public Builder newBuilderForType() {
+      return newBuilder();
     }
-    public static Builder newBuilder(com.xzccc.netty.model.msg.ProtoMsg.Message prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+
     @java.lang.Override
     public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
@@ -9525,15 +10784,86 @@ public final class ProtoMsg {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /**
-     * Protobuf type {@code Message}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Message> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xzccc.netty.model.msg.ProtoMsg.Message getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+    /** Protobuf type {@code Message} */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
         // @@protoc_insertion_point(builder_implements:Message)
         com.xzccc.netty.model.msg.ProtoMsg.MessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      private int bitField0_;
+      private int type_ = 0;
+      private java.lang.Object sessionId_ = "";
+      private com.xzccc.netty.model.msg.ProtoMsg.LoginRequest loginRequest_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder>
+          loginRequestBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.LoginResponse loginResponse_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder>
+          loginResponseBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest chatMessageRequest_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder>
+          chatMessageRequestBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse chatMessageResponse_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder>
+          chatMessageResponseBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify chatServerNotify_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder>
+          chatServerNotifyBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK chatClientACK_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder>
+          chatClientACKBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK chatServerACK_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder>
+          chatServerACKBuilder_;
+      private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK chatServerNotifyACK_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder>
+          chatServerNotifyACKBuilder_;
+
+      // Construct using com.xzccc.netty.model.msg.ProtoMsg.Message.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_Message_descriptor;
       }
 
@@ -9542,22 +10872,12 @@ public final class ProtoMsg {
           internalGetFieldAccessorTable() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_Message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xzccc.netty.model.msg.ProtoMsg.Message.class, com.xzccc.netty.model.msg.ProtoMsg.Message.Builder.class);
+                com.xzccc.netty.model.msg.ProtoMsg.Message.class,
+                com.xzccc.netty.model.msg.ProtoMsg.Message.Builder.class);
       }
 
-      // Construct using com.xzccc.netty.model.msg.ProtoMsg.Message.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getLoginRequestFieldBuilder();
           getLoginResponseFieldBuilder();
           getChatMessageRequestFieldBuilder();
@@ -9568,6 +10888,7 @@ public final class ProtoMsg {
           getChatServerNotifyACKFieldBuilder();
         }
       }
+
       @java.lang.Override
       public Builder clear() {
         super.clear();
@@ -9618,8 +10939,7 @@ public final class ProtoMsg {
       }
 
       @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
         return com.xzccc.netty.model.msg.ProtoMsg.internal_static_Message_descriptor;
       }
 
@@ -9639,8 +10959,11 @@ public final class ProtoMsg {
 
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.Message buildPartial() {
-        com.xzccc.netty.model.msg.ProtoMsg.Message result = new com.xzccc.netty.model.msg.ProtoMsg.Message(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        com.xzccc.netty.model.msg.ProtoMsg.Message result =
+            new com.xzccc.netty.model.msg.ProtoMsg.Message(this);
+        if (bitField0_ != 0) {
+          buildPartial0(result);
+        }
         onBuilt();
         return result;
       }
@@ -9655,51 +10978,51 @@ public final class ProtoMsg {
         }
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.loginRequest_ = loginRequestBuilder_ == null
-              ? loginRequest_
-              : loginRequestBuilder_.build();
+          result.loginRequest_ =
+              loginRequestBuilder_ == null ? loginRequest_ : loginRequestBuilder_.build();
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.loginResponse_ = loginResponseBuilder_ == null
-              ? loginResponse_
-              : loginResponseBuilder_.build();
+          result.loginResponse_ =
+              loginResponseBuilder_ == null ? loginResponse_ : loginResponseBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.chatMessageRequest_ = chatMessageRequestBuilder_ == null
-              ? chatMessageRequest_
-              : chatMessageRequestBuilder_.build();
+          result.chatMessageRequest_ =
+              chatMessageRequestBuilder_ == null
+                  ? chatMessageRequest_
+                  : chatMessageRequestBuilder_.build();
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.chatMessageResponse_ = chatMessageResponseBuilder_ == null
-              ? chatMessageResponse_
-              : chatMessageResponseBuilder_.build();
+          result.chatMessageResponse_ =
+              chatMessageResponseBuilder_ == null
+                  ? chatMessageResponse_
+                  : chatMessageResponseBuilder_.build();
           to_bitField0_ |= 0x00000008;
         }
         if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.chatServerNotify_ = chatServerNotifyBuilder_ == null
-              ? chatServerNotify_
-              : chatServerNotifyBuilder_.build();
+          result.chatServerNotify_ =
+              chatServerNotifyBuilder_ == null
+                  ? chatServerNotify_
+                  : chatServerNotifyBuilder_.build();
           to_bitField0_ |= 0x00000010;
         }
         if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.chatClientACK_ = chatClientACKBuilder_ == null
-              ? chatClientACK_
-              : chatClientACKBuilder_.build();
+          result.chatClientACK_ =
+              chatClientACKBuilder_ == null ? chatClientACK_ : chatClientACKBuilder_.build();
           to_bitField0_ |= 0x00000020;
         }
         if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.chatServerACK_ = chatServerACKBuilder_ == null
-              ? chatServerACK_
-              : chatServerACKBuilder_.build();
+          result.chatServerACK_ =
+              chatServerACKBuilder_ == null ? chatServerACK_ : chatServerACKBuilder_.build();
           to_bitField0_ |= 0x00000040;
         }
         if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.chatServerNotifyACK_ = chatServerNotifyACKBuilder_ == null
-              ? chatServerNotifyACK_
-              : chatServerNotifyACKBuilder_.build();
+          result.chatServerNotifyACK_ =
+              chatServerNotifyACKBuilder_ == null
+                  ? chatServerNotifyACK_
+                  : chatServerNotifyACKBuilder_.build();
           to_bitField0_ |= 0x00000080;
         }
         result.bitField0_ |= to_bitField0_;
@@ -9709,38 +11032,41 @@ public final class ProtoMsg {
       public Builder clone() {
         return super.clone();
       }
+
       @java.lang.Override
       public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.setField(field, value);
       }
+
       @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
+
       @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
+
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index,
+          java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
+
       @java.lang.Override
       public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.xzccc.netty.model.msg.ProtoMsg.Message) {
-          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.Message)other);
+          return mergeFrom((com.xzccc.netty.model.msg.ProtoMsg.Message) other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -9807,78 +11133,77 @@ public final class ProtoMsg {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                type_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                sessionId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 34: {
-                input.readMessage(
-                    getLoginRequestFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 34
-              case 42: {
-                input.readMessage(
-                    getLoginResponseFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 42
-              case 50: {
-                input.readMessage(
-                    getChatMessageRequestFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getChatMessageResponseFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 58
-              case 66: {
-                input.readMessage(
-                    getChatServerNotifyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 66
-              case 74: {
-                input.readMessage(
-                    getChatClientACKFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 74
-              case 82: {
-                input.readMessage(
-                    getChatServerACKFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 82
-              case 90: {
-                input.readMessage(
-                    getChatServerNotifyACKFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 90
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
+              case 8:
+                {
+                  type_ = input.readEnum();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+              case 18:
+                {
+                  sessionId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+              case 34:
+                {
+                  input.readMessage(getLoginRequestFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 34
+              case 42:
+                {
+                  input.readMessage(getLoginResponseFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 42
+              case 50:
+                {
+                  input.readMessage(
+                      getChatMessageRequestFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 50
+              case 58:
+                {
+                  input.readMessage(
+                      getChatMessageResponseFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 58
+              case 66:
+                {
+                  input.readMessage(
+                      getChatServerNotifyFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000040;
+                  break;
+                } // case 66
+              case 74:
+                {
+                  input.readMessage(getChatClientACKFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000080;
+                  break;
+                } // case 74
+              case 82:
+                {
+                  input.readMessage(getChatServerACKFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000100;
+                  break;
+                } // case 82
+              case 90:
+                {
+                  input.readMessage(
+                      getChatServerNotifyACKFieldBuilder().getBuilder(), extensionRegistry);
+                  bitField0_ |= 0x00000200;
+                  break;
+                } // case 90
+              default:
+                {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
             } // switch (tag)
           } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9888,26 +11213,32 @@ public final class ProtoMsg {
         } // finally
         return this;
       }
-      private int bitField0_;
 
-      private int type_ = 0;
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.HeadType type = 1;</code>
+       *
        * @return The enum numeric value on the wire for type.
        */
-      @java.lang.Override public int getTypeValue() {
+      @java.lang.Override
+      public int getTypeValue() {
         return type_;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.HeadType type = 1;</code>
+       *
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -9917,25 +11248,34 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.HeadType type = 1;</code>
+       *
        * @return The type.
        */
       @java.lang.Override
       public com.xzccc.netty.model.msg.ProtoMsg.HeadType getType() {
-        com.xzccc.netty.model.msg.ProtoMsg.HeadType result = com.xzccc.netty.model.msg.ProtoMsg.HeadType.forNumber(type_);
+        com.xzccc.netty.model.msg.ProtoMsg.HeadType result =
+            com.xzccc.netty.model.msg.ProtoMsg.HeadType.forNumber(type_);
         return result == null ? com.xzccc.netty.model.msg.ProtoMsg.HeadType.UNRECOGNIZED : result;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.HeadType type = 1;</code>
+       *
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -9948,12 +11288,16 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *消息类型
+       * 消息类型
        * </pre>
        *
        * <code>.HeadType type = 1;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -9963,20 +11307,21 @@ public final class ProtoMsg {
         return this;
       }
 
-      private java.lang.Object sessionId_ = "";
       /**
+       *
+       *
        * <pre>
-       *会话
+       * 会话
        * </pre>
        *
        * <code>string session_id = 2;</code>
+       *
        * @return The sessionId.
        */
       public java.lang.String getSessionId() {
         java.lang.Object ref = sessionId_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           sessionId_ = s;
           return s;
@@ -9984,50 +11329,84 @@ public final class ProtoMsg {
           return (java.lang.String) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *会话
+       * 会话
        * </pre>
        *
        * <code>string session_id = 2;</code>
+       *
+       * @param value The sessionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSessionId(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        sessionId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      /**
+       *
+       *
+       * <pre>
+       * 会话
+       * </pre>
+       *
+       * <code>string session_id = 2;</code>
+       *
        * @return The bytes for sessionId.
        */
-      public com.google.protobuf.ByteString
-          getSessionIdBytes() {
+      public com.google.protobuf.ByteString getSessionIdBytes() {
         java.lang.Object ref = sessionId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
           sessionId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
+
       /**
+       *
+       *
        * <pre>
-       *会话
+       * 会话
        * </pre>
        *
        * <code>string session_id = 2;</code>
-       * @param value The sessionId to set.
+       *
+       * @param value The bytes for sessionId to set.
        * @return This builder for chaining.
        */
-      public Builder setSessionId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setSessionIdBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
         sessionId_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
+
       /**
+       *
+       *
        * <pre>
-       *会话
+       * 会话
        * </pre>
        *
        * <code>string session_id = 2;</code>
+       *
        * @return This builder for chaining.
        */
       public Builder clearSessionId() {
@@ -10036,49 +11415,32 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <pre>
-       *会话
-       * </pre>
-       *
-       * <code>string session_id = 2;</code>
-       * @param value The bytes for sessionId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSessionIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        sessionId_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.LoginRequest loginRequest_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.LoginRequest, com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder, com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder> loginRequestBuilder_;
       /**
        * <code>optional .LoginRequest loginRequest = 4;</code>
+       *
        * @return Whether the loginRequest field is set.
        */
       public boolean hasLoginRequest() {
         return ((bitField0_ & 0x00000004) != 0);
       }
+
       /**
        * <code>optional .LoginRequest loginRequest = 4;</code>
+       *
        * @return The loginRequest.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.LoginRequest getLoginRequest() {
         if (loginRequestBuilder_ == null) {
-          return loginRequest_ == null ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance() : loginRequest_;
+          return loginRequest_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()
+              : loginRequest_;
         } else {
           return loginRequestBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       public Builder setLoginRequest(com.xzccc.netty.model.msg.ProtoMsg.LoginRequest value) {
         if (loginRequestBuilder_ == null) {
           if (value == null) {
@@ -10092,9 +11454,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       public Builder setLoginRequest(
           com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder builderForValue) {
         if (loginRequestBuilder_ == null) {
@@ -10106,14 +11467,14 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       public Builder mergeLoginRequest(com.xzccc.netty.model.msg.ProtoMsg.LoginRequest value) {
         if (loginRequestBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            loginRequest_ != null &&
-            loginRequest_ != com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000004) != 0)
+              && loginRequest_ != null
+              && loginRequest_
+                  != com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()) {
             getLoginRequestBuilder().mergeFrom(value);
           } else {
             loginRequest_ = value;
@@ -10127,9 +11488,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       public Builder clearLoginRequest() {
         bitField0_ = (bitField0_ & ~0x00000004);
         loginRequest_ = null;
@@ -10140,66 +11500,68 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder getLoginRequestBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getLoginRequestFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder getLoginRequestOrBuilder() {
         if (loginRequestBuilder_ != null) {
           return loginRequestBuilder_.getMessageOrBuilder();
         } else {
-          return loginRequest_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance() : loginRequest_;
+          return loginRequest_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.getDefaultInstance()
+              : loginRequest_;
         }
       }
-      /**
-       * <code>optional .LoginRequest loginRequest = 4;</code>
-       */
+
+      /** <code>optional .LoginRequest loginRequest = 4;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.LoginRequest, com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder, com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder>
           getLoginRequestFieldBuilder() {
         if (loginRequestBuilder_ == null) {
-          loginRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.LoginRequest, com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder, com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder>(
-                  getLoginRequest(),
-                  getParentForChildren(),
-                  isClean());
+          loginRequestBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.LoginRequest,
+                  com.xzccc.netty.model.msg.ProtoMsg.LoginRequest.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.LoginRequestOrBuilder>(
+                  getLoginRequest(), getParentForChildren(), isClean());
           loginRequest_ = null;
         }
         return loginRequestBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.LoginResponse loginResponse_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.LoginResponse, com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder, com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder> loginResponseBuilder_;
       /**
        * <code>optional .LoginResponse loginResponse = 5;</code>
+       *
        * @return Whether the loginResponse field is set.
        */
       public boolean hasLoginResponse() {
         return ((bitField0_ & 0x00000008) != 0);
       }
+
       /**
        * <code>optional .LoginResponse loginResponse = 5;</code>
+       *
        * @return The loginResponse.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.LoginResponse getLoginResponse() {
         if (loginResponseBuilder_ == null) {
-          return loginResponse_ == null ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance() : loginResponse_;
+          return loginResponse_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()
+              : loginResponse_;
         } else {
           return loginResponseBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       public Builder setLoginResponse(com.xzccc.netty.model.msg.ProtoMsg.LoginResponse value) {
         if (loginResponseBuilder_ == null) {
           if (value == null) {
@@ -10213,9 +11575,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       public Builder setLoginResponse(
           com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder builderForValue) {
         if (loginResponseBuilder_ == null) {
@@ -10227,14 +11588,14 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       public Builder mergeLoginResponse(com.xzccc.netty.model.msg.ProtoMsg.LoginResponse value) {
         if (loginResponseBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            loginResponse_ != null &&
-            loginResponse_ != com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000008) != 0)
+              && loginResponse_ != null
+              && loginResponse_
+                  != com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()) {
             getLoginResponseBuilder().mergeFrom(value);
           } else {
             loginResponse_ = value;
@@ -10248,9 +11609,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       public Builder clearLoginResponse() {
         bitField0_ = (bitField0_ & ~0x00000008);
         loginResponse_ = null;
@@ -10261,67 +11621,70 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder getLoginResponseBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getLoginResponseFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder() {
         if (loginResponseBuilder_ != null) {
           return loginResponseBuilder_.getMessageOrBuilder();
         } else {
-          return loginResponse_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance() : loginResponse_;
+          return loginResponse_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.getDefaultInstance()
+              : loginResponse_;
         }
       }
-      /**
-       * <code>optional .LoginResponse loginResponse = 5;</code>
-       */
+
+      /** <code>optional .LoginResponse loginResponse = 5;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.LoginResponse, com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder, com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder>
           getLoginResponseFieldBuilder() {
         if (loginResponseBuilder_ == null) {
-          loginResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.LoginResponse, com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder, com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder>(
-                  getLoginResponse(),
-                  getParentForChildren(),
-                  isClean());
+          loginResponseBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.LoginResponse,
+                  com.xzccc.netty.model.msg.ProtoMsg.LoginResponse.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.LoginResponseOrBuilder>(
+                  getLoginResponse(), getParentForChildren(), isClean());
           loginResponse_ = null;
         }
         return loginResponseBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest chatMessageRequest_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder> chatMessageRequestBuilder_;
       /**
        * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
+       *
        * @return Whether the chatMessageRequest field is set.
        */
       public boolean hasChatMessageRequest() {
         return ((bitField0_ & 0x00000010) != 0);
       }
+
       /**
        * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
+       *
        * @return The chatMessageRequest.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest getChatMessageRequest() {
         if (chatMessageRequestBuilder_ == null) {
-          return chatMessageRequest_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance() : chatMessageRequest_;
+          return chatMessageRequest_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()
+              : chatMessageRequest_;
         } else {
           return chatMessageRequestBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
-      public Builder setChatMessageRequest(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest value) {
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
+      public Builder setChatMessageRequest(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest value) {
         if (chatMessageRequestBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -10334,9 +11697,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
       public Builder setChatMessageRequest(
           com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder builderForValue) {
         if (chatMessageRequestBuilder_ == null) {
@@ -10348,14 +11710,15 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
-      public Builder mergeChatMessageRequest(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest value) {
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
+      public Builder mergeChatMessageRequest(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest value) {
         if (chatMessageRequestBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0) &&
-            chatMessageRequest_ != null &&
-            chatMessageRequest_ != com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000010) != 0)
+              && chatMessageRequest_ != null
+              && chatMessageRequest_
+                  != com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()) {
             getChatMessageRequestBuilder().mergeFrom(value);
           } else {
             chatMessageRequest_ = value;
@@ -10369,9 +11732,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
       public Builder clearChatMessageRequest() {
         bitField0_ = (bitField0_ & ~0x00000010);
         chatMessageRequest_ = null;
@@ -10382,67 +11744,72 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder getChatMessageRequestBuilder() {
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder
+          getChatMessageRequestBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return getChatMessageRequestFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder getChatMessageRequestOrBuilder() {
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder
+          getChatMessageRequestOrBuilder() {
         if (chatMessageRequestBuilder_ != null) {
           return chatMessageRequestBuilder_.getMessageOrBuilder();
         } else {
-          return chatMessageRequest_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance() : chatMessageRequest_;
+          return chatMessageRequest_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.getDefaultInstance()
+              : chatMessageRequest_;
         }
       }
-      /**
-       * <code>optional .ChatMessageRequest chatMessageRequest = 6;</code>
-       */
+
+      /** <code>optional .ChatMessageRequest chatMessageRequest = 6;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder>
           getChatMessageRequestFieldBuilder() {
         if (chatMessageRequestBuilder_ == null) {
-          chatMessageRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder>(
-                  getChatMessageRequest(),
-                  getParentForChildren(),
-                  isClean());
+          chatMessageRequestBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequest.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatMessageRequestOrBuilder>(
+                  getChatMessageRequest(), getParentForChildren(), isClean());
           chatMessageRequest_ = null;
         }
         return chatMessageRequestBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse chatMessageResponse_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder> chatMessageResponseBuilder_;
       /**
        * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
+       *
        * @return Whether the chatMessageResponse field is set.
        */
       public boolean hasChatMessageResponse() {
         return ((bitField0_ & 0x00000020) != 0);
       }
+
       /**
        * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
+       *
        * @return The chatMessageResponse.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse getChatMessageResponse() {
         if (chatMessageResponseBuilder_ == null) {
-          return chatMessageResponse_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance() : chatMessageResponse_;
+          return chatMessageResponse_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()
+              : chatMessageResponse_;
         } else {
           return chatMessageResponseBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
-      public Builder setChatMessageResponse(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse value) {
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
+      public Builder setChatMessageResponse(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse value) {
         if (chatMessageResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -10455,9 +11822,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
       public Builder setChatMessageResponse(
           com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder builderForValue) {
         if (chatMessageResponseBuilder_ == null) {
@@ -10469,14 +11835,15 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
-      public Builder mergeChatMessageResponse(com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse value) {
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
+      public Builder mergeChatMessageResponse(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse value) {
         if (chatMessageResponseBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0) &&
-            chatMessageResponse_ != null &&
-            chatMessageResponse_ != com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000020) != 0)
+              && chatMessageResponse_ != null
+              && chatMessageResponse_
+                  != com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()) {
             getChatMessageResponseBuilder().mergeFrom(value);
           } else {
             chatMessageResponse_ = value;
@@ -10490,9 +11857,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
       public Builder clearChatMessageResponse() {
         bitField0_ = (bitField0_ & ~0x00000020);
         chatMessageResponse_ = null;
@@ -10503,67 +11869,72 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder getChatMessageResponseBuilder() {
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder
+          getChatMessageResponseBuilder() {
         bitField0_ |= 0x00000020;
         onChanged();
         return getChatMessageResponseFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder getChatMessageResponseOrBuilder() {
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder
+          getChatMessageResponseOrBuilder() {
         if (chatMessageResponseBuilder_ != null) {
           return chatMessageResponseBuilder_.getMessageOrBuilder();
         } else {
-          return chatMessageResponse_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance() : chatMessageResponse_;
+          return chatMessageResponse_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.getDefaultInstance()
+              : chatMessageResponse_;
         }
       }
-      /**
-       * <code>optional .ChatMessageResponse chatMessageResponse = 7;</code>
-       */
+
+      /** <code>optional .ChatMessageResponse chatMessageResponse = 7;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder>
           getChatMessageResponseFieldBuilder() {
         if (chatMessageResponseBuilder_ == null) {
-          chatMessageResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder>(
-                  getChatMessageResponse(),
-                  getParentForChildren(),
-                  isClean());
+          chatMessageResponseBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponse.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatMessageResponseOrBuilder>(
+                  getChatMessageResponse(), getParentForChildren(), isClean());
           chatMessageResponse_ = null;
         }
         return chatMessageResponseBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify chatServerNotify_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder> chatServerNotifyBuilder_;
       /**
        * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
+       *
        * @return Whether the chatServerNotify field is set.
        */
       public boolean hasChatServerNotify() {
         return ((bitField0_ & 0x00000040) != 0);
       }
+
       /**
        * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
+       *
        * @return The chatServerNotify.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify getChatServerNotify() {
         if (chatServerNotifyBuilder_ == null) {
-          return chatServerNotify_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance() : chatServerNotify_;
+          return chatServerNotify_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()
+              : chatServerNotify_;
         } else {
           return chatServerNotifyBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
-      public Builder setChatServerNotify(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify value) {
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
+      public Builder setChatServerNotify(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify value) {
         if (chatServerNotifyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -10576,9 +11947,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
       public Builder setChatServerNotify(
           com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder builderForValue) {
         if (chatServerNotifyBuilder_ == null) {
@@ -10590,14 +11960,15 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
-      public Builder mergeChatServerNotify(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify value) {
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
+      public Builder mergeChatServerNotify(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify value) {
         if (chatServerNotifyBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0) &&
-            chatServerNotify_ != null &&
-            chatServerNotify_ != com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000040) != 0)
+              && chatServerNotify_ != null
+              && chatServerNotify_
+                  != com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()) {
             getChatServerNotifyBuilder().mergeFrom(value);
           } else {
             chatServerNotify_ = value;
@@ -10611,9 +11982,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
       public Builder clearChatServerNotify() {
         bitField0_ = (bitField0_ & ~0x00000040);
         chatServerNotify_ = null;
@@ -10624,66 +11994,70 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder getChatServerNotifyBuilder() {
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder
+          getChatServerNotifyBuilder() {
         bitField0_ |= 0x00000040;
         onChanged();
         return getChatServerNotifyFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder getChatServerNotifyOrBuilder() {
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder
+          getChatServerNotifyOrBuilder() {
         if (chatServerNotifyBuilder_ != null) {
           return chatServerNotifyBuilder_.getMessageOrBuilder();
         } else {
-          return chatServerNotify_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance() : chatServerNotify_;
+          return chatServerNotify_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.getDefaultInstance()
+              : chatServerNotify_;
         }
       }
-      /**
-       * <code>optional .ChatServerNotify chatServerNotify = 8;</code>
-       */
+
+      /** <code>optional .ChatServerNotify chatServerNotify = 8;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder>
           getChatServerNotifyFieldBuilder() {
         if (chatServerNotifyBuilder_ == null) {
-          chatServerNotifyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder>(
-                  getChatServerNotify(),
-                  getParentForChildren(),
-                  isClean());
+          chatServerNotifyBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotify.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyOrBuilder>(
+                  getChatServerNotify(), getParentForChildren(), isClean());
           chatServerNotify_ = null;
         }
         return chatServerNotifyBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK chatClientACK_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder> chatClientACKBuilder_;
       /**
        * <code>optional .ChatClientACK chatClientACK = 9;</code>
+       *
        * @return Whether the chatClientACK field is set.
        */
       public boolean hasChatClientACK() {
         return ((bitField0_ & 0x00000080) != 0);
       }
+
       /**
        * <code>optional .ChatClientACK chatClientACK = 9;</code>
+       *
        * @return The chatClientACK.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK getChatClientACK() {
         if (chatClientACKBuilder_ == null) {
-          return chatClientACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance() : chatClientACK_;
+          return chatClientACK_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()
+              : chatClientACK_;
         } else {
           return chatClientACKBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       public Builder setChatClientACK(com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK value) {
         if (chatClientACKBuilder_ == null) {
           if (value == null) {
@@ -10697,9 +12071,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       public Builder setChatClientACK(
           com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder builderForValue) {
         if (chatClientACKBuilder_ == null) {
@@ -10711,14 +12084,14 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       public Builder mergeChatClientACK(com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK value) {
         if (chatClientACKBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) != 0) &&
-            chatClientACK_ != null &&
-            chatClientACK_ != com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000080) != 0)
+              && chatClientACK_ != null
+              && chatClientACK_
+                  != com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()) {
             getChatClientACKBuilder().mergeFrom(value);
           } else {
             chatClientACK_ = value;
@@ -10732,9 +12105,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       public Builder clearChatClientACK() {
         bitField0_ = (bitField0_ & ~0x00000080);
         chatClientACK_ = null;
@@ -10745,66 +12117,68 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder getChatClientACKBuilder() {
         bitField0_ |= 0x00000080;
         onChanged();
         return getChatClientACKFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder getChatClientACKOrBuilder() {
         if (chatClientACKBuilder_ != null) {
           return chatClientACKBuilder_.getMessageOrBuilder();
         } else {
-          return chatClientACK_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance() : chatClientACK_;
+          return chatClientACK_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.getDefaultInstance()
+              : chatClientACK_;
         }
       }
-      /**
-       * <code>optional .ChatClientACK chatClientACK = 9;</code>
-       */
+
+      /** <code>optional .ChatClientACK chatClientACK = 9;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder>
           getChatClientACKFieldBuilder() {
         if (chatClientACKBuilder_ == null) {
-          chatClientACKBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder>(
-                  getChatClientACK(),
-                  getParentForChildren(),
-                  isClean());
+          chatClientACKBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatClientACK.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatClientACKOrBuilder>(
+                  getChatClientACK(), getParentForChildren(), isClean());
           chatClientACK_ = null;
         }
         return chatClientACKBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK chatServerACK_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder> chatServerACKBuilder_;
       /**
        * <code>optional .ChatServerACK chatServerACK = 10;</code>
+       *
        * @return Whether the chatServerACK field is set.
        */
       public boolean hasChatServerACK() {
         return ((bitField0_ & 0x00000100) != 0);
       }
+
       /**
        * <code>optional .ChatServerACK chatServerACK = 10;</code>
+       *
        * @return The chatServerACK.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK getChatServerACK() {
         if (chatServerACKBuilder_ == null) {
-          return chatServerACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance() : chatServerACK_;
+          return chatServerACK_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()
+              : chatServerACK_;
         } else {
           return chatServerACKBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       public Builder setChatServerACK(com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK value) {
         if (chatServerACKBuilder_ == null) {
           if (value == null) {
@@ -10818,9 +12192,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       public Builder setChatServerACK(
           com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder builderForValue) {
         if (chatServerACKBuilder_ == null) {
@@ -10832,14 +12205,14 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       public Builder mergeChatServerACK(com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK value) {
         if (chatServerACKBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) != 0) &&
-            chatServerACK_ != null &&
-            chatServerACK_ != com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000100) != 0)
+              && chatServerACK_ != null
+              && chatServerACK_
+                  != com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()) {
             getChatServerACKBuilder().mergeFrom(value);
           } else {
             chatServerACK_ = value;
@@ -10853,9 +12226,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       public Builder clearChatServerACK() {
         bitField0_ = (bitField0_ & ~0x00000100);
         chatServerACK_ = null;
@@ -10866,67 +12238,70 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder getChatServerACKBuilder() {
         bitField0_ |= 0x00000100;
         onChanged();
         return getChatServerACKFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder getChatServerACKOrBuilder() {
         if (chatServerACKBuilder_ != null) {
           return chatServerACKBuilder_.getMessageOrBuilder();
         } else {
-          return chatServerACK_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance() : chatServerACK_;
+          return chatServerACK_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.getDefaultInstance()
+              : chatServerACK_;
         }
       }
-      /**
-       * <code>optional .ChatServerACK chatServerACK = 10;</code>
-       */
+
+      /** <code>optional .ChatServerACK chatServerACK = 10;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder>
           getChatServerACKFieldBuilder() {
         if (chatServerACKBuilder_ == null) {
-          chatServerACKBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder>(
-                  getChatServerACK(),
-                  getParentForChildren(),
-                  isClean());
+          chatServerACKBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerACK.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerACKOrBuilder>(
+                  getChatServerACK(), getParentForChildren(), isClean());
           chatServerACK_ = null;
         }
         return chatServerACKBuilder_;
       }
 
-      private com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK chatServerNotifyACK_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder> chatServerNotifyACKBuilder_;
       /**
        * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
+       *
        * @return Whether the chatServerNotifyACK field is set.
        */
       public boolean hasChatServerNotifyACK() {
         return ((bitField0_ & 0x00000200) != 0);
       }
+
       /**
        * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
+       *
        * @return The chatServerNotifyACK.
        */
       public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK getChatServerNotifyACK() {
         if (chatServerNotifyACKBuilder_ == null) {
-          return chatServerNotifyACK_ == null ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance() : chatServerNotifyACK_;
+          return chatServerNotifyACK_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()
+              : chatServerNotifyACK_;
         } else {
           return chatServerNotifyACKBuilder_.getMessage();
         }
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
-      public Builder setChatServerNotifyACK(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK value) {
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
+      public Builder setChatServerNotifyACK(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK value) {
         if (chatServerNotifyACKBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -10939,9 +12314,8 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
       public Builder setChatServerNotifyACK(
           com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder builderForValue) {
         if (chatServerNotifyACKBuilder_ == null) {
@@ -10953,14 +12327,15 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
-      public Builder mergeChatServerNotifyACK(com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK value) {
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
+      public Builder mergeChatServerNotifyACK(
+          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK value) {
         if (chatServerNotifyACKBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) != 0) &&
-            chatServerNotifyACK_ != null &&
-            chatServerNotifyACK_ != com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()) {
+          if (((bitField0_ & 0x00000200) != 0)
+              && chatServerNotifyACK_ != null
+              && chatServerNotifyACK_
+                  != com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()) {
             getChatServerNotifyACKBuilder().mergeFrom(value);
           } else {
             chatServerNotifyACK_ = value;
@@ -10974,9 +12349,8 @@ public final class ProtoMsg {
         }
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
       public Builder clearChatServerNotifyACK() {
         bitField0_ = (bitField0_ & ~0x00000200);
         chatServerNotifyACK_ = null;
@@ -10987,41 +12361,45 @@ public final class ProtoMsg {
         onChanged();
         return this;
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder getChatServerNotifyACKBuilder() {
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder
+          getChatServerNotifyACKBuilder() {
         bitField0_ |= 0x00000200;
         onChanged();
         return getChatServerNotifyACKFieldBuilder().getBuilder();
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
-      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder getChatServerNotifyACKOrBuilder() {
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
+      public com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder
+          getChatServerNotifyACKOrBuilder() {
         if (chatServerNotifyACKBuilder_ != null) {
           return chatServerNotifyACKBuilder_.getMessageOrBuilder();
         } else {
-          return chatServerNotifyACK_ == null ?
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance() : chatServerNotifyACK_;
+          return chatServerNotifyACK_ == null
+              ? com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.getDefaultInstance()
+              : chatServerNotifyACK_;
         }
       }
-      /**
-       * <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code>
-       */
+
+      /** <code>optional .ChatServerNotifyACK chatServerNotifyACK = 11;</code> */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder> 
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder,
+              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder>
           getChatServerNotifyACKFieldBuilder() {
         if (chatServerNotifyACKBuilder_ == null) {
-          chatServerNotifyACKBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder, com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder>(
-                  getChatServerNotifyACK(),
-                  getParentForChildren(),
-                  isClean());
+          chatServerNotifyACKBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACK.Builder,
+                  com.xzccc.netty.model.msg.ProtoMsg.ChatServerNotifyACKOrBuilder>(
+                  getChatServerNotifyACK(), getParentForChildren(), isClean());
           chatServerNotifyACK_ = null;
         }
         return chatServerNotifyACKBuilder_;
       }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -11034,219 +12412,8 @@ public final class ProtoMsg {
         return super.mergeUnknownFields(unknownFields);
       }
 
-
       // @@protoc_insertion_point(builder_scope:Message)
     }
-
-    // @@protoc_insertion_point(class_scope:Message)
-    private static final com.xzccc.netty.model.msg.ProtoMsg.Message DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.xzccc.netty.model.msg.ProtoMsg.Message();
-    }
-
-    public static com.xzccc.netty.model.msg.ProtoMsg.Message getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Message>
-        PARSER = new com.google.protobuf.AbstractParser<Message>() {
-      @java.lang.Override
-      public Message parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
-      }
-    };
-
-    public static com.google.protobuf.Parser<Message> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Message> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.xzccc.netty.model.msg.ProtoMsg.Message getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoginRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LoginRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoginResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LoginResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatMessageRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatMessageRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatMessageResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatMessageResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatServerNotify_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatServerNotify_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatClientACK_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatClientACK_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatServerACK_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatServerACK_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatServerNotifyACK_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatServerNotifyACK_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Message_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Message_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\rMessage.proto\".\n\014LoginRequest\022\017\n\007user_" +
-      "id\030\001 \001(\004\022\r\n\005token\030\002 \001(\t\"K\n\rLoginResponse" +
-      "\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\014\n\004info\030\003" +
-      " \001(\t\022\016\n\006expose\030\004 \001(\r\"\241\001\n\022ChatMessageRequ" +
-      "est\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022\032\n\010m" +
-      "sg_type\030\003 \001(\0162\010.MsgType\022\016\n\006msg_id\030\004 \001(\t\022" +
-      "\021\n\tsend_time\030\005 \001(\r\022\027\n\004type\030\006 \001(\0162\t.ChatT" +
-      "ype\022\023\n\013msg_content\030\007 \001(\t\"u\n\023ChatMessageR" +
-      "esponse\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022" +
-      "\016\n\006msg_id\030\003 \001(\t\022\021\n\tsend_time\030\004 \001(\r\022\016\n\006re" +
-      "sult\030\005 \001(\010\022\013\n\003msg\030\006 \001(\t\"\237\001\n\020ChatServerNo" +
-      "tify\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022\032\n\010" +
-      "msg_type\030\003 \001(\0162\010.MsgType\022\016\n\006msg_id\030\004 \001(\t" +
-      "\022\021\n\tsend_time\030\005 \001(\r\022\027\n\004type\030\006 \001(\0162\t.Chat" +
-      "Type\022\023\n\013msg_content\030\007 \001(\t\"b\n\rChatClientA" +
-      "CK\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004\022\016\n\006ms" +
-      "g_id\030\003 \001(\t\022\021\n\tsend_time\030\004 \001(\r\022\016\n\006result\030" +
-      "\005 \001(\010\"b\n\rChatServerACK\022\017\n\007from_id\030\001 \001(\004\022" +
-      "\r\n\005to_id\030\002 \001(\004\022\016\n\006msg_id\030\003 \001(\t\022\021\n\tsend_t" +
-      "ime\030\004 \001(\r\022\016\n\006result\030\005 \001(\010\"h\n\023ChatServerN" +
-      "otifyACK\022\017\n\007from_id\030\001 \001(\004\022\r\n\005to_id\030\002 \001(\004" +
-      "\022\016\n\006msg_id\030\003 \001(\t\022\021\n\tsend_time\030\004 \001(\r\022\016\n\006r" +
-      "esult\030\005 \001(\010\"\337\004\n\007Message\022\027\n\004type\030\001 \001(\0162\t." +
-      "HeadType\022\022\n\nsession_id\030\002 \001(\t\022(\n\014loginReq" +
-      "uest\030\004 \001(\0132\r.LoginRequestH\000\210\001\001\022*\n\rloginR" +
-      "esponse\030\005 \001(\0132\016.LoginResponseH\001\210\001\001\0224\n\022ch" +
-      "atMessageRequest\030\006 \001(\0132\023.ChatMessageRequ" +
-      "estH\002\210\001\001\0226\n\023chatMessageResponse\030\007 \001(\0132\024." +
-      "ChatMessageResponseH\003\210\001\001\0220\n\020chatServerNo" +
-      "tify\030\010 \001(\0132\021.ChatServerNotifyH\004\210\001\001\022*\n\rch" +
-      "atClientACK\030\t \001(\0132\016.ChatClientACKH\005\210\001\001\022*" +
-      "\n\rchatServerACK\030\n \001(\0132\016.ChatServerACKH\006\210" +
-      "\001\001\0226\n\023chatServerNotifyACK\030\013 \001(\0132\024.ChatSe" +
-      "rverNotifyACKH\007\210\001\001B\017\n\r_loginRequestB\020\n\016_" +
-      "loginResponseB\025\n\023_chatMessageRequestB\026\n\024" +
-      "_chatMessageResponseB\023\n\021_chatServerNotif" +
-      "yB\020\n\016_chatClientACKB\020\n\016_chatServerACKB\026\n" +
-      "\024_chatServerNotifyACK*\316\001\n\010HeadType\022\021\n\rLO" +
-      "GIN_REQUEST\020\000\022\022\n\016LOGIN_RESPONSE\020\001\022\022\n\016LOG" +
-      "OUT_REQUEST\020\002\022\023\n\017LOGOUT_RESPONSE\020\003\022\025\n\021KE" +
-      "EPALIVE_REQUEST\020\004\022\026\n\022KEEPALIVE_RESPONSE\020" +
-      "\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RESPON" +
-      "SE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010*\\\n\007MsgTyp" +
-      "e\022\010\n\004TEXT\020\000\022\007\n\003IMG\020\001\022\010\n\004FILE\020\002\022\016\n\nRED_PA" +
-      "CKET\020\003\022\t\n\005VOICE\020\004\022\t\n\005VIDEO\020\005\022\016\n\nRETRACTI" +
-      "ON\020\006*$\n\010ChatType\022\010\n\004CHAT\020\000\022\016\n\nGROUP_CHAT" +
-      "\020\001B%\n\031com.xzccc.netty.model.msgB\010ProtoMs" +
-      "gb\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_LoginRequest_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_LoginRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LoginRequest_descriptor,
-        new java.lang.String[] { "UserId", "Token", });
-    internal_static_LoginResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_LoginResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LoginResponse_descriptor,
-        new java.lang.String[] { "Result", "Code", "Info", "Expose", });
-    internal_static_ChatMessageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_ChatMessageRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatMessageRequest_descriptor,
-        new java.lang.String[] { "FromId", "ToId", "MsgType", "MsgId", "SendTime", "Type", "MsgContent", });
-    internal_static_ChatMessageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_ChatMessageResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatMessageResponse_descriptor,
-        new java.lang.String[] { "FromId", "ToId", "MsgId", "SendTime", "Result", "Msg", });
-    internal_static_ChatServerNotify_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_ChatServerNotify_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatServerNotify_descriptor,
-        new java.lang.String[] { "FromId", "ToId", "MsgType", "MsgId", "SendTime", "Type", "MsgContent", });
-    internal_static_ChatClientACK_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_ChatClientACK_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatClientACK_descriptor,
-        new java.lang.String[] { "FromId", "ToId", "MsgId", "SendTime", "Result", });
-    internal_static_ChatServerACK_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_ChatServerACK_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatServerACK_descriptor,
-        new java.lang.String[] { "FromId", "ToId", "MsgId", "SendTime", "Result", });
-    internal_static_ChatServerNotifyACK_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_ChatServerNotifyACK_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatServerNotifyACK_descriptor,
-        new java.lang.String[] { "FromId", "ToId", "MsgId", "SendTime", "Result", });
-    internal_static_Message_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_Message_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Message_descriptor,
-        new java.lang.String[] { "Type", "SessionId", "LoginRequest", "LoginResponse", "ChatMessageRequest", "ChatMessageResponse", "ChatServerNotify", "ChatClientACK", "ChatServerACK", "ChatServerNotifyACK", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

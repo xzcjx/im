@@ -1,22 +1,22 @@
-//package com.xzccc.server.controller;
+// package com.xzccc.server.controller;
 //
-//import com.xzccc.server.wx.IWxWechatService;
-//import com.xzccc.server.wx.impl.WeiXinValidateService;
-//import com.xzccc.server.wx.impl.WxWechatService;
-//import io.swagger.annotations.ApiOperation;
-//import lombok.extern.slf4j.Slf4j;
-//import org.apache.commons.lang3.StringUtils;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.*;
+// import com.xzccc.server.wx.IWxWechatService;
+// import com.xzccc.server.wx.impl.WeiXinValidateService;
+// import com.xzccc.server.wx.impl.WxWechatService;
+// import io.swagger.annotations.ApiOperation;
+// import lombok.extern.slf4j.Slf4j;
+// import org.apache.commons.lang3.StringUtils;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Controller;
+// import org.springframework.web.bind.annotation.*;
 //
-//import javax.servlet.http.HttpServletRequest;
-//import java.io.IOException;
+// import javax.servlet.http.HttpServletRequest;
+// import java.io.IOException;
 //
-//@Slf4j
-//@RestController
-//@RequestMapping("/wx/portal/{appid}")// /api/${app.config.api-version}/
-//public class WxConfigController {
+// @Slf4j
+// @RestController
+// @RequestMapping("/wx/portal/{appid}")// /api/${app.config.api-version}/
+// public class WxConfigController {
 //
 //    @Autowired
 //    WeiXinValidateService   weiXinValidateService;
@@ -29,7 +29,8 @@
 //            String timestamp = request.getParameter ("timestamp");
 //            String nonce = request.getParameter ("nonce");
 //            String echostr = request.getParameter ("echostr");
-//            log.info("微信公众号验签信息{}开始 [{}, {}, {}, {}]", appid, signature, timestamp, nonce, echostr);
+//            log.info("微信公众号验签信息{}开始 [{}, {}, {}, {}]", appid, signature, timestamp, nonce,
+// echostr);
 //            if (StringUtils.isAnyBlank(signature, timestamp, nonce, echostr)) {
 //                throw new IllegalArgumentException("请求参数非法，请核实!");
 //            }
@@ -78,4 +79,4 @@
 //        log.info("微信回调接口post请求执行结束！");
 //        return result;
 //    }
-//}
+// }

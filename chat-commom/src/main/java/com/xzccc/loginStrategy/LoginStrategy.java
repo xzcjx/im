@@ -9,17 +9,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LoginStrategy {
-    @Autowired
-    EmailLogin emailLogin;
-    @Autowired
-    AccountLogin accountLogin;
+  @Autowired EmailLogin emailLogin;
+  @Autowired AccountLogin accountLogin;
 
-    public String login(HttpLoginRequest httpLoginRequest, String type) {
-        if (LoginConstant.EMAIL_TYPE.equals(type)) {
-            return emailLogin.login(httpLoginRequest);
-        } else if (LoginConstant.ACCOUNT_TYPE.equals(type)) {
-            return accountLogin.login(httpLoginRequest);
-        } else
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-    }
+  public String login(HttpLoginRequest httpLoginRequest, String type) {
+    if (LoginConstant.EMAIL_TYPE.equals(type)) {
+      return emailLogin.login(httpLoginRequest);
+    } else if (LoginConstant.ACCOUNT_TYPE.equals(type)) {
+      return accountLogin.login(httpLoginRequest);
+    } else throw new BusinessException(ErrorCode.PARAMS_ERROR);
+  }
 }
