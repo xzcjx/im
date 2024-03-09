@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class SessionResponse {
-  private String sessionId;
-  private Long userId;
-  private Long friendId;
+    private String sessionId;
+    private Long userId;
+    private Long friendId;
 }

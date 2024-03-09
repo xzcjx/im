@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class UpdateSessionRequest {
-  private String sessionId;
+    private String sessionId;
 }

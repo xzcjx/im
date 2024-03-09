@@ -6,9 +6,9 @@ import com.xzccc.model.request.HttpSignRequest;
 
 public interface HttpLoginUserService {
 
-  BaseResponse login(HttpLoginRequest body);
+    BaseResponse login(HttpLoginRequest body);
 
-  BaseResponse register(HttpSignRequest body);
+    BaseResponse register(HttpSignRequest body);
 
-  void email_code(String email);
+    void email_code(String email);
 }

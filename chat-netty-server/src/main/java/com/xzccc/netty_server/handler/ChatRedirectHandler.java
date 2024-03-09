@@ -16,38 +16,41 @@ import org.springframework.stereotype.Service;
 @ChannelHandler.Sharable
 public class ChatRedirectHandler extends ChannelInboundHandlerAdapter {
 
-  @Autowired ChatRedirectProcesser chatRedirectProcesser;
+    @Autowired
+    ChatRedirectProcesser chatRedirectProcesser;
 
-  /** 收到消息 */
-  public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-    // 判断消息实例
-    if (null == msg || !(msg instanceof ProtoMsg.Message)) {
-      super.channelRead(ctx, msg);
-      return;
+    /**
+     * 收到消息
+     */
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        // 判断消息实例
+        if (null == msg || !(msg instanceof ProtoMsg.Message)) {
+            super.channelRead(ctx, msg);
+            return;
+        }
+
+        // 判断消息类型
+        ProtoMsg.Message pkg = (ProtoMsg.Message) msg;
+        ProtoMsg.HeadType headType = ((ProtoMsg.Message) msg).getType();
+        if (!headType.equals(chatRedirectProcesser.type())) {
+            super.channelRead(ctx, msg);
+            return;
+        }
+
+        // 反向导航
+        ServerSession session = ctx.channel().attr(ServerSession.SESSION_KEY).get();
+
+        // 判断是否登录
+
+        if (null == session || !session.isLogin()) {
+            log.error("用户尚未登录，不能发送消息");
+            return;
+        }
+
+        // 异步处理IM消息转发的逻辑
+        FutureTaskScheduler.add(
+                () -> {
+                    chatRedirectProcesser.action(session, pkg);
+                });
     }
-
-    // 判断消息类型
-    ProtoMsg.Message pkg = (ProtoMsg.Message) msg;
-    ProtoMsg.HeadType headType = ((ProtoMsg.Message) msg).getType();
-    if (!headType.equals(chatRedirectProcesser.type())) {
-      super.channelRead(ctx, msg);
-      return;
-    }
-
-    // 反向导航
-    ServerSession session = ctx.channel().attr(ServerSession.SESSION_KEY).get();
-
-    // 判断是否登录
-
-    if (null == session || !session.isLogin()) {
-      log.error("用户尚未登录，不能发送消息");
-      return;
-    }
-
-    // 异步处理IM消息转发的逻辑
-    FutureTaskScheduler.add(
-        () -> {
-          chatRedirectProcesser.action(session, pkg);
-        });
-  }
 }

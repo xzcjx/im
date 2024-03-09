@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailLogin extends AbstractLoginTemplate {
-  @Override
-  public void check(String account, String password) {
-    if (StringUtils.isBlank(password)) {
-      throw new BusinessException(ErrorCode.PARAMS_ERROR);
+    @Override
+    public void check(String account, String password) {
+        if (StringUtils.isBlank(password)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
     }
-  }
 
-  @Override
-  public User get_user(String account) {
-    return userMapper.select_by_email(account);
-  }
+    @Override
+    public User get_user(String account) {
+        return userMapper.select_by_email(account);
+    }
 }

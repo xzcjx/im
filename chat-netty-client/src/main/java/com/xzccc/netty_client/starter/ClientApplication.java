@@ -2,7 +2,6 @@ package com.xzccc.netty_client.starter;
 
 import com.xzccc.netty_client.client.ChatClient;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,15 +18,15 @@ import java.net.URISyntaxException;
 @SpringBootApplication
 public class ClientApplication {
 
-  /**
-   * @param args
-   */
-  public static void main(String[] args) throws URISyntaxException {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) throws URISyntaxException {
 
-    // 启动并初始化 Spring 环境及其各 Spring 组件
-    ApplicationContext context = SpringApplication.run(ClientApplication.class, args);
+        // 启动并初始化 Spring 环境及其各 Spring 组件
+        ApplicationContext context = SpringApplication.run(ClientApplication.class, args);
 
-    ChatClient chatClient = context.getBean(ChatClient.class);
-    chatClient.run();
-  }
+        ChatClient chatClient = context.getBean(ChatClient.class);
+        chatClient.run();
+    }
 }

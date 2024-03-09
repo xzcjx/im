@@ -1,9 +1,9 @@
 package com.xzccc.concurrent;
 
 public interface CallbackTask<R> {
-  R execute() throws Exception;
+    R execute() throws Exception;
 
-  void onBack(R r);
+    void onBack(R r);
 
-  void onException(Throwable t);
+    void onException(Throwable t);
 }

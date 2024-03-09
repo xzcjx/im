@@ -1,11 +1,10 @@
 package com.xzccc.netty_server.server;
 
-import static io.netty.buffer.Unpooled.wrappedBuffer;
-
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.xzccc.netty.model.msg.ProtoMsg;
-import com.xzccc.netty_server.handler.*;
+import com.xzccc.netty_server.handler.HttpLoginHandler;
+import com.xzccc.netty_server.handler.ServerExceptionHandler;
 import com.xzccc.netty_server.session.ServerSession;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.binder.netty4.NettyAllocatorMetrics;
@@ -28,12 +27,15 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
-import java.net.InetSocketAddress;
-import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.net.InetSocketAddress;
+import java.util.List;
+
+import static io.netty.buffer.Unpooled.wrappedBuffer;
 
 @Service("ChatServer")
 @Slf4j
@@ -85,7 +87,7 @@ public class ChatServer {
                     // 支持参数对象解析，比如Post参数，设置聚合内容的最大长度
                     ch.pipeline().addLast(new HttpObjectAggregator(65536));
                     // 在websocket握手前鉴权
-                    ch.pipeline().addLast("login",httpLoginHandler);
+                    ch.pipeline().addLast("login", httpLoginHandler);
                     // 支持WebSocket数据压缩
 //                    ch.pipeline().addLast(new WebSocketServerCompressionHandler());
                     // WebSocket协议配置，设置访问路径，由于是握手前鉴权，所以必须保证checkStartWith为true
@@ -102,7 +104,7 @@ public class ChatServer {
                             log.info("received client msg ------------------------");
                             if (frame instanceof TextWebSocketFrame) {
                                 // 文本消息
-                                TextWebSocketFrame textFrame = (TextWebSocketFrame)frame;
+                                TextWebSocketFrame textFrame = (TextWebSocketFrame) frame;
                                 log.info("MsgType is TextWebSocketFrame");
                                 ctx.writeAndFlush(new TextWebSocketFrame("不接受文本格式数据，连接断开"));
                                 ServerSession.closeSession(ctx);
@@ -152,7 +154,7 @@ public class ChatServer {
 ////                    ch.pipeline().addLast(new HeartBeatServerHandler());
 ////                    ch.pipeline().addLast(chatRedirectHandler);
 //                    // 删除Session
-                    ch.pipeline().addLast("serverExceptionHandler",serverExceptionHandler);
+                    ch.pipeline().addLast("serverExceptionHandler", serverExceptionHandler);
                 }
             });
             ChannelFuture channelFuture = bg.bind().sync();

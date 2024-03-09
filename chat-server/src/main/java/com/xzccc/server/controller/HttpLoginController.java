@@ -13,21 +13,22 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class HttpLoginController {
 
-  @Autowired HttpLoginUserService httpLoginUserService;
+    @Autowired
+    HttpLoginUserService httpLoginUserService;
 
-  @PostMapping("/login")
-  public BaseResponse login(@RequestBody HttpLoginRequest body) {
-    return httpLoginUserService.login(body);
-  }
+    @PostMapping("/login")
+    public BaseResponse login(@RequestBody HttpLoginRequest body) {
+        return httpLoginUserService.login(body);
+    }
 
-  @PostMapping("/register")
-  public BaseResponse register(@RequestBody HttpSignRequest body) {
-    return httpLoginUserService.register(body);
-  }
+    @PostMapping("/register")
+    public BaseResponse register(@RequestBody HttpSignRequest body) {
+        return httpLoginUserService.register(body);
+    }
 
-  @GetMapping("/email/code")
-  public BaseResponse email_code(String email) {
-    httpLoginUserService.email_code(email);
-    return new BaseResponse(true);
-  }
+    @GetMapping("/email/code")
+    public BaseResponse email_code(String email) {
+        httpLoginUserService.email_code(email);
+        return new BaseResponse(true);
+    }
 }

@@ -6,15 +6,17 @@ import io.netty.handler.codec.http.FullHttpRequest;
 
 public interface ServerProcesser {
 
-  ProtoMsg.HeadType type();
+    ProtoMsg.HeadType type();
 
-  default boolean action(ServerSession ch, String token, FullHttpRequest request) {
-    return true;
-  }
-  ;
+    default boolean action(ServerSession ch, String token, FullHttpRequest request) {
+        return true;
+    }
 
-  default boolean action(ServerSession session, ProtoMsg.Message proto) {
-    return true;
-  }
-  ;
+    ;
+
+    default boolean action(ServerSession session, ProtoMsg.Message proto) {
+        return true;
+    }
+
+    ;
 }

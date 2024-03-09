@@ -17,34 +17,34 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 // @ComponentScan(basePackages = "com.xzccc.server")
 @MapperScan(basePackages = "com.xzccc.mapper")
 @SpringBootApplication(
-    scanBasePackages = {"com.xzccc", "com.xzccc.netty_server", "com.xzccc.server"})
+        scanBasePackages = {"com.xzccc", "com.xzccc.netty_server", "com.xzccc.server"})
 @Slf4j
 @EnableScheduling
 // @EnableSwagger2
 // @EnableWebMvc
 public class ServerApplication {
 
-  /**
-   * @param args
-   */
-  public static void main(String[] args) {
-    // 启动并初始化 Spring 环境及其各 Spring 组件
-    ApplicationContext context = SpringApplication.run(ServerApplication.class, args);
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // 启动并初始化 Spring 环境及其各 Spring 组件
+        ApplicationContext context = SpringApplication.run(ServerApplication.class, args);
+
+        // 启动聊天服务器
+        startChatServer(context);
+    }
+
+    // 启动 重复回显的服务器
 
     // 启动聊天服务器
-    startChatServer(context);
-  }
+    private static void startChatServer(ApplicationContext context) {
+        // 监控线程池的bean
+        CallbackTaskScheduler callbackTaskScheduler = context.getBean(CallbackTaskScheduler.class);
+        callbackTaskScheduler.run();
 
-  // 启动 重复回显的服务器
-
-  // 启动聊天服务器
-  private static void startChatServer(ApplicationContext context) {
-    // 监控线程池的bean
-    CallbackTaskScheduler callbackTaskScheduler = context.getBean(CallbackTaskScheduler.class);
-    callbackTaskScheduler.run();
-
-    // netty-server的bean
-    ChatServer nettyServer = context.getBean(ChatServer.class);
-    //        nettyServer.run();
-  }
+        // netty-server的bean
+        ChatServer nettyServer = context.getBean(ChatServer.class);
+        //        nettyServer.run();
+    }
 }

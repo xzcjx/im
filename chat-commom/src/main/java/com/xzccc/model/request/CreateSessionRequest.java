@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class CreateSessionRequest {
-  private Long friendId;
+    private Long friendId;
 }
